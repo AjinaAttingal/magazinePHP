@@ -6,18 +6,22 @@
             $Uname=$_POST['username'];
             $Pass=$_POST['password'];
 
-            $username = mysqli_query($mysqli, "SELECT name FROM login ");
-            $password= mysqli_query($mysqli, "SELECT password FROM login ");
+           // $username = mysqli_query($mysqli, "SELECT name FROM login ");
+            //$password= mysqli_query($mysqli, "SELECT password FROM login ");
             
 
-             
-                if(($Uname= $username)&&($Pass=$password))
-                 {
-                    header("Location:profile.html");
-                 } 
-                 else
-                 {
-                    echo "incorrect id or password";
+            $sql = "SELECT * FROM login WHERE name='$Uname' and password='$Pass'";
+			
+			$result=mysqli_query($mysqli,$sql);
+			if(mysqli_num_rows($result) > 0){
+				$_SESSION['username']=$username;
+				$_SESSION['password']=$password;
+				header("Location: profile.html");
+			}else{
+				echo ("<script LANGUAGE='JavaScript'>
+						window.alert('Invalied Login...');
+						window.location.href='login.php';
+					   </script>");
                  }  
             } 
               ?>   
