@@ -1,0 +1,27 @@
+body{
+    background-image: url("../images/laptop.jpg");
+}
+.container{
+    background: black;
+    width: 30%;
+}
+.go{
+    text-align: right;
+}
+.sidebar-brand brand-logo
+{
+    background: transparent;
+}
+.btn btn-success
+{
+    color: transparent;
+}
+.co-co
+{
+    color: black;
+}
+.align-cen
+{
+    text-align: center;
+    align-items: center;
+}
