@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-          include("connection/db_conn.php");
-            error_reporting(0);
-            session_start();
-            if($_SESSION['username'] != 'admin'){
-                  header("location:login.php");
-                  die();
-               }?>
+          //include("connection/db_conn.php");
+            //error_reporting(0);
+            //session_start();
+            //if($_SESSION['username'] != 'admin'){
+              //    header("location:login.php");
+                //  die();
+               //}?>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -27,6 +27,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
   </head>
@@ -42,10 +43,10 @@
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
-                <div class="count-indicator">
+                <!--<div class="count-indicator">-->
                   <!--<img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">-->
-                  <span class="count bg-success"></span>
-                </div>
+                  <!--<span class="count bg-success"></span>
+                </div>-->
                 <div class="profile-name">
                   <h5 class="mb-0 font-weight-normal">Grace Garden</h5>
                   <span>Admin</span>
@@ -118,9 +119,9 @@
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
+              <ul class="nav flex-column sub-menu">-->
                 <!--<li class="nav-item"> <a class="nav-link" href="all_sub_category_details.php">All sub category</a></li>-->
-                <li class="nav-item"> <a class="nav-link" href="category.php">Add Category</a></li>
+                <!--<li class="nav-item"> <a class="nav-link" href="category.php">Add Category</a></li>
                 <li class="nav-item"> <a class="nav-link" href="add_sub_category.php">Add Sub Category</a></li>
               </ul>
             </div>
@@ -136,11 +137,11 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="add_product.php"> Add Product </a></li>
+                <li class="nav-item"> <a class="nav-link" href="add_product.php"> Add Product </a></li>-->
                 
                 <!--<li class="nav-item"> <a class="nav-link" href="login.html"> Login </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>-->
-              </ul>
+              <!--</ul>
             </div>
           </li>
           <li class="nav-item menu-items">
@@ -157,7 +158,7 @@
                 <li class="nav-item"> <a class="nav-link" href="add_gallery.php">Add Gallery</a></li>
               </ul>
             </div>
-          </li>
+          </li>-->
           <!--<li class="nav-item menu-items">
             <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
               <span class="menu-icon">
@@ -165,8 +166,8 @@
               </span>
               <span class="menu-title">Documentation</span>
             </a>
-          </li>-->
-        </ul>
+          </li>
+        </ul>-->
       </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
@@ -405,9 +406,7 @@
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
+      
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
