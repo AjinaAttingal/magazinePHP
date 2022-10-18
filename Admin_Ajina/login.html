@@ -3,72 +3,54 @@
         <title>
             Admin login
         </title>
-         <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Nursery Admin</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
-    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-        <link rel="stylesheet" type="text/css" href="style.css"></link>
-        <link rel="stylesheet" type="text/css" href="../Admin/Admin/css/style.css"></link>
+        <style>
+             .container {
+            width: 20%;
+            height: 30%;
+            background-color:white;
+            border-width:thick;
+            border-color: black;
+            border-radius: 0vmin;
+            }
+
+            h1
+            {
+                color: black;
+            }
+            h4
+            {
+                color:black;
+                font-size:x-small;
+                font-family:'Times New Roman', Times, serif;
+            }
+        </style>
        
     </head>
 
     
-    <body>
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="login.html"><img src="../images/logo.jpg" alt="logo" / style="width: 80px; height: 60px;"></a>
-            <ul class="nav">
-                <li class="nav-item profile">
-                  <div class="profile-desc">
-                    <div class="profile-pic">
-                      <div class="count-indicator">
-                        <!--<img class="img-xs rounded-circle " src="assets/images/faces/face15.jpg" alt="">-->
-                        <span class="count bg-success"></span>
-                      </div>
-                      <div class="profile-name">
-                        <h4 class="co-co">Online Magazine</h4>
-                        <span class="align-cen">Admin</span>
-                      </div>
-          </div>
-        <div class="go">
-            <h1><label><a href="home.html">Back </a></label></h1> 
-                     </div>
+    <body background="login.jpg " >
        <center>
-        <br><br><br>
+        <br><br><br><br><br>
+        <br><br><br><br><br>
         <br><br>
-
         <div class="container" >
-        <form method=POST action="login.php"  >
+        <form action="" method="" >
             <div class="login">
                 <label><h1>LOGIN</h1></label>
                 <h4>
                 <div class="row">
-                 user name <br>
-                 <input type="text" name="username" required="true">
+                 user name <br><input type="text" name="user_name" required="true">
                  </div><br>
                 <div class="row">
                 password <br><input type="password" name="password" required="true">
                  </div></h4>
-                 <input class="btn btn-success"  type="submit"  name="login" value="Sign In" >
+                 <input style="color:blue;transition: linear;"  type="submit"  name="login" class="btn btn-success" value="Sign In" >
                  <br>
                  <a href="">forget password?</a>
-                </div>
-            </form>
-            </div> 
-           
-            </center>
-            
-        </body>
-    </html>
+            </div>
+        </form>
+        </div> 
+        </center>
+       
+    </body>
+</html>
