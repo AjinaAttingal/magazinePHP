@@ -167,10 +167,54 @@
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
+                    <div class="col-sm-12 col-xl-6" style="width: 100%;">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Basic Table</h6>
-                            <table class="table">
+                            <div class="card-body">
+                                <form action='' method='post'  enctype="multipart/form-data">
+                                    <div class="form-body">
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" name="name" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Image</label>
+                                                    <input type="file" name="magazine_image"  id="lastName" class="form-control bg-dark" placeholder="12n">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--<div class="row p-t-20">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category Name</label>
+                                                    <input type="text" name="sub_category_name" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Category</label>
+                                                    <select name="category_name" class="form-control bg-dark" data-placeholder="Choose a Category" tabindex="1">
+                                                       <option>--Select Category--</option>
+                                                       <option>--Select Category--</option>
+                                                       <option>--Select Category--</option>
+                                                        <option>--Select Category--</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
+                                        <input type="submit" name="submit" class="btn btn-primary" value="Save"><a href="add_sub_category.php" class="btn btn-inverse">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -199,10 +243,10 @@
                                         <td>jacob@email.com</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table>-->
                         </div>
                     </div>
-                    <div class="col-sm-12 col-xl-6">
+                    <!--<div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Accented Table</h6>
                             <table class="table table-striped">
@@ -425,27 +469,27 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <!-- Table End -->
 
 
             <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
+            <!--<div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                        <div class="col-12 col-sm-6 text-center text-sm-end">-->
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            <!--Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                             <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Footer End -->
         </div>
         <!-- Content End -->
