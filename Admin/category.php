@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    include("../connection/db_conn.php");
+    error_reporting(0);
+    session_start();        
 
+     if(isset($_POST['submit'] ))
+    {
+      if(empty($_POST['c_name']))
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>field Required!</strong>
+                              </div>';
+    }
+      else
+          {
+              
+            $check_cat= mysqli_query($conn, "SELECT cat_name FROM category where cat_name = '".$_POST['c_name']."' "); 
+      if(mysqli_num_rows($check_cat) > 0)
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <strong>Category already exist!</strong>
+                                    </div>';
+    }
+      else{
+            $sql = "INSERT INTO category(cat_name) VALUES('".$_POST['c_name']."')";
+            mysqli_query($conn, $sql);
+            $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    New Category Added Successfully.</br></div>';
+        }
+      }
+    }
+    ?> 
 <head>
     <meta charset="utf-8">
     <title>Magazine - Bootstrap 5 Admin Template</title>
@@ -190,32 +224,7 @@
                                     <a href="category.php" class="btn btn-inverse">Cancel</a>
 <!--insert query-->
 
-<?php
-include("../connection/db_conn.php");        
 
- if(isset($_POST['submit']))
- {
-    $cat_name=$_POST['c_name'];
-   
-    
-    $result=mysqli_query($conn,"insert into category(cat_name) values('$cat_name')");
-    
-    if($result)
-    {
-        echo "<script>alert('Successfully added');</script>";
-       header("Location: category.php");
-    }
-    else
-    {
-        echo ("<script LANGUAGE='JavaScript'>
-						window.alert('not saved');
-						window.location.href='category.php';
-					   </script>");
-                   
-    }
-
-}
-?> 
 <!--insert query end-->
                                 </div>
                             </form>
@@ -227,6 +236,7 @@ include("../connection/db_conn.php");
             <div class="container-fluid pt-4 px-4" >
                 <div class="row g-4">
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
+
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <h6 class="mb-0">Add Category</h6>       
@@ -247,15 +257,25 @@ include("../connection/db_conn.php");
                                 <tbody>
                             <!--view-->      
                                 <?php
-                            $result=mysqli_query($conn,"select * from category");
-                            while( $data= mysqli_fetch_array($result)) 
-                            {?>
-                                  <tr>
-                                    <th><?php echo $data['cat_id']?></th>
-                                    <th><?php echo $data['cat_name']?></th>
-                                    <th><?php echo $data['cat_date']?></th>
-                                    <th>delete</th>
-                                </tr>
+                                    $sql="SELECT * FROM category order by cat_id desc";
+                                $query=mysqli_query($conn,$sql);
+                                if(!mysqli_num_rows($query) > 0 )
+                                  {
+                                    echo '<td colspan="7"><center>No Categories-Data!</center></td>';
+                                  }
+                                else
+                                  {       
+                                    while($rows=mysqli_fetch_array($query))
+                                    {
+                                     echo ' <tr><td>'.$rows['cat_id'].'</td>
+                                            <td>'.$rows['cat_name'].'</td>
+                                            <td>'.$rows['cat_date'].'</td>
+                                            <td><a href="delete_category.php?cat_del='.$rows['cat_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
+                                            <a href="update_category.php?cat_upd='.$rows['cat_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                            </td></tr>';
+                                      } 
+                                  }
+                                  ?>
 
                                 </tbody>
                               </table>
