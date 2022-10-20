@@ -229,25 +229,33 @@ include("../connection/db_conn.php");
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Add Category</h6>
-                                
+                                <h6 class="mb-0">Add Category</h6>       
                             </div>
+
                             <div class="table-responsive m-t-40">
                               <table id="myTable" class="table table-bordered table-hover table-striped">
                                 <thead class="thead-dark">
                                   <tr>
                                     <th>ID</th>
                                     <th>Category Name</th>
+                                    <th>Date</th>
                                     <th>Action</th>
                                   </tr>
+                               
+
                                 </thead>
                                 <tbody>
-                                  
-
-
-
-
-
+                            <!--view-->      
+                                <?php
+                            $result=mysqli_query($conn,"select * from category");
+                            while( $data= mysqli_fetch_array($result)) 
+                            {?>
+                                  <tr>
+                                    <th><?php echo $data['cat_id']?></th>
+                                    <th><?php echo $data['cat_name']?></th>
+                                    <th><?php echo $data['cat_date']?></th>
+                                    <th>delete</th>
+                                </tr>
 
                                 </tbody>
                               </table>
@@ -276,13 +284,14 @@ include("../connection/db_conn.php");
                 </div>
             </div>-->
             <!-- Footer End -->
-        </div>
+       </div>
         <!-- Content End -->
 
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+                          
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -297,6 +306,5 @@ include("../connection/db_conn.php");
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
-
-</html>
+    </body>
+    </html>
