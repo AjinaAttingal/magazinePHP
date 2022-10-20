@@ -196,7 +196,9 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-
+            <?php  
+              echo $error;
+              echo $success; ?>
 
             <!-- Widget Start -->
             <div class="container-fluid pt-4 px-4" >
@@ -219,9 +221,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
+                                <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
                                     <input type="submit" name="submit" class="btn btn-primary" value="Save"> 
-                                    <a href="category.php" class="btn btn-inverse">Cancel</a>
+                                    
 <!--insert query-->
 
 
