@@ -188,7 +188,35 @@
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
                                     <input type="submit" name="submit" class="btn btn-primary" value="Save"> 
                                     <a href="category.html" class="btn btn-inverse">Cancel</a>
+<!--insert query-->
 
+<?php
+include("../connection/db_conn.php");        
+
+ if(isset($_POST['submit']))
+ {
+    $cat_name=$_POST['c_name'];
+   
+    
+    $result=mysqli_query($conn,"insert into category(cat_name) values('$cat_name')");
+    
+    if($result)
+    {
+        echo "<script>alert('Successfully added');</script>";
+       header("Location: category.html");
+    }
+    else
+    {
+        echo ("<script LANGUAGE='JavaScript'>
+						window.alert('not saved');
+						window.location.href='category.php';
+					   </script>");
+                   
+    }
+
+}
+?> 
+<!--insert query end-->
                                 </div>
                             </form>
                         </div>
