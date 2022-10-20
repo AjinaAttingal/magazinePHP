@@ -173,7 +173,7 @@
                                 <h6 class="mb-0">Add Category</h6>
                                 
                             </div>
-                            <form method=POST action="category.php">
+                            <form method=POST action="">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
                                     <input type="submit" name="submit" class="btn btn-primary" value="Save"> 
-                                    <a href="category.html" class="btn btn-inverse">Cancel</a>
+                                    <a href="category.php" class="btn btn-inverse">Cancel</a>
 <!--insert query-->
 
 <?php
@@ -203,7 +203,7 @@ include("../connection/db_conn.php");
     if($result)
     {
         echo "<script>alert('Successfully added');</script>";
-       header("Location: category.html");
+       header("Location: category.php");
     }
     else
     {
