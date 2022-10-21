@@ -7,7 +7,7 @@
 
      if(isset($_POST['submit'] ))
     {
-      if(empty($_POST['a_name']))
+      if(empty($_POST['ad_name']))
           {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -17,20 +17,20 @@
       else
           {
               
-            $check_cat= mysqli_query($conn, "SELECT ad_name FROM category where ad_name = '".$_POST['c_name']."' "); 
+            $check_cat= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
       if(mysqli_num_rows($check_cat) > 0)
           {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <strong>Category already exist!</strong>
+                                      <strong>Ads already exist!</strong>
                                     </div>';
     }
       else{
-            $sql = "INSERT INTO category(cat_name) VALUES('".$_POST['c_name']."')";
+            $sql = "INSERT INTO ads(ad_name,Image,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$_POST['img']."','".$_POST['ad_addr']."','".$_POST['ad_des']."',".$_POST['ad_contact'].")";
             mysqli_query($conn, $sql);
             $success =  '<div class="alert alert-success alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    New Category Added Successfully.</br></div>';
+                                    New Ads Added Successfully.</br></div>';
         }
       }
     }
@@ -95,10 +95,10 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
-                    <a href="category.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
+                    <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.html" class="nav-item nav-link "><i class="fa fa-keyboard me-2"></i>Feedback</a>
-                    <a href="ads.html" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Ads</a>
+                    <a href="ads.php" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
             </nav>
         </div>
@@ -196,7 +196,9 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-
+            <?php  
+              echo $error;
+              echo $success; ?>
 
             <!-- Chart Start -->
             <div class="container-fluid pt-4 px-4">
@@ -204,13 +206,13 @@
                     <div class="col-sm-12 col-xl-6" style="width: 100%;">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Ads Department</h6>
-                            <form>
+                            <form method=POST action="#">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Name</label>&nbsp
-                                            <input type="text" name="a_name" class="form-control" style="margin-left: 40px;">
+                                            <input type="text" name="ad_name" class="form-control" style="margin-left: 40px;">
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -218,7 +220,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Address</label>&nbsp
-                                            <input type="text" name="adddr" class="form-control" >
+                                            <input type="text" name="ad_addr" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -229,7 +231,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Description</label>&nbsp
-                                            <input type="text" name="desc" class="form-control" >
+                                            <input type="text" name="ad_des" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -237,7 +239,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Contact</label>&nbsp
-                                            <input type="text" name="contact" class="form-control" >
+                                            <input type="text" name="ad_contact" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -262,7 +264,7 @@
                         </div>
                     </div>
                     
-
+<!--view-->
                     <div class="container-fluid pt-4 px-4" >
                         <div class="row g-4">
                             <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
@@ -277,12 +279,41 @@
                                           <tr>
                                             <th>Ads id</th>
                                             <th>Ads Name</th>
+                                            <th>Image</th>
+                                            <th>Ads Address</th>
+                                            <th>Ads Description</th>
+                                            <th>Contact No.</th>
                                             <th>Action</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           
-        
+        <!--view-->      
+                                 <?php
+                                    $sql="SELECT * FROM Ads order by ad_id desc";
+                                $query=mysqli_query($conn,$sql);
+                                if(!mysqli_num_rows($query) > 0 )
+                                  {
+                                    echo '<td colspan="7"><center>No Ads-Data!</center></td>';
+                                  }
+                                else
+                                  {       
+                                    while($rows=mysqli_fetch_array($query))
+                                    {
+                                     echo ' <tr><td>'.$rows['ad_id'].'</td>
+                                            <td>'.$rows['ad_name'].'</td>
+                                            <td>'.$row['Image'].'</td>
+                                            <td>'.$rows['ad_address'].'</td>
+                                            <td>'.$rows['ad_description'].'</td>
+                                            <td>'.$rows['ad_contact'].'</td>
+                                            
+                                            <td><a href="delete_ads.php?ads_del='.$rows['ad_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
+                                            <a href="update_ads.php?ads_upd='.$rows['ad_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                            </td></tr>';
+                                      } 
+                                  }
+                                  ?>
+
         
         
         

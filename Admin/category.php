@@ -95,10 +95,10 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
-                    <a href="category.html" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Category</a>
+                    <a href="category.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
-                    <a href="ads.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
+                    <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
             </nav>
         </div>
@@ -241,7 +241,7 @@
 
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Add Category</h6>       
+                                <h6 class="mb-0">Category Details</h6>       
                             </div>
 
                             <div class="table-responsive m-t-40">
