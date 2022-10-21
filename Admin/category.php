@@ -224,11 +224,7 @@
                                 <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
                                     <input type="submit" name="submit" class="btn btn-primary" value="Save"> 
                                     
-<!--insert query-->
-
-
-<!--insert query end-->
-                                </div>
+                               </div>
                             </form>
                         </div>
                     </div>

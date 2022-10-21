@@ -5,6 +5,35 @@
     error_reporting(0);
     session_start();
 
+    if(isset($_POST['submit'] ))
+    {
+      if(empty($_POST['mag_name']))
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>field Required!</strong>
+                              </div>';
+    }
+      else
+          {
+              
+            $check_mag= mysqli_query($conn, "SELECT mag_name FROM magazine where mag_name = '".$_POST['mag_name']."' "); 
+      if(mysqli_num_rows($check_mag) > 0)
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <strong>Magazine already exist!</strong>
+                                    </div>';
+    }
+      else{
+            $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$_POST['mag_image']."','".$_POST['category_name']."','".$_POST['mag_file']."')";
+            mysqli_query($conn, $sql);
+            $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    New Magazine Added Successfully.</br></div>';
+        }
+      }
+    }
     
     ?>
 <head>
@@ -168,8 +197,9 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-            <?php   echo $error;
-                    echo $success; ?>
+            <?php  
+             echo $error;
+            echo $success; ?>
 
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
@@ -178,19 +208,19 @@
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Add Magazine</h6>
                             <div class="card-body">
-                                <form action='' method='post'  enctype="multipart/form-data">
+                                <form method=POST action=""  enctype="multipart/form-data">
                                     <div class="form-body">
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Name</label>
-                                                    <input type="text" name="magazine_name" class="form-control" >
+                                                    <input type="text" name="mag_name" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Image</label>
-                                                    <input type="file" name="magazine_image"  id="lastName" class="form-control bg-dark" placeholder="12n">
+                                                    <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n">
                                                 </div>
                                             </div>
                                         </div>
@@ -209,6 +239,7 @@
                                                     <select name="category_name" class="form-control bg-dark" data-placeholder="Choose a Category" tabindex="1">
                                                        <option>--Select Category--</option>
                                                        
+                                         
                                                       <?php $ssql ="select * from category";
                                                         $res=mysqli_query($conn, $ssql); 
                                                         while($row=mysqli_fetch_array($res))  
@@ -220,13 +251,79 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                        <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Upload file</label>
+                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
                                     <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
                                         <input type="submit" name="submit" class="btn btn-primary" value="Save">
                                     </div>
                                 </form>
                             </div>
+
+                            <div class="container-fluid pt-4 px-4" >
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
+
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Magazine Details</h6>       
+                            </div>
+
+                            <div class="table-responsive m-t-40">
+                              <table id="myTable" class="table table-bordered table-hover table-striped">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Magazine Name</th>
+                                    <th>Magazine Image</th>
+                                    <th>Magazine Category</th>
+                                    <th>Uploads</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                  </tr>
+                               
+
+                                </thead>
+                                <tbody>
+
+                                <!--view-->      
+                                <?php
+                                    $sql="SELECT * FROM magazine order by mag_id desc";
+                                $query=mysqli_query($conn,$sql);
+                                if(!mysqli_num_rows($query) > 0 )
+                                  {
+                                    echo '<td colspan="7"><center>No Magazine-Data!</center></td>';
+                                  }
+                                else
+                                  {       
+                                    while($rows=mysqli_fetch_array($query))
+                                    {
+                                     echo ' <tr>
+                                            <td>'.$rows['mag_id'].'</td>
+                                            <td>'.$rows['mag_name'].'</td>
+                                            <td>'.$rows['mag_image'].'</td>
+                                            <td>'.$rows['mag_cat_name'].'</td>
+                                            <td>'.$rows['mag_file'].'</td>
+                                            <td>'.$rows['mag_date'].'</td>
+                                            <td><a href="delete_magazine.php?mag_del='.$rows['mag_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
+                                            <a href="update_magazine.php?mag_upd='.$rows['mag_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                            </td></tr>';
+                                      } 
+                                  }
+                                  ?>
+
+                                </tbody>
+                              </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
                             <!--<table class="table">
                                 <thead>
                                     <tr>
