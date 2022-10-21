@@ -96,7 +96,7 @@
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
                     <a href="category.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Category</a>
-                    <a href="magazine.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
+                    <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
                     <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
