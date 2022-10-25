@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    include("../connection/db_conn.php");
+    error_reporting(0);
+    session_start();
 
+    ?>
 <head>
     <meta charset="utf-8">
     <title>Magazine - Bootstrap 5 Admin Template</title>
@@ -63,7 +68,7 @@
             
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
-                    <a href="feedback.html" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Feedback</a>
+                    <a href="feedback.php" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Feedback</a>
                     <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
             </nav>
@@ -164,13 +169,15 @@
             <!-- Navbar End -->
 
 <!--table view feedback-->
+
+
 <div class="container-fluid pt-4 px-4" >
     <div class="row g-4">
         <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
 
             <div class="h-100 bg-secondary rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                    <h6 class="mb-0">Magazine Details</h6>       
+                    <h6 class="mb-0">Feedbacks</h6>       
                 </div>
 
                 <div class="table-responsive m-t-40">
@@ -178,10 +185,8 @@
                     <thead class="thead-dark">
                       <tr>
                         <th>ID</th>
-                        <th>Magazine Name</th>
-                        <th>Magazine Image</th>
-                        <th>Magazine Category</th>
-                        <th>Uploads</th>
+                        <th>Name</th>
+                        <th>Feedback</th>
                         <th>Date</th>
                         <th>Action</th>
                       </tr>
@@ -190,32 +195,29 @@
                     </thead>
                     <tbody>
 
-                    <!--view     
                     <?php
-                        $sql="SELECT * FROM magazine order by mag_id desc";
+                     $sql="SELECT * FROM feedback order by feed_id desc";
                     $query=mysqli_query($conn,$sql);
                     if(!mysqli_num_rows($query) > 0 )
                       {
-                        echo '<td colspan="7"><center>No Magazine-Data!</center></td>';
+                        echo '<td colspan="7"><center>No feedback-Data!</center></td>';
                       }
                     else
                       {       
                         while($rows=mysqli_fetch_array($query))
                         {
                          echo ' <tr>
-                                <td>'.$rows['mag_id'].'</td>
-                                <td>'.$rows['mag_name'].'</td>
-                                <td>'.$rows['mag_image'].'</td>
-                                <td>'.$rows['mag_cat_name'].'</td>
-                                <td>'.$rows['mag_file'].'</td>
-                                <td>'.$rows['mag_date'].'</td>
-                                <td><a href="delete_magazine.php?mag_del='.$rows['mag_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
-                                <a href="update_magazine.php?mag_upd='.$rows['mag_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                <td>'.$rows['feed_id'].'</td>
+                                <td>'.$rows['feed_name'].'</td>
+                                <td>'.$rows['feed_msg'].'</td>
+                                <td>'.$rows['feed_date'].'</td>
+                                <td><a href="delete_feedback.php?feed_del='.$rows['feed_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
+                                <a href="update_feedback.php?feed_upd='.$rows['feed_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                 </td></tr>';
                           } 
                       }
                       ?>
-                    -->
+                    
                     </tbody>
                   </table>
                 </div>
@@ -523,12 +525,12 @@
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">Magazine</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                            Designed By <a href="magazinePHP/Admin/index.html">php code</a>
+                            <br>Distributed By: <a href="https://www.essbeeinfotech.com/" target="_blank">ESSBEE INFOTECH</a>
                         </div>
                     </div>
                 </div>

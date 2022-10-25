@@ -98,7 +98,7 @@
             
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Magazine</a>
-                    <a href="feedback.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
+                    <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
                     <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
             </nav>
@@ -263,8 +263,10 @@
                                     </div>
                                 </form>
                             </div>
-
-                            <div class="container-fluid pt-4 px-4" >
+                        </div>
+                    </div>
+                </div>
+             <div class="container-fluid pt-4 px-4" >
                 <div class="row g-4">
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
 
