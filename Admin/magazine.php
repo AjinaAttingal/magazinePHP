@@ -13,7 +13,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-    }
+        }
       else
           {
               
@@ -24,17 +24,37 @@
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       <strong>Magazine already exist!</strong>
                                     </div>';
-    }
-      else{
-            $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$_POST['mag_image']."','".$_POST['category_name']."','".$_POST['mag_file']."')";
+        }
+    else
+    {
+      $fname =  $_FILES['mag_image']['name'];
+                $temp = $_FILES['mag_image']['tmp_name'];
+                $fsize = $_FILES['mag_image']['size'];
+                $extension = explode('.',$fname);
+                $extension = strtolower(end($extension));  
+                $fnew = uniqid().'.'.$extension;
+                $store = "../Upload/magazine/".basename($fnew);                    
+        if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+         {        
+            if($fsize>=100000000)
+          {
+            $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                  </div>';
+         }
+
+        else{
+            $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fnew."','".$_POST['category_name']."','".$_POST['mag_file']."')";
             mysqli_query($conn, $sql);
             $success =  '<div class="alert alert-success alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     New Magazine Added Successfully.</br></div>';
+          }
+         }
         }
       }
     }
-    
     ?>
 <head>
     <meta charset="utf-8">
