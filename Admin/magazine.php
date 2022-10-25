@@ -327,7 +327,7 @@
                                      echo ' <tr>
                                             <td>'.$rows['mag_id'].'</td>
                                             <td>'.$rows['mag_name'].'</td>
-                                            <td>'.$rows['mag_image'].'</td>
+                                            <td>'.$rows['mag_img'].'</td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
                                             <td>'.$rows['mag_date'].'</td>
