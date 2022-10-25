@@ -4,7 +4,7 @@ error_reporting(0);
 session_start();   
 
 
-$sql = "DELETE FROM magazine WHERE mag_id='".$_GET['mag_del']."'";
+$sql = "DELETE FROM feedback WHERE feed_id='".$_GET['feed_del']."'";
 mysqli_query($conn, $sql);
-header("location:magazine.php");
+header("location:feedback.php");
 ?>

@@ -4,7 +4,7 @@ error_reporting(0);
 session_start();   
 
 
-$sql = "DELETE FROM magazine WHERE mag_id='".$_GET['mag_del']."'";
+$sql = "DELETE FROM ads WHERE ad_id='".$_GET['ads_del']."'";
 mysqli_query($conn, $sql);
-header("location:magazine.php");
+header("location:ads.php");
 ?>

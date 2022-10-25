@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(https://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial);
+
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+  }
+  .input-container {
+	position: relative;
+}  
+/** MAIN CONTAINER **/
+
+.main-container {
+	font-family: 'Ubuntu', sans-serif;
+	width: 950px;
+	height: 1725px;
+	margin: 6em auto;
+}	
+.middle-container {
+    margin: 0 25px;			
+}
+.profile {
+    height: 410px;
+}
+.profile-picture {
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+  	-moz-box-sizing: content-box;
+  	box-sizing: content-box;	
+}
+.big-profile-picture {
+    margin: 0 auto;		
+    border: 5px solid #50597b;
+    width: 150px;
+    height: 150px;
+}
+.clear {
+	clear: both;
+}
+.button {
+	display: block;
+	width: 175px;
+	line-height: 50px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 5px;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+}
+.icon {
+	font-size: 25px;
+}
+.profile-description {
+					width: 210px;
+					margin: 0 auto;
+					text-align: center;
+				}
+                .user-name {
+					margin: 25px 0 16px;
+					text-align: center;
+				}
+                .add-button .icon:hover {
+                    color: #e64c65;
+                    border-color: #e64c65;
+                }
+                .scnd-font-color {
+                    color: #9099b7;
+                }
