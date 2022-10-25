@@ -33,7 +33,7 @@
                 $extension = explode('.',$fname);
                 $extension = strtolower(end($extension));  
                 $fnew = uniqid().'.'.$extension;
-                $store = "../Upload/magazine/".basename($fnew);                    
+                $store = "/Upload/magazine/".basename($fnew);                    
         if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
          {        
             if($fsize>=100000000)
