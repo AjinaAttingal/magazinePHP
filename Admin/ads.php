@@ -3,9 +3,9 @@
     <?php
     include("../connection/db_conn.php");
     error_reporting(0);
-    session_start();        
+    session_start();
 
-     if(isset($_POST['submit'] ))
+    if(isset($_POST['submit'] ))
     {
       if(empty($_POST['ad_name']))
           {
@@ -13,46 +13,47 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-         }
+        }
       else
           {
               
-            $check_cat= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
-        if(mysqli_num_rows($check_cat) > 0)
+            $check_mag= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
+      if(mysqli_num_rows($check_mag) > 0)
           {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <strong>Ads already exist!</strong>
+                                      <strong>Magazine already exist!</strong>
                                     </div>';
-            }
-            else
-            {
-              $fname =  $_FILES['img']['name'];
-                        $temp = $_FILES['img']['tmp_name'];
-                        $fsize = $_FILES['img']['size'];
-                        $extension = explode('.',$fname);
-                        $extension = strtolower(end($extension));  
-                        $fnew = uniqid().'.'.$extension;
-                        $store = "../Upload/ads/".basename($fnew);                    
-                if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
-                 {        
-                    if($fsize>=100000000)
-                  {
-                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>Max Image Size is 1024kb!</strong> Try different Image.
-                          </div>';
-                 }        
-                else{
-                    $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_addr']."','".$_POST['ad_des']."',".$_POST['ad_contact'].")";
-                    mysqli_query($conn, $sql);
-                    $success =  '<div class="alert alert-success alert-dismissible fade show">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            New Ads Added Successfully.</br></div>';
-                    }
-                }
-            }
+        }
+    else
+    {
+      $fname =  $_FILES['ad_image']['name'];
+                $temp = $_FILES['ad_image']['tmp_name'];
+                $fsize = $_FILES['ad_image']['size'];
+                $extension = explode('.',$fname);
+                $extension = strtolower(end($extension));  
+                $fnew = uniqid().'.'.$extension;
+                $store = "../Upload/ads/".basename($fnew);                    
+        if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+         {        
+            if($fsize>=100000000)
+          {
+            $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                  </div>';
+         }
+
+        else{
+            $sql = "INSERT INTO ads(ad_name,image,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_contact']."')";
+            mysqli_query($conn, $sql);
+            $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    New Magazine Added Successfully.</br></div>';
           }
+         }
+        }
+      }
     }
     ?> 
 <head>
@@ -240,7 +241,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Address</label>&nbsp
-                                            <input type="text" name="ad_addr" class="form-control" >
+                                            <input type="text" name="ad_address" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -251,7 +252,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Description</label>&nbsp
-                                            <input type="text" name="ad_des" class="form-control" >
+                                            <input type="text" name="ad_description" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -270,7 +271,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Image</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                            <input type="file" name="img" class="form-control bg-dark" >
+                                            <input type="file" name="ad_image" class="form-control bg-dark" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -278,7 +279,7 @@
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
                                     <input type="submit" name="submit" class="btn btn-primary" value="Save"> 
-                                    <a href="ads.php" class="btn btn-inverse">Cancel</a>
+                                    <!--<a href="ads.php" class="btn btn-inverse">Cancel</a>-->
                                 </div>
                             </form>
                         </div>
