@@ -13,26 +13,46 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-    }
+         }
       else
           {
               
             $check_cat= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
-      if(mysqli_num_rows($check_cat) > 0)
+        if(mysqli_num_rows($check_cat) > 0)
           {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       <strong>Ads already exist!</strong>
                                     </div>';
-    }
-      else{
-            $sql = "INSERT INTO ads(ad_name,Image,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$_POST['img']."','".$_POST['ad_addr']."','".$_POST['ad_des']."',".$_POST['ad_contact'].")";
-            mysqli_query($conn, $sql);
-            $success =  '<div class="alert alert-success alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    New Ads Added Successfully.</br></div>';
-        }
-      }
+            }
+            else
+            {
+              $fname =  $_FILES['img']['name'];
+                        $temp = $_FILES['img']['tmp_name'];
+                        $fsize = $_FILES['img']['size'];
+                        $extension = explode('.',$fname);
+                        $extension = strtolower(end($extension));  
+                        $fnew = uniqid().'.'.$extension;
+                        $store = "../Upload/ads/".basename($fnew);                    
+                if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+                 {        
+                    if($fsize>=100000000)
+                  {
+                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                          </div>';
+                 }        
+                else{
+                    $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_addr']."','".$_POST['ad_des']."',".$_POST['ad_contact'].")";
+                    mysqli_query($conn, $sql);
+                    $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            New Ads Added Successfully.</br></div>';
+                    }
+                }
+            }
+          }
     }
     ?> 
 <head>
@@ -189,7 +209,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
+                            <!--<a href="#" class="dropdown-item">Settings</a>-->
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -302,7 +322,7 @@
                                     {
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
-                                            <td>'.$row['Image'].'</td>
+                                            <td>'.$row['ad_img'].'</td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>
