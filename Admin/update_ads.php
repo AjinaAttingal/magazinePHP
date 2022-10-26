@@ -3,40 +3,63 @@
     <?php
     include("../connection/db_conn.php");
     error_reporting(0);
-    session_start();        
+    session_start();
 
     if(isset($_POST['submit'] ))
-{
-    if(empty($_POST['c_name']))
     {
-      $error = '<div class="alert alert-danger alert-dismissible fade show">
+      if(empty($_POST['ad_name']))
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-    }
-  else
-  {
-    
-  
-  
-  
-       
-  
-  $sql = "update category set cat_name ='$_POST[c_name]' where cat_id='$_GET[cat_upd]'";
-  mysqli_query($conn, $sql);
-      $success =  '<div class="alert alert-success alert-dismissible fade show">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <strong>Updated!</strong> Successfully.</br></div>';
-  
-    
-  }
+        }
+      else
+          {
+              
+            $check_mag= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
+      if(mysqli_num_rows($check_mag) > 0)
+          {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <strong>Ads already exist!</strong>
+                                    </div>';
+        }
+/*else
+    {
+      $fname =  $_FILES['ad_image']['name'];
+                $temp = $_FILES['ad_image']['tmp_name'];
+                $fsize = $_FILES['ad_image']['size'];
+                $extension = explode('.',$fname);
+                $extension = strtolower(end($extension));  
+                $fnew = uniqid().'.'.$extension;
+                $store = "../Upload/ads/".basename($fnew);                    
+        if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+         {        
+            if($fsize>=100000000)
+          {
+            $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                  </div>';
+         }*/
 
-}
-
+        else{
+            $sql = "update ads set ad_name ='$_POST[ad_name]',ad_image='$_POST[ad_image]',ad_address='$_POST[ad_address]',ad_description='$_Post[ad_dsecription]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
+            mysqli_query($conn, $sql);
+                $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                          <strong>Updated!</strong> Successfully.</br></div>';
+            
+          }
+         }
+        }
+     // }
+    //}
     ?> 
 <head>
     <meta charset="utf-8">
-    <title>Magazine - Bootstrap 5 Admin Template</title>
+    <title>MAgazine - Bootstrap 5 Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -94,10 +117,10 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
-                    <a href="category.php" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Category</a>
+                    <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
-                    <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
-                    <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
+                    <a href="feedback.php" class="nav-item nav-link "><i class="fa fa-keyboard me-2"></i>Feedback</a>
+                    <a href="ads.php" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Ads</a>
                 </div>
             </nav>
         </div>
@@ -187,63 +210,100 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                        <!-- <a href="#" class="dropdown-item">Settings</a> -->   
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <!--<a href="#" class="dropdown-item">Settings</a>-->
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
-            
+            <?php  
+              echo $error;
+              echo $success; ?>
 
-            <!-- Widget Start -->
-            <div class="container-fluid pt-4 px-4" >
+            <!-- Chart Start -->
+            <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Edit Category</h6>
-                                
-                            </div>
-                            <form method=POST action="">
+                    <div class="col-sm-12 col-xl-6" style="width: 100%;">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Ads Department</h6>
+                            <form method=POST action="#">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
-                                            <label class="control-label">Category</label>&nbsp
-                                            <input type="text" name="c_name" class="form-control" >
+                                            <label class="control-label">Name</label>&nbsp
+                                            <input type="text" name="ad_name" class="form-control" style="margin-left: 40px;">
+                                            <!--<h6 class="mb-0">Jhon Doe</h6>
+                                            <small>15 minutes ago</small>-->
+                                        </div>
+                                    </div>
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <label class="control-label">Address</label>&nbsp
+                                            <input type="text" name="ad_address" class="form-control" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
-                               <a href="category.php">
-                                <input type="submit" name="submit" class="btn btn-primary" value="Update"></a> 
-                                    <a href="category.php" class="btn btn-inverse">Cancel</a>
-                               </div>
+                                <div class="d-flex align-items-center" style="margin-top: 50px;">
+                                    <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <label class="control-label">Description</label>&nbsp
+                                            <input type="text" name="ad_description" class="form-control" >
+                                            <!--<h6 class="mb-0">Jhon Doe</h6>
+                                            <small>15 minutes ago</small>-->
+                                        </div>
+                                    </div>
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <label class="control-label">Contact</label>&nbsp
+                                            <input type="text" name="ad_contact" class="form-control" >
+                                            <!--<h6 class="mb-0">Jhon Doe</h6>
+                                            <small>15 minutes ago</small>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center" style="margin-top: 50px;">
+                                    <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <label class="control-label">Image</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                            <input type="file" name="ad_image" class="form-control bg-dark" >
+                                            <!--<h6 class="mb-0">Jhon Doe</h6>
+                                            <small>15 minutes ago</small>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
+                                  <a href="ads.php">  <input type="submit" name="submit" class="btn btn-primary" value="Save"> </a>
+                                    <a href="ads.php" class="btn btn-inverse">Cancel</a>
+                                </div>
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
- <!-- Back to Top -->
- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-</div>
-                      
+         
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/chart/chart.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/tempusdominus/js/moment.min.js"></script>
-<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
 
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>
