@@ -240,9 +240,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
-                                    <a href="magazine.php">
-                                         <input type="submit" name="submit" class="btn btn-primary" value="Update"></a> 
+                                    <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
+                                    <button class="btn btn-primary"><a href="magazine.php" style="color: white;">Update</a></button> 
                                     <a href="magazine.php" class="btn btn-inverse">Cancel</a>
                                     </div>
                                 </form>
@@ -251,6 +250,24 @@
                     </div>
                 </div>
 
+
+
+
+
+                <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Magazine</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="magazinePHP/Admin/index.html">php code</a>
+                            <br>Distributed By: <a href="https://www.essbeeinfotech.com/" target="_blank">ESSBEE INFOTECH</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
                  <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>

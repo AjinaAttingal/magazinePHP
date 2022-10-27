@@ -279,7 +279,7 @@
                                     </div>
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                  <a href="ads.php">  <input type="submit" name="submit" class="btn btn-primary" value="Save"> </a>
+                                <button class="btn btn-primary"><a href="ads.php" style="color: white;">Update</a></button>
                                     <a href="ads.php" class="btn btn-inverse">Cancel</a>
                                 </div>
                             </form>
