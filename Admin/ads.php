@@ -25,7 +25,7 @@
                                       <strong>Magazine already exist!</strong>
                                     </div>';
         }
-/*else
+else
     {
       $fname =  $_FILES['ad_image']['name'];
                 $temp = $_FILES['ad_image']['tmp_name'];
@@ -42,10 +42,10 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Max Image Size is 1024kb!</strong> Try different Image.
                   </div>';
-         }*/
+         }}
 
         else{
-            $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$_POST['ad_image']."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
+            $sql = "INSERT INTO ads(ad_name,image,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
             mysqli_query($conn, $sql);
             $success =  '<div class="alert alert-success alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -53,8 +53,7 @@
           }
          }
         }
-     // }
-    //}
+      }
     ?> 
 <head>
     <meta charset="utf-8">
@@ -323,7 +322,7 @@
                                     {
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
-                                            <td>'.$row['ad_img'].'</td>
+                                            <td>'.$row['image'].'</td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>
