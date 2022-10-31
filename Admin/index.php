@@ -4,10 +4,10 @@
     include("../connection/db_conn.php");
     error_reporting(0);
     session_start();
-    /*if($_SESSION['username'] != 'admin'){
+    if($_SESSION['username'] != 'admin'){
           header("location:login.php");
           die();
-       }*/
+       }
   if(isset($_POST['submit']))          
       { 
           if(empty($_POST['d_id'])||empty($_POST['d_name'])||empty($_POST['d_email'])||empty($_POST['d_password']))
@@ -130,6 +130,7 @@
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
                     <a href="ads.php" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Ads</a>
+
                 </div>
             </nav>
         </div>
