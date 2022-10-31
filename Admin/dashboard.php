@@ -34,7 +34,7 @@
   
       }
   
-  $result = mysqli_query($db, "SELECT * FROM login");
+  $result = mysqli_query($conn, "SELECT * FROM login");
   
   
       $error = '<div class="alert alert-danger alert-dismissible fade show">
