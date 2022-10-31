@@ -8,75 +8,73 @@
     if(isset($_POST['submit'] ))
     {
       if(empty($_POST['mag_name']))
-          {
+            {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-        }
+            }
       else
           {
               
             $check_mag= mysqli_query($conn, "SELECT mag_name FROM magazine where mag_name = '".$_POST['mag_name']."' "); 
-      if(mysqli_num_rows($check_mag) > 0)
-          {
+            if(mysqli_num_rows($check_mag) > 0)
+            {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       <strong>Magazine already exist!</strong>
                                     </div>';
-        }
-    else
-    {
-      $fname =  $_FILES['mag_image']['name'];
-                $temp = $_FILES['mag_image']['tmp_name'];
-                $fsize = $_FILES['mag_image']['size'];
-                $extension = explode('.',$fname);
-                $extension = strtolower(end($extension));  
-                $fnew = uniqid().'.'.$extension;
-                $store = "../Upload/magazine/".basename($fnew);                    
-        if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
-         {        
-            if($fsize>=100000000)
-          {
-            $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
-                  </div>';
-         }
-
-        else
+            }
+            else
             {
-      $fname =  $_FILES['mag_file']['name'];
-                $temp = $_FILES['mag_file']['tmp_name'];
-                $fsize = $_FILES['mag_file']['size'];
-                $extension = explode('.',$fname);
-                $extension = strtolower(end($extension));  
-                $pnew = uniqid().'.'.$extension;
-                $store = "../Upload/".basename($pnew);                    
-        if($extension == 'pdf')
-         {        
-            if($fsize>=100000000)
-          {
-            $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Max Pdf Size is 1024kb!</strong> Try different Image.
-                  </div>';
-         }
-
-
-        else{
-            $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fnew."','".$_POST['category_name']."','".$pnew."')";
-            mysqli_query($conn, $sql);
-            $success =  '<div class="alert alert-success alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    New Magazine Added Successfully.</br></div>';
-          }
-         }
-        }
-      }
-    }
-}
-}
+            $fname =  $_FILES['mag_image']['name'];
+                        $temp = $_FILES['mag_image']['tmp_name'];
+                        $fsize = $_FILES['mag_image']['size'];
+                        $extension = explode('.',$fname);
+                        $extension = strtolower(end($extension));  
+                        $fnew = uniqid().'.'.$extension;
+                        $store = "../Upload/magazine/".basename($fnew);                    
+                    if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+                    {        
+                        if($fsize>=100000000)
+                        {
+                        $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                                    </div>';
+                        }/*
+                        else
+                        {*/
+                        $fname =  $_FILES['mag_file']['name'];
+                                    $temp = $_FILES['mag_file']['tmp_name'];
+                                    $fsize = $_FILES['mag_file']['size'];
+                                    $extension = explode('.',$fname);
+                                    $extension = strtolower(end($extension));  
+                                    $pnew = uniqid().'.'.$extension;
+                                    $store = "../Upload/".basename($pnew);                    
+                            if($extension == 'pdf')
+                            {        
+                                if($fsize>=100000000)
+                                {
+                                $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <strong>Max Pdf Size is 1024kb!</strong> Try different Image.
+                                            </div>';
+                                 }
+                                else
+                                {
+                                $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fnew."','".$_POST['category_name']."','".$pnew."')";
+                                mysqli_query($conn, $sql);
+                                $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        New Magazine Added Successfully.</br></div>';
+                                }
+                            }
+                        }
+                    }
+            } 
+       }
+    //}
     ?>
 <head>
     <meta charset="utf-8">
@@ -287,7 +285,7 @@
                                                         $res=mysqli_query($conn, $ssql); 
                                                         while($row=mysqli_fetch_array($res))  
                                                         {
-                                                          echo' <option value="'.$row['cat_id'].'">'.$row['cat_name'].'</option>';;
+                                                          echo' <option value="'.$row['cat_name'].'">'.$row['cat_name'].'</option>';;
                                                         }  
                                                                                
                                                         ?> 
