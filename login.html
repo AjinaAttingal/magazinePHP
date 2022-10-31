@@ -3,6 +3,8 @@
         <title>
             Admin login
         </title>
+        <link rel="stylesheet" type="text/css" href="Admin/css/styles.css">
+        <link href="Admin//style.css" rel="stylesheet">
         <style>
              .container {
             width: 20%;
@@ -28,13 +30,13 @@
     </head>
 
     
-    <body background="images/login.jpg " >
+   <!-- <body background="Admin/img/book.jpg" >
        <center>
         <br><br><br><br><br>
         <br><br><br><br><br>
         <br><br>
         <div class="container" >
-        <form action="" method="" >
+        <form method=POST action="login.php" >
             <div class="login">
                 <label><h1>LOGIN</h1></label>
                 <h4>
@@ -44,13 +46,31 @@
                 <div class="row">
                 password <br><input type="password" name="password" required="true">
                  </div></h4>
-                 <input style="color:blue;transition: linear;"  type="submit"  name="login" class="btn btn-success" value="Sign In" >
+            <input style="color:blue;transition: linear;"  type="submit"  name="login" class="btn btn-success" value="Sign In" >
                  <br>
                  <a href="">forget password?</a>
             </div>
         </form>
         </div> 
+        </center>-->
+<body background="Admin/img/black.jpg">
+        <center>
+            <div class="box1" style="margin-top: 200px;">
+                <form method=POST action="login.php">
+                    <div >
+                       
+                      
+                        <h1 style="color: red;">LOGIN</h1>
+                        <input type="text" name="name" placeholder="User Name">
+                        <input type="text" name="password" placeholder="Password">
+                       
+                        <button style="margin-left: 50px;" name="login">Sign In</label>
+                       
+                    </div>
+                </form>
+            </div>
         </center>
+       
        
     </body>
 </html>

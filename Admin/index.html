@@ -8,6 +8,8 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -151,7 +153,7 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="profile1.html" class="dropdown-item">My Profile</a>
+                           <!--<a href="profile1.html" class="dropdown-item">My Profile</a>--> 
                            <!-- <a href="#" class="dropdown-item">Settings</a> -->
                             <a href="#" class="dropdown-item">Log Out</a>
                         </div>
@@ -162,18 +164,22 @@
 <!--ok-->
             <center>
                 <div class="box1" style="margin-top: 70px;">
-                    <form method="post" action="">
+                    <form method=POST action="dashboard.php">
                         <div >
                             <img src="aljo.jpg">
-                            <input type="file" name="" id="file" accept="image/*">
-                            <label for="file" style="margin-top: 40px;">Upload Profile</label>
-                            <input type="text" name="" placeholder="User Name">
-                            <input type="email" name="" placeholder="Email ID">
-                            <input type="text" name="" placeholder="Phone Number">
-                            <input type="text" name="" placeholder="Date of Birth">
-                            <input type="text" name="" placeholder="Gender">
-                            <button id="btn">Cancel</button>
-                            <button id="btn1">Done</button>
+
+                            <form method="post" action="profilepic.php">
+                           <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+                            <label for="file" style="margin-top: 40px;" name="upload">Upload Profile</label>
+                                <input type="button" style="visibility:collapse;" value="done" name="ok">
+                            </form>
+                            <input type="text" name="name" placeholder="User Name">
+                            <input type="email" name="email" placeholder="Email ID">
+                            <input type="text" name="phone" placeholder="Phone Number">
+                            <input type="text" name="dob" placeholder="Date of Birth">
+                            <input type="text" name="gender" placeholder="Gender">
+                            <button id="btn" name="cancel">Cancel</button>
+                            <button id="btn1" name="submit"><a href="index.html">Done</a></button>
                         </div>
                     </form>
                 </div>
