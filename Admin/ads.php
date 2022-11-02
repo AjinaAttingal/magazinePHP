@@ -8,12 +8,12 @@
     if(isset($_POST['submit'] ))
     {
       if(empty($_POST['ad_name']))
-          {
-            $error = '<div class="alert alert-danger alert-dismissible fade show">
+            {
+              $error = '<div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>field Required!</strong>
                               </div>';
-        }
+            }
       else
           {
               
@@ -42,7 +42,7 @@
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>Max Image Size is 1024kb!</strong> Try different Image.
                                 </div>';
-                    }
+                    }}
                     else
                     {
                         $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
@@ -52,16 +52,19 @@
                                                 New Ads Added Successfully.</br></div>';
                     }
                 }
-                else
-                { 
-                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <strong>Image format not supported!</strong> Try different Image.
-                                </div>';
                 }
-            }
-      }
-    }
+          }
+    
+                        /*  else
+                            { 
+                                $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <strong>Image format not supported!</strong> Try different Image.
+                                            </div>';
+                            }*/
+           // }
+     // }
+   // }
     ?> 
 <head>
     <meta charset="utf-8">
@@ -318,7 +321,7 @@
                                           
         <!--view-->      
                                  <?php
-                                    $sql="SELECT * FROM Ads order by ad_id desc";
+                                    $sql="SELECT * FROM ads order by ad_id desc";
                                 $query=mysqli_query($conn,$sql);
                                 if(!mysqli_num_rows($query) > 0 )
                                   {
@@ -330,7 +333,7 @@
                                     {
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
-                                            <td>'.$row['image'].'</td>
+                                            <td>'.$row['ad_img'].'</td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>
