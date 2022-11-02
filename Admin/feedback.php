@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
