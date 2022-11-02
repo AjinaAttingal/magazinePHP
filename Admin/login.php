@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include("../connection/db_conn.php");
+    include("connection/db_conn.php");
     error_reporting(0);
     session_start();
     ?>
@@ -57,21 +57,24 @@
                             </a>
                             <h3>Sign In</h3>
                         </div>
-                        <form method="post" action="admin_action.php">
-                            <div class="form-group">
-                            <label >Username *</label>
-                            <input type="text" class="form-control p_input" name="username">
-                          </div>
-                          <div class="form-group">
-                            <label >Password *</label>
-                            <input type="password" class="form-control p_input" name="password">
-                          </div>
-                          
-                          <br><br>
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-block enter-btn" name="submit">Login</button>
-                          </div>
-                                    
+                        <form action="admin_action.php" method="post">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="name@example.com" name="username">
+                                <label>Email address</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                                <label>Password</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <a href="">Forgot Password</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="submit">Sign In</button>
+                            <p class="text-center mb-0">Don't have an Account? <a href="signup.html">Sign Up</a></p>
                         </form>
                     </div>
                 </div>

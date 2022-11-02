@@ -1,8 +1,6 @@
 <?php
-    include("../connection/db_conn.php");
-    error_reporting(0);
     session_start();
-   
+	include_once("connection/db_conn.php");	
 	if(isset($_POST['submit']))
 	{
 		$username=$_POST["username"];
@@ -17,7 +15,7 @@
 			}else{
 				echo ("<script LANGUAGE='JavaScript'>
 						window.alert('Invalied Login...');
-						window.location.href='index.php';
+						window.location.href='login.php';
 					   </script>");
 			}
 		}
