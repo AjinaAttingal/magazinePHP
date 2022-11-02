@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include("../connection/db_conn.php");
+    include("connection/db_conn.php");
     error_reporting(0);
     session_start();
     if($_SESSION['username'] != 'admin'){
           header("location:login.php");
           die();
        }
-  if(isset($_POST['submit']))          
-      { 
-          if(empty($_POST['d_id'])||empty($_POST['d_name'])||empty($_POST['d_email'])||empty($_POST['d_password']))
+    if(isset($_POST['submit']))          
+        { 
+            if(empty($_POST['d_id'])||empty($_POST['d_name'])||empty($_POST['d_email'])||empty($_POST['d_password']))
                   { 
                       $error = '<div class="alert alert-danger alert-dismissible fade show">
                                   <button type="button" class="close " data-dismiss="alert" aria-label="Close" style="float:left;"><span aria-hidden="true">&times;</span></button>
