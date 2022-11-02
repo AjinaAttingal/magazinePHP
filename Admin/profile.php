@@ -162,27 +162,33 @@
             </nav>
             <!-- Navbar End -->
 <!--ok-->
-<?php
+<center>
+<table>
+<div class="box1" style="margin-top: 70px;">
+                  <form method=POST action="dashboard.php">
+                        <div >
+    <?php
     include("../connection/db_conn.php");
     error_reporting(0);
     session_start();
 
-    $sql="SELECT * FROM dashboard where dash_password='sdsdf'";
+    $sql="SELECT * FROM dashboard where dash_password='ajay'";
                                 $query=mysqli_query($conn,$sql);     
-           echo '<center>
-                <div class="box1" style="margin-top: 70px;">
-                  <form method=POST action="dashboard.php">
-                        <div >';
-                           echo '<img src='.$rows['dash_image'];  
-                            echo '<'.$rows['dash_name'].'>';
-                            echo '<input type="label">'.$rows['dash_email'];
-                            echo '<input type="label">'.$rows['dash_password']; ?>
-                            <a href="update_profile.php?profile_upd='.$rows['dash_id'].'"  class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
-                                   
+                                $rows=mysqli_fetch_array($query);
+                echo '<tr><td rowspan="5"><img src='.$rows['dash_image'].'</td></tr>';
+                           //echo '<tr><td>'.$rows['dash_image'].'<td></tr>';  
+                            echo '<tr><td>'.$rows['dash_name'].'</td></tr>';
+                            echo '<tr><td>'.$rows['dash_email'].'</td></tr>';
+                            echo '<tr><td>'.$rows['dash_password'].'</td></tr>'; 
+                            ?>
+                            <tr><td><a href="update_profile.php?profile_upd='.$rows['dash_id'].'"  class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                            </td></tr>
                         </div>
                     </form>
-                </div>
-            </center>
+ </div>
+</table>          
+                       
+</center>
             <!-- Sale & Revenue Start -->
             <!--<div class="container-fluid pt-4 px-4">
                 <div class="row g-4">

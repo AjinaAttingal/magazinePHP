@@ -16,13 +16,13 @@
                               </div>';
             }
      
-			$fname =  $_FILES['ad_image']['name'];
-			$temp = $_FILES['ad_image']['tmp_name'];
-			$fsize = $_FILES['ad_image']['size'];
+			$fname =  $_FILES['p_image']['name'];
+			$temp = $_FILES['p_image']['tmp_name'];
+			$fsize = $_FILES['p_image']['size'];
 			$extension = explode('.',$fname);
 			$extension = strtolower(end($extension));  
 			$fnew = uniqid().'.'.$extension;
-			$store = "../Upload/ads/".basename($fnew);                    
+			$store = "../Upload/profile/".basename($fnew);                    
 		if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
 		{        
 			if($fsize>=100000000)
