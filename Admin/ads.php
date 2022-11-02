@@ -18,12 +18,13 @@
           {
               
             $check_mag= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
-      if(mysqli_num_rows($check_mag) > 0)
-          {
-            $error = '<div class="alert alert-danger alert-dismissible fade show">
+            if(mysqli_num_rows($check_mag) > 0)
+                {
+                $error = '<div class="alert alert-danger alert-dismissible fade show">
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       <strong>Magazine already exist!</strong>
                                     </div>';
+<<<<<<< HEAD
         }
 else
     {
@@ -48,13 +49,50 @@ else
             $sql = "INSERT INTO ads(ad_name,ad_image,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
             mysqli_query($conn, $sql);
             $success =  '<div class="alert alert-success alert-dismissible fade show">
+=======
+                }
+            else
+                {
+                    $fname =  $_FILES['ad_image']['name'];
+                    $temp = $_FILES['ad_image']['tmp_name'];
+                    $fsize = $_FILES['ad_image']['size'];
+                    $extension = explode('.',$fname);
+                    $extension = strtolower(end($extension));  
+                    $fnew = uniqid().'.'.$extension;
+                    $store = "../Upload/ads/".basename($fnew);                    
+                if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+                {        
+                    if($fsize>=100000000)
+                    {
+                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
+>>>>>>> f75a66fc5e864bd7ba3212e1c8c4699d9620c7b2
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    New Ads Added Successfully.</br></div>';
-          }
-         }
-        }
+                                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                                </div>';
+                    }
+                    else
+                    {
+                        $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
+                        mysqli_query($conn, $sql);
+                        $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                New Ads Added Successfully.</br></div>';
+                    }
+                }
+                else
+                { 
+                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Image format not supported!</strong> Try different Image.
+                                </div>';
+                }
+            }
       }
+<<<<<<< HEAD
   }
+=======
+    }
+>>>>>>> f75a66fc5e864bd7ba3212e1c8c4699d9620c7b2
     ?> 
 <head>
     <meta charset="utf-8">
