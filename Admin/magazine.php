@@ -30,13 +30,15 @@
             }
             else
             {
-            $fname =  $_FILES['mag_image']['name'];
-                        $temp = $_FILES['mag_image']['tmp_name'];
+                        $fname =  $_FILES["mag_image"]["name"];
+                        $temp = $_FILES["mag_image"]["tmp_name"];
+                        
                         $fsize = $_FILES['mag_image']['size'];
                         $extension = explode('.',$fname);
                         $extension = strtolower(end($extension));  
                         $fnew = uniqid().'.'.$extension;
-                        $store = "../Upload/magazine/".basename($fnew);                    
+                        
+                        $store = "Upload/Magazine/".$fname;                    
                     if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
                     {        
                         if($fsize>=100000000)
@@ -48,13 +50,15 @@
                         }/*
                         else
                         {*/
-                        $fname =  $_FILES['mag_file']['name'];
-                                    $temp = $_FILES['mag_file']['tmp_name'];
-                                    $fsize = $_FILES['mag_file']['size'];
-                                    $extension = explode('.',$fname);
+                                    $pname =  $_FILES["mag_file"]["name"];
+                                    $ptemp = $_FILES["mag_file"]["tmp_name"];
+                                    
+                                    $psize = $_FILES['mag_file']['size'];
+                                    $extension = explode('.',$pname);
                                     $extension = strtolower(end($extension));  
                                     $pnew = uniqid().'.'.$extension;
-                                    $store = "../Upload/".basename($pnew);                    
+                                    
+                                    $pstore = "Upload/Files/".$pname;                    
                             if($extension == 'pdf')
                             {        
                                 if($fsize>=100000000)
@@ -66,18 +70,34 @@
                                  }
                                 else
                                 {
-                                $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fnew."','".$_POST['category_name']."','".$pnew."')";
+                                $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fname."','".$_POST['category_name']."','".$pname."')";
                                 mysqli_query($conn, $sql);
+                                move_uploaded_file($temp,$store);
+                                move_uploaded_file($ptemp,$pstore);
                                 $success =  '<div class="alert alert-success alert-dismissible fade show">
                                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                         New Magazine Added Successfully.</br></div>';
                                 }
                             }
-                        }
-                    }
-            } 
+                            elseif($extension==" ")
+                            {
+                                $error='<div class="alert alert-danger alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong>Invalid extention!</strong> Try different Pdf.
+                                        </div>';
+                            }
+                    elseif($extension==" ")
+                {
+                    $error='<div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Invalid extention!</strong> Try different Image.
+                            </div>';
+                }
+            }
+
+         } 
        }
-    //}
+    }
     ?>
 <head>
     <meta charset="utf-8">
@@ -350,7 +370,7 @@
                                      echo ' <tr>
                                             <td>'.$rows['mag_id'].'</td>
                                             <td>'.$rows['mag_name'].'</td>
-                                            <td>'.$rows['mag_img'].'</td>
+                                            <td><img src="Upload/Magazine/"'.$rows['mag_img'].' width="50" height="50"></td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
                                             <td>'.$rows['mag_date'].'</td>';
