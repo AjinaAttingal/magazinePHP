@@ -17,72 +17,79 @@
                                 <strong>field Required!</strong>
                               </div>';
         }
-       /* else
-        {
-            
-          $check_mag= mysqli_query($conn, "SELECT mag_name FROM magazine where mag_name = '".$_POST['mag_name']."' "); 
-        if(mysqli_num_rows($check_mag) > 0)
-        {
-          $error = '<div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <strong>Magazine already exist!</strong>
-                                  </div>';
-      }*/
-    else
-    {
-      $fname =  $_FILES['mag_image']['name'];
-                $temp = $_FILES['mag_image']['tmp_name'];
-                $fsize = $_FILES['mag_image']['size'];
-                $extension = explode('.',$fname);
-                $extension = strtolower(end($extension));  
-                $fnew = uniqid().'.'.$extension;
-                $store = "../Upload/magazine/".basename($fnew);                    
-        if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
-         {        
-            if($fsize>=100000000)
-          {
-            $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
-                  </div>';
-         }/*
-
+       
         else
-            {*/
-      $fname =  $_FILES['mag_file']['name'];
-                $temp = $_FILES['mag_file']['tmp_name'];
-                $fsize = $_FILES['mag_file']['size'];
-                $extension = explode('.',$fname);
-                $extension = strtolower(end($extension));  
-                $pnew = uniqid().'.'.$extension;
-                $store = "../Upload/".basename($pnew);                    
-        if($extension == 'pdf')
-         {        
-            if($fsize>=100000000)
-          {
-            $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <strong>Max Pdf Size is 1024kb!</strong> Try different Image.
-                  </div>';
-         }
-
+            {
+                        $fname =  $_FILES["mag_image"]["name"];
+                        $temp = $_FILES["mag_image"]["tmp_name"];
+                        
+                        $fsize = $_FILES['mag_image']['size'];
+                        $extension = explode('.',$fname);
+                        $extension = strtolower(end($extension));  
+                        $fnew = uniqid().'.'.$extension;
+                        
+                        $store = "Upload/Magazine/".$fname;                    
+                    if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+                    {        
+                        if($fsize>=100000000)
+                        {
+                        $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                                    </div>';
+                        }/*
+                        else
+                        {*/
+                                    $pname =  $_FILES["mag_file"]["name"];
+                                    $ptemp = $_FILES["mag_file"]["tmp_name"];
+                                    
+                                    $psize = $_FILES['mag_file']['size'];
+                                    $extension = explode('.',$pname);
+                                    $extension = strtolower(end($extension));  
+                                    $pnew = uniqid().'.'.$extension;
+                                    
+                                    $pstore = "Upload/Files/".$pname;                    
+                            if($extension == 'pdf')
+                            {        
+                                if($fsize>=100000000)
+                                {
+                                $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <strong>Max Pdf Size is 1024kb!</strong> Try different Image.
+                                            </div>';
+                                 }
+           
 
         else{
-            $sql = "update magazine set mag_name ='$_POST[mag_name]',mag_img='$fnew',mag_cat_name='$_POST[category_name]',mag_file='$pnew'  where mag_id='$_GET[mag_upd]'";
+            $sql = "update magazine set mag_name ='$_POST[mag_name]',mag_img='$fname',mag_cat_name='$_POST[category_name]',mag_file='$pname'  where mag_id='$_GET[mag_upd]'";
              mysqli_query($conn, $sql);
+             move_uploaded_file($temp,$store);
+            move_uploaded_file($ptemp,$pstore);
              $success =  '<div class="alert alert-success alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>Updated!</strong> Successfully.</br></div>';
+                                header("location:magazine.php");
   
           }
-         }
         }
+          elseif($extension==" ")
+          {
+              $error='<div class="alert alert-danger alert-dismissible fade show">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <strong>Invalid extention!</strong> Try different Pdf.
+                      </div>';
+          }
+            elseif($extension==" ")
+            {
+            $error='<div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Invalid extention!</strong> Try different Image.
+                    </div>';
+            }
+                    }
+                    }
       }
-    }
-//}
- //   }
-
-    ?>
+     ?>
 <head>
     <meta charset="utf-8">
     <title>Magazine - Bootstrap 5 Admin Template</title>
@@ -250,7 +257,7 @@
                                             </div>
                                         </div>
                                     <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                    <button class="btn btn-primary" name="submit"><a href="magazine.php" style="color: white;">Update</a></button> 
+                                    <button class="btn btn-primary" name="submit">Update</button> 
                                     <a href="magazine.php" class="btn btn-inverse">Cancel</a>
                                     </div>
                                 </form>

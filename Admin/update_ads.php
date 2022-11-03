@@ -17,26 +17,18 @@
                                 <strong>field Required!</strong>
                               </div>';
         }
-     /*else
-          {
-              
-            $check_mag= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
-      if(mysqli_num_rows($check_mag) > 0)
-          {
-            $error = '<div class="alert alert-danger alert-dismissible fade show">
-                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <strong>Ads already exist!</strong>
-                                    </div>';
-        }*/
+     
 else
     {
-      $fname =  $_FILES['ad_image']['name'];
-                $temp = $_FILES['ad_image']['tmp_name'];
+      $fname =  $_FILES["ad_image"]["name"];
+                $temp = $_FILES["ad_image"]["tmp_name"];
+
                 $fsize = $_FILES['ad_image']['size'];
                 $extension = explode('.',$fname);
                 $extension = strtolower(end($extension));  
                 $fnew = uniqid().'.'.$extension;
-                $store = "Upload/ads/".basename($fnew);                    
+                
+                $store = "Upload/Ads/".$fname;                    
         if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
          {        
             if($fsize>=100000000)
@@ -49,11 +41,14 @@ else
         }
 
         else{
-            $sql = "update ads set ad_name ='$_POST[ad_name]',ad_img='$fnew',ad_address='$_POST[ad_address]',ad_description='$_Post[ad_description]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
+            $sql = "update ads set ad_name ='$_POST[ad_name]',ad_img='$fname',ad_address='$_POST[ad_address]',ad_description='$_POST[ad_description]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
             mysqli_query($conn, $sql);
+            move_uploaded_file($temp,$store);
+            header("location:ads.php");
                 $success =  '<div class="alert alert-success alert-dismissible fade show">
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                           <strong>Updated!</strong> Successfully.</br></div>';
+                                          
             
           }
          }
@@ -231,8 +226,8 @@ else
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6" style="width: 100%;">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Ads Department</h6>
-                            <form method=POST action="#">
+                            <h6 class="mb-4">Ads Dept Edit</h6>
+                            <form method=POST action="#" enctype="multipart/form-data">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
@@ -289,7 +284,7 @@ else
                                     </div>
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                <a href="ads.php" style="color: white;"> <button class="btn btn-primary" name="submit">Update</button></a>
+                                <button class="btn btn-primary" name="submit">Update</button>
                                     <a href="ads.php" class="btn btn-inverse">Cancel</a>
                                 </div>
                             </form>
