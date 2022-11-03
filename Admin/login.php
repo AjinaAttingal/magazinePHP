@@ -60,7 +60,7 @@
                         <form action="admin_action.php" method="post">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" placeholder="name@example.com" name="username">
-                                <label>Email address</label>
+                                <label>User Name</label>
                             </div>
                             <div class="form-floating mb-4">
                                 <input type="password" class="form-control" name="password" placeholder="Password">
