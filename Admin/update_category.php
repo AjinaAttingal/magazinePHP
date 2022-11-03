@@ -22,6 +22,7 @@
   
   $sql = "update category set cat_name ='$_POST[c_name]' where cat_id='$_GET[cat_upd]'";
   mysqli_query($conn, $sql);
+  header("location:category.php");
       $success =  '<div class="alert alert-success alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>Updated!</strong> Successfully.</br></div>';
@@ -227,7 +228,7 @@
                                     </div>
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                <a href="category.php" style="color: white" class="btn btn-primary" name="submit">Update
+                                <a href="category.php" style="color: white" ><button class="btn btn-primary" name="submit">Update
                                 </button></a> 
                                 <a href="category.php" class="btn btn-inverse">Cancel</a>
                                </div>
