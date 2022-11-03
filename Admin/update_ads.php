@@ -17,7 +17,7 @@
                                 <strong>field Required!</strong>
                               </div>';
         }
-      else
+     /*else
           {
               
             $check_mag= mysqli_query($conn, "SELECT ad_name FROM ads where ad_name = '".$_POST['ad_name']."' "); 
@@ -27,8 +27,8 @@
                                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                       <strong>Ads already exist!</strong>
                                     </div>';
-        }
-/*else
+        }*/
+else
     {
       $fname =  $_FILES['ad_image']['name'];
                 $temp = $_FILES['ad_image']['tmp_name'];
@@ -36,7 +36,7 @@
                 $extension = explode('.',$fname);
                 $extension = strtolower(end($extension));  
                 $fnew = uniqid().'.'.$extension;
-                $store = "../Upload/ads/".basename($fnew);                    
+                $store = "Upload/ads/".basename($fnew);                    
         if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
          {        
             if($fsize>=100000000)
@@ -45,10 +45,11 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Max Image Size is 1024kb!</strong> Try different Image.
                   </div>';
-         }*/
+             }
+        }
 
         else{
-            $sql = "update ads set ad_name ='$_POST[ad_name]',ad_image='$_POST[ad_image]',ad_address='$_POST[ad_address]',ad_description='$_Post[ad_dsecription]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
+            $sql = "update ads set ad_name ='$_POST[ad_name]',ad_img='$fnew',ad_address='$_POST[ad_address]',ad_description='$_Post[ad_description]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
             mysqli_query($conn, $sql);
                 $success =  '<div class="alert alert-success alert-dismissible fade show">
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -57,7 +58,7 @@
           }
          }
         }
-     // }
+     
     //}
     ?> 
 <head>
@@ -236,8 +237,14 @@
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
+
+                                        <?php
+                                            $sql="SELECT * FROM ads where ad_id='$_GET[ads_upd]' ";
+                                            $query=mysqli_query($conn,$sql);
+                                            $rows=mysqli_fetch_array($query);?>
+
                                             <label class="control-label">Name</label>&nbsp
-                                            <input type="text" name="ad_name" class="form-control" style="margin-left: 40px;">
+                                            <input type="text" name="ad_name" class="form-control" style="margin-left: 40px;" value="<?php echo $rows['ad_name'];?>">
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -245,7 +252,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Address</label>&nbsp
-                                            <input type="text" name="ad_address" class="form-control" >
+                                            <input type="text" name="ad_address" class="form-control" value="<?php echo $rows['ad_address'];?>">
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -256,7 +263,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Description</label>&nbsp
-                                            <input type="text" name="ad_description" class="form-control" >
+                                            <input type="text" name="ad_description" class="form-control" value="<?php echo $rows['ad_description'];?>">
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -264,7 +271,7 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Contact</label>&nbsp
-                                            <input type="text" name="ad_contact" class="form-control" >
+                                            <input type="text" name="ad_contact" class="form-control" value="<?php echo $rows['ad_contact'];?>" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
@@ -275,14 +282,14 @@
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Image</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                                            <input type="file" name="ad_image" class="form-control bg-dark" >
+                                            <input type="file" name="ad_image" class="form-control bg-dark" value="<?php echo $row['ad_img'];?>" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                <button class="btn btn-primary"><a href="ads.php" style="color: white;">Update</a></button>
+                                <a href="ads.php" style="color: white;"> <button class="btn btn-primary" name="submit">Update</button></a>
                                     <a href="ads.php" class="btn btn-inverse">Cancel</a>
                                 </div>
                             </form>

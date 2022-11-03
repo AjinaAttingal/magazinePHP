@@ -17,7 +17,7 @@
                                 <strong>field Required!</strong>
                               </div>';
         }
-        else
+       /* else
         {
             
           $check_mag= mysqli_query($conn, "SELECT mag_name FROM magazine where mag_name = '".$_POST['mag_name']."' "); 
@@ -27,7 +27,7 @@
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <strong>Magazine already exist!</strong>
                                   </div>';
-      }
+      }*/
     else
     {
       $fname =  $_FILES['mag_image']['name'];
@@ -45,10 +45,10 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Max Image Size is 1024kb!</strong> Try different Image.
                   </div>';
-         }
+         }/*
 
         else
-            {
+            {*/
       $fname =  $_FILES['mag_file']['name'];
                 $temp = $_FILES['mag_file']['tmp_name'];
                 $fsize = $_FILES['mag_file']['size'];
@@ -68,9 +68,9 @@
 
 
         else{
-            $sql = "update magazine set mag_name ='$_POST[mag_name]',mag_img=$fnew,mag_cat_name='$_POST[category_name]',mag_file=$pnew  where mag_id='$_GET[mag_upd]'";
-  mysqli_query($conn, $sql);
-      $success =  '<div class="alert alert-success alert-dismissible fade show">
+            $sql = "update magazine set mag_name ='$_POST[mag_name]',mag_img='$fnew',mag_cat_name='$_POST[category_name]',mag_file='$pnew'  where mag_id='$_GET[mag_upd]'";
+             mysqli_query($conn, $sql);
+             $success =  '<div class="alert alert-success alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>Updated!</strong> Successfully.</br></div>';
   
@@ -79,8 +79,8 @@
         }
       }
     }
-}
-    }
+//}
+ //   }
 
     ?>
 <head>
@@ -192,6 +192,12 @@
                     <div class="col-sm-12 col-xl-6" style="width: 100%;">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Edit Magazine</h6>
+
+                            <?php
+                                    $sql="SELECT * FROM magazine where mag_id='$_GET[mag_upd]'";
+                                    $query=mysqli_query($conn,$sql);
+                                    $rows=mysqli_fetch_array($query);?>
+
                             <div class="card-body">
                                 <form method=POST action=""  enctype="multipart/form-data">
                                     <div class="form-body">
@@ -199,13 +205,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Name</label>
-                                                    <input type="text" name="mag_name" class="form-control" >
+                                                    <input type="text" name="mag_name" class="form-control" value="<?php echo $rows['mag_name']?>" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Image</label>
-                                                    <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n">
+                                                    <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n" value="<?php echo $rows['mag_img']?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -221,7 +227,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">Select Category</label>
-                                                    <select name="category_name" class="form-control bg-dark" data-placeholder="Choose a Category" tabindex="1">
+                                                    <select name="category_name" class="form-control bg-dark"  data-placeholder="Choose a Category" tabindex="1">
                                                        <option>--Select Category--</option>
                                                        
                                          
@@ -229,7 +235,7 @@
                                                         $res=mysqli_query($conn, $ssql); 
                                                         while($row=mysqli_fetch_array($res))  
                                                         {
-                                                          echo' <option value="'.$row['cat_id'].'">'.$row['cat_name'].'</option>';;
+                                                          echo' <option value="'.$row['cat_name'].'">'.$row['cat_name'].'</option>';;
                                                         }  
                                                                                
                                                         ?> 
@@ -239,12 +245,12 @@
                                         <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Upload file</label>
-                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n">
+                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n" value="<?php echo $rows['mag_file']?>">
                                                 </div>
                                             </div>
                                         </div>
                                     <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                                    <button class="btn btn-primary"><a href="magazine.php" style="color: white;">Update</a></button> 
+                                    <button class="btn btn-primary" name="submit"><a href="magazine.php" style="color: white;">Update</a></button> 
                                     <a href="magazine.php" class="btn btn-inverse">Cancel</a>
                                     </div>
                                 </form>

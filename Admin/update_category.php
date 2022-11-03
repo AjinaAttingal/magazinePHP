@@ -18,12 +18,7 @@
                               </div>';
     }
   else
-  {
-    
-  
-  
-  
-       
+  {    
   
   $sql = "update category set cat_name ='$_POST[c_name]' where cat_id='$_GET[cat_upd]'";
   mysqli_query($conn, $sql);
@@ -198,6 +193,10 @@
             </nav>
             <!-- Navbar End -->
             
+            <?php  
+             echo $error;
+            echo $success; ?>
+
 
             <!-- Widget Start -->
             <div class="container-fluid pt-4 px-4" >
@@ -205,24 +204,31 @@
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Edit Category</h6>
-                                
+                                <h6 class="mb-0">Edit Category</h6>    
                             </div>
+
+                       
                             <form method=POST action="">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
                                         <div class="d-flex w-100 justify-content-between">
                                             <label class="control-label">Category</label>&nbsp
-                                            <input type="text" name="c_name" class="form-control" >
+
+                                            <?php
+                                                $sql="SELECT * FROM category where cat_id='$_GET[cat_upd]'";
+                                                $query=mysqli_query($conn,$sql);
+                                                $rows=mysqli_fetch_array($query)
+                                                ?>
+                                            <input type="text" name="c_name" class="form-control" value="<?php echo $rows['cat_name'];?>" >
                                             <!--<h6 class="mb-0">Jhon Doe</h6>
                                             <small>15 minutes ago</small>-->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions" style="margin-left: 85%; margin-top: 20px;">
-                               
-                                <button class="btn btn-primary"><a href="category.php" style="color: white;">Update</a></button> 
+                                <a href="category.php" style="color: white" class="btn btn-primary" name="submit">Update
+                                </button></a> 
                                 <a href="category.php" class="btn btn-inverse">Cancel</a>
                                </div>
                             </form>
