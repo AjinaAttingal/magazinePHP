@@ -353,9 +353,9 @@
                                             <td>'.$rows['mag_img'].'</td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
-                                            <td>'.$rows['mag_date'].'</td>
-                                            <td><a href="delete_magazine.php?mag_del='.$rows['mag_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
-                                            <a href="update_magazine.php?mag_upd='.$rows['mag_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                            <td>'.$rows['mag_date'].'</td>';
+                                     echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_magazine.php?mag_del=".$rows['mag_id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
+                                      echo   '<a href="update_magazine.php?mag_upd='.$rows['mag_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
                                       } 
                                   }
