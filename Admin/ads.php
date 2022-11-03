@@ -30,13 +30,20 @@
                 }
             else
                 {
-                    $fname =  $_FILES['ad_image']['name'];
+                  /*  $image=$_FILES['ad_image']['name']; 
+                    $imageArr=explode('.',$image); //first index is file name and second index file type
+                    $rand=rand(10000,99999);
+                    $newImageName=$imageArr[0].$rand.'.'.$imageArr[1];
+                    $uploadPath="Upload/Ads/".$newImageName;
+                    $isUploaded=move_uploaded_file($_FILES["ad_image"]["tmp_name"],$uploadPath);*/
+
+                   $fname =  $_FILES['ad_image']['name'];
                     $temp = $_FILES['ad_image']['tmp_name'];
                     $fsize = $_FILES['ad_image']['size'];
                     $extension = explode('.',$fname);
                     $extension = strtolower(end($extension));  
                     $fnew = uniqid().'.'.$extension;
-                    $store = "../Upload/ads/".basename($fnew);                    
+                    $store = "Upload/Ads/".basename($fnew);                    
                 if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
                 {        
                     if($fsize>=100000000)
@@ -54,9 +61,10 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 New Ads Added Successfully.</br></div>';
                     }
+                
                 }
-                }
-          }
+         }
+        }
     
                         /*  else
                             { 
@@ -78,6 +86,15 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+   
+          <!--  <script type="text/javascript">
+             function confirmationDelete(x){
+                var conf = confirm("Are you sure you want to delete this?");
+            if(conf == true){
+                alert("OK... you chose to proceed with deletion of "+x);
+            }
+        }
+        </script>-->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -336,13 +353,14 @@
                                     {
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
+                                   
                                             <td>'.$row['ad_img'].'</td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
-                                            <td>'.$rows['ad_contact'].'</td>
+                                            <td>'.$rows['ad_contact'].'</td>';
                                             
-                                            <td><a href="delete_ads.php?ads_del='.$rows['ad_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash" style="font-size:16px"></i></a> 
-                                            <a href="update_ads.php?ads_upd='.$rows['ad_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
+                                         echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\"href='delete_ads.php?ads_del=".$rows['ad_id'].  "class='btn btn-danger btn-flat btn-addon btn-xs m-b-10' ><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
+                                         echo  ' <a href="update_ads.php?ads_upd='.$rows['ad_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
                                       } 
                                   }
