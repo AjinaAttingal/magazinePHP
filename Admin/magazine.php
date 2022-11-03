@@ -367,10 +367,11 @@
                                   {       
                                     while($rows=mysqli_fetch_array($query))
                                     {
+                                        
                                      echo ' <tr>
                                             <td>'.$rows['mag_id'].'</td>
                                             <td>'.$rows['mag_name'].'</td>
-                                            <td><img src="Upload/Magazine/"'.$rows['mag_img'].' width="50" height="50"></td>
+                                            <td><img src="Upload/Magazine/'.$rows['mag_img'].'" width="50" height="50"></td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
                                             <td>'.$rows['mag_date'].'</td>';

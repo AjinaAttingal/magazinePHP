@@ -38,7 +38,7 @@ else
                     <strong>Max Image Size is 1024kb!</strong> Try different Image.
                   </div>';
              }
-        }
+        
 
         else{
             $sql = "update ads set ad_name ='$_POST[ad_name]',ad_img='$fname',ad_address='$_POST[ad_address]',ad_description='$_POST[ad_description]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
@@ -47,14 +47,22 @@ else
             header("location:ads.php");
                 $success =  '<div class="alert alert-success alert-dismissible fade show">
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                          <strong>Updated!</strong> Successfully.</br></div>';
-                                          
-            
+                                          <strong>Updated!</strong> Successfully.</br></div>'; 
+                                          echo "<script> alert('Updated Successfully...!'); window.location.href='ads.php';</script>";
           }
+         }
+         elseif($extension==" ")
+         {
+             $error='<div class="alert alert-danger alert-dismissible fade show">
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <strong>Invalid extention!</strong> Try different Image.
+                     </div>';
+                     echo "<script> alert('Updation failed...!Try different Image.'); window.location.href='ads.php';</script>";
+
          }
         }
      
-    //}
+    }
     ?> 
 <head>
     <meta charset="utf-8">
@@ -219,7 +227,7 @@ else
             <!-- Navbar End -->
             <?php  
               echo $error;
-              echo $success; ?>
+              //echo $success; ?>
 
             <!-- Chart Start -->
             <div class="container-fluid pt-4 px-4">

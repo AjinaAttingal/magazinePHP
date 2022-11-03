@@ -349,10 +349,11 @@
                                   {       
                                     while($rows=mysqli_fetch_array($query))
                                     {
+                                        
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
                                    
-                                            <td><img src="Upload/Ads/"'.$row['ad_img'].' height="50" width="50"></td>
+                                            <td><img src="Upload/Ads/'.$rows['ad_img'].'" height="50" width="50"></td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>';

@@ -68,7 +68,11 @@
              $success =  '<div class="alert alert-success alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <strong>Updated!</strong> Successfully.</br></div>';
-                                header("location:magazine.php");
+                               //echo $success;
+                               //echo '<script>alert("Messege")</script>';
+                              // header("location:magazine.php");
+                              //redirect('magazine.php');
+                              echo "<script> alert('Updated Successfully...!'); window.location.href='magazine.php';</script>";
   
           }
         }
@@ -78,6 +82,8 @@
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                           <strong>Invalid extention!</strong> Try different Pdf.
                       </div>';
+                      echo "<script> alert('Updation failed...!Try different Pdf'); window.location.href='magazine.php';</script>";
+  
           }
             elseif($extension==" ")
             {
@@ -85,6 +91,8 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Invalid extention!</strong> Try different Image.
                     </div>';
+                    echo "<script> alert('Updation failed...!Try different Image.'); window.location.href='magazine.php';</script>";
+  
             }
                     }
                     }
@@ -191,7 +199,7 @@
             <!-- Navbar End -->
             <?php  
              echo $error;
-            echo $success; ?>
+            //echo $success; ?>
 
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
