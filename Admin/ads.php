@@ -30,52 +30,50 @@
                 }
             else
                 {
-                  /*  $image=$_FILES['ad_image']['name']; 
-                    $imageArr=explode('.',$image); //first index is file name and second index file type
-                    $rand=rand(10000,99999);
-                    $newImageName=$imageArr[0].$rand.'.'.$imageArr[1];
-                    $uploadPath="Upload/Ads/".$newImageName;
-                    $isUploaded=move_uploaded_file($_FILES["ad_image"]["tmp_name"],$uploadPath);*/
-
-                   $fname =  $_FILES['ad_image']['name'];
-                    $temp = $_FILES['ad_image']['tmp_name'];
+                    /*$filename=$_FILES["choosefile"]["name"];
+                    $tempname=$_FILES["choosefile"]["tmp_name"];
+                    $folder="Upload/".$filename;*/
+              
+                    $fname = $_FILES["ad_image"]["name"];
+                    $temp = $_FILES["ad_image"]["tmp_name"];
+                  
                     $fsize = $_FILES['ad_image']['size'];
                     $extension = explode('.',$fname);
-                    $extension = strtolower(end($extension));  
+                    $extension = strtolower(end($extension));
                     $fnew = uniqid().'.'.$extension;
-                    $store = "Upload/Ads/".basename($fnew);                    
-                if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
-                {        
-                    if($fsize>=100000000)
-                    {
-                    $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <strong>Max Image Size is 1024kb!</strong> Try different Image.
-                                </div>';
-                    }}
+                    
+                    $store = "Upload/Ads/".$fname;                    
+                    if($extension== 'jpg'||$extension == 'png'||$extension == 'gif' )
+                    {        
+                        if($fsize>=100000000)
+                        {
+                        $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                                    </div>';
+                        }
                     else
                     {
-                        $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fnew."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
+                        $sql = "INSERT INTO ads(ad_name,ad_img,ad_address,ad_description,ad_contact) VALUES('".$_POST['ad_name']."','".$fname."','".$_POST['ad_address']."','".$_POST['ad_description']."','".$_POST['ad_contact']."')";
                         mysqli_query($conn, $sql);
+                        move_uploaded_file($temp,$store);
                         $success =  '<div class="alert alert-success alert-dismissible fade show">
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 New Ads Added Successfully.</br></div>';
                     }
                 
                 }
+                elseif($extension==" ")
+                {
+                    $error='<div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Invalid extention!</strong> Try different Image.
+                            </div>';
+                }
+            }
          }
         }
-    
-                        /*  else
-                            { 
-                                $error =  '<div class="alert alert-danger alert-dismissible fade show">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <strong>Image format not supported!</strong> Try different Image.
-                                            </div>';
-                            }*/
-           // }
-     // }
-   // }
+                        
     ?> 
 <head>
     <meta charset="utf-8">
@@ -257,7 +255,7 @@
                     <div class="col-sm-12 col-xl-6" style="width: 100%;">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Ads Department</h6>
-                            <form method=POST action="#">
+                            <form method=POST action="#" enctype="multipart/form-data">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->
                                     <div class="w-100 ms-3">
@@ -351,10 +349,11 @@
                                   {       
                                     while($rows=mysqli_fetch_array($query))
                                     {
+                                        
                                      echo ' <tr><td>'.$rows['ad_id'].'</td>
                                             <td>'.$rows['ad_name'].'</td>
                                    
-                                            <td>'.$row['ad_img'].'</td>
+                                            <td><img src="Upload/Ads/'.$rows['ad_img'].'" height="50" width="50"></td>
                                             <td>'.$rows['ad_address'].'</td>
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>';
