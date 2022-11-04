@@ -28,7 +28,7 @@ else
                 $extension = strtolower(end($extension));  
                 $fnew = uniqid().'.'.$extension;
                 
-                $store = "Upload/Ads/".$fname;                    
+                $store = "img/Ads/".$fname;                    
         if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
          {        
             if($fsize>=100000000)

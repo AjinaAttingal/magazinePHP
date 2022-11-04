@@ -38,7 +38,7 @@
                         $extension = strtolower(end($extension));  
                         $fnew = uniqid().'.'.$extension;
                         
-                        $store = "Upload/Magazine/".$fname;                    
+                        $store = "img/Magazine/".$fname;                    
                     if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
                     {        
                         if($fsize>=100000000)
@@ -58,7 +58,7 @@
                                     $extension = strtolower(end($extension));  
                                     $pnew = uniqid().'.'.$extension;
                                     
-                                    $pstore = "Upload/Files/".$pname;                    
+                                    $pstore = "img/Files/".$pname;                    
                             if($extension == 'pdf')
                             {        
                                 if($fsize>=100000000)
@@ -371,7 +371,7 @@
                                      echo ' <tr>
                                             <td>'.$rows['mag_id'].'</td>
                                             <td>'.$rows['mag_name'].'</td>
-                                            <td><img src="Upload/Magazine/'.$rows['mag_img'].'" width="50" height="50"></td>
+                                            <td><img src="img/Magazine/'.$rows['mag_img'].'" width="50" height="50"></td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
                                             <td>'.$rows['mag_date'].'</td>';

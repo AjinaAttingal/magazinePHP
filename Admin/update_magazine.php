@@ -28,7 +28,7 @@
                         $extension = strtolower(end($extension));  
                         $fnew = uniqid().'.'.$extension;
                         
-                        $store = "Upload/Magazine/".$fname;                    
+                        $store = "img/Magazine/".$fname;                    
                     if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
                     {        
                         if($fsize>=100000000)
@@ -48,7 +48,7 @@
                                     $extension = strtolower(end($extension));  
                                     $pnew = uniqid().'.'.$extension;
                                     
-                                    $pstore = "Upload/Files/".$pname;                    
+                                    $pstore = "img/Files/".$pname;                    
                             if($extension == 'pdf')
                             {        
                                 if($fsize>=100000000)
