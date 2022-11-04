@@ -4,10 +4,10 @@
     include("../connection/db_conn.php");
     error_reporting(0);
     session_start();
-    if($_SESSION['username'] != 'admin'){
+    /*if($_SESSION['username'] != 'admin'){
           header("location:login.php");
           die();
-       }
+       }*/
     ?>
 <head>
     <meta charset="utf-8">

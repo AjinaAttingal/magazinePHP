@@ -4,10 +4,10 @@
     include("../connection/db_conn.php");
     error_reporting(0);
     session_start();
-    if($_SESSION['username'] != 'admin'){
+    /*if($_SESSION['username'] != 'admin'){
           header("location:login.php");
           die();
-       }
+       }*/
     if(isset($_POST['submit'] ))
     {
       if(empty($_POST['ad_name']))
@@ -358,7 +358,7 @@
                                             <td>'.$rows['ad_description'].'</td>
                                             <td>'.$rows['ad_contact'].'</td>';
                                             
-                                         echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\"href='delete_ads.php?ads_del=".$rows['ad_id'].  "class='btn btn-danger btn-flat btn-addon btn-xs m-b-10' ><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
+                                         echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\"href='delete_ads.php?ads_del=".$rows['ad_id'].  "class='btn btn-danger btn-flat btn-addon btn-xs m-b-10' ><i class='fa fa-trash' style='font-size:25px'></i></a>"; 
                                          echo  ' <a href="update_ads.php?ads_upd='.$rows['ad_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
                                       } 
