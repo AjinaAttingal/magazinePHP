@@ -4,10 +4,10 @@
     include("../connection/db_conn.php");
     error_reporting(0);
     session_start();
-    /*if($_SESSION['username'] != 'admin'){
+    if($_SESSION['uname'] != 'admin'){
           header("location:login.php");
           die();
-       }*/
+       }
     if(isset($_POST['submit'] ))
     {
       if(empty($_POST['ad_name']))
@@ -142,7 +142,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="home.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
@@ -237,9 +237,9 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="home.php" class="dropdown-item">My Profile</a>
                             <!--<a href="#" class="dropdown-item">Settings</a>-->
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
@@ -183,12 +183,12 @@
                         <input type="file" name="pp" id="file" accept="image/*">
                         <label for="file">Upload Profile</label>
                         <input type="text" class="form-control" placeholder="First Name" name="fname"value="<?php echo (isset($_GET['fname']))?$_GET['fname']:"" ?>">
-                        <input type="text" class="form-control" placeholder="Last Name" name="uname" value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
-                        <input type="text" class="form-control" name="pass">
+                        <input type="text" class="form-control" placeholder="User Name" name="uname" value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
+                        <input type="text" class="form-control" placeholder="Password" name="pass">
                         <!--<input type="text" name="" placeholder="Date of Birth">
                         <input type="text" name="" placeholder="Gender">-->
-                        <button id="btn"><a href="login.php">Login</a></button>
-                        <button id="btn1" type="submit" >Done</button>
+                        <button id="btn"><a href="login.php" style="color: white;">Log In</a></button>
+                        <button id="btn1" type="submit">Sign In</button>
                     </div>
                 </form>
             </center>
