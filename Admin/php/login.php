@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['uname']) && 
    isset($_POST['pass'])){
 
-    include "../connection/db_conn.php";
+    include("../connection/db_conn.php");
 
     $uname = $_POST['uname'];
     $pass = $_POST['pass'];
@@ -25,8 +25,10 @@ if(isset($_POST['uname']) &&
     	$stmt = $conn->prepare($sql);
     	$stmt->execute([$uname]);
 
+
       if($stmt->rowCount() == 1){
           $user = $stmt->fetch();
+          
 
           $username =  $user['username'];
           $password =  $user['password'];
