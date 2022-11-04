@@ -28,7 +28,7 @@
                         $extension = strtolower(end($extension));  
                         $fnew = uniqid().'.'.$extension;
                         
-                        $store = "Upload/Magazine/".$fname;                    
+                        $store = "img/Magazine/".$fname;                    
                     if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
                     {        
                         if($fsize>=100000000)
@@ -48,7 +48,7 @@
                                     $extension = strtolower(end($extension));  
                                     $pnew = uniqid().'.'.$extension;
                                     
-                                    $pstore = "Upload/Files/".$pname;                    
+                                    $pstore = "img/Files/".$pname;                    
                             if($extension == 'pdf')
                             {        
                                 if($fsize>=100000000)
@@ -226,7 +226,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Image</label>
-                                                    <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n" value="<?php echo $rows['mag_img']?>">
+                                                    <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n" value="<?php echo 'img/Magazine/'.$rows['mag_img']?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -243,7 +243,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Select Category</label>
                                                     <select name="category_name" class="form-control bg-dark"  data-placeholder="Choose a Category" tabindex="1">
-                                                       <option>--Select Category--</option>
+                                                       <option><?php echo $rows['mag_cat_name']?></option>
                                                        
                                          
                                                       <?php $ssql ="select * from category";
@@ -260,7 +260,7 @@
                                         <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Upload file</label>
-                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n" value="<?php echo $rows['mag_file']?>">
+                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n" value="<?php echo 'img/Files/'.$rows['mag_file']?>">
                                                 </div>
                                             </div>
                                         </div>

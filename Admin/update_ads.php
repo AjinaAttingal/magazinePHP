@@ -28,7 +28,7 @@ else
                 $extension = strtolower(end($extension));  
                 $fnew = uniqid().'.'.$extension;
                 
-                $store = "Upload/Ads/".$fname;                    
+                $store = "img/Ads/".$fname;                    
         if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
          {        
             if($fsize>=100000000)
@@ -44,7 +44,7 @@ else
             $sql = "update ads set ad_name ='$_POST[ad_name]',ad_img='$fname',ad_address='$_POST[ad_address]',ad_description='$_POST[ad_description]',ad_contact='$_POST[ad_contact]'  where ad_id='$_GET[ads_upd]'";
             mysqli_query($conn, $sql);
             move_uploaded_file($temp,$store);
-            header("location:ads.php");
+           
                 $success =  '<div class="alert alert-success alert-dismissible fade show">
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                           <strong>Updated!</strong> Successfully.</br></div>'; 
