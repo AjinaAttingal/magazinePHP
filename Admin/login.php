@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    include("connection/db_conn.php");
-    error_reporting(0);
-    session_start();
-    ?>
+
 <head>
     <meta charset="utf-8">
     <title>Magazine - Bootstrap 5 Admin Template</title>
@@ -15,6 +11,8 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +27,10 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style/css/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="style/css/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,15 +53,21 @@
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Magazine</h3>
                             </a>
+                            <?php if(isset($_GET['error'])){ ?>
+                            <div class="alert alert-danger" role="alert">
+                              <?php echo $_GET['error']; ?>
+                            </div>
+                            <?php } ?>
                             <h3>Sign In</h3>
+
                         </div>
-                        <form action="admin_action.php" method="post">
+                        <form action="php/login.php" method="post">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="name@example.com" name="username">
+                                <input type="text" class="form-control" placeholder="name@example.com" name="uname" value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
                                 <label>User Name</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" name="password" placeholder="Password">
+                                <input type="password" class="form-control" name="pass" placeholder="Password">
                                 <label>Password</label>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
@@ -74,7 +78,7 @@
                                 <a href="">Forgot Password</a>
                             </div>
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="submit">Sign In</button>
-                            <p class="text-center mb-0">Don't have an Account? <a href="signup.html">Sign Up</a></p>
+                            <p class="text-center mb-0">Don't have an Account? <a href="index.php">Sign Up</a></p>
                         </form>
                     </div>
                 </div>
