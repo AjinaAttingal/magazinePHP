@@ -176,7 +176,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             <div class="d-flex justify-content-center align-items-center vh-100">
                 
                 <div class="shadow w-350 p-3 text-center">
-                    <img style="width: 70%; height: 130px;" src="upload/<?=$_SESSION['pp']?>"
+                    <img style="width: 100%; height: 130px;" src="upload/<?=$_SESSION['pp']?>"
                          class="img-fluid rounded-circle">
                     <h3 class="display-4 " style="color: white;"><?=$_SESSION['fname']?></h3>
                     
