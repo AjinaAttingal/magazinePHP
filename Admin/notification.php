@@ -1,3 +1,12 @@
+<?php
+include("../connection/db_conn.php");
+error_reporting(0);
+session_start();
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php 
@@ -70,7 +79,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="home.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
@@ -131,19 +140,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                             <a href="#" class="dropdown-item text-center">See all message</a>
                         </div>
                     </div>-->
-                    <!--<div class="nav-item dropdown">-->
-                        <?php 
-                        include("../connection/db_conn.php");
-                        $sql="select * from users where status='' ";
-                            $num=mysqli_query($conn, $sql);
-                            $count=mysqli_num_rows($num);
-
-                            ?>
+                    <!--<div class="nav-item dropdown">
+                       
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"><?php echo $count;?></i>
-                            <span class=" d-lg-inline-flex"><a href="notification.php">Notification</a></span>
+                            <i class="fa fa-bell me-lg-2"><?php //echo $c;?></i>
+                            <span class="d-none d-lg-inline-flex"><a href="notification.php">Notification</a></span>
                         </a>
-                       <!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                       <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">View</h6>
                                
@@ -164,7 +167,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     </div>-->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?=$_SESSION['fname']?></span>
                         </a>
@@ -181,21 +183,60 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             
 
             <body>
-        <center>
-            <div class="d-flex justify-content-center align-items-center vh-100">
-                
-                <div class="shadow w-350 p-3 text-center">
-                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 100%; height: 130px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                   
-                <!--    <img style="width: 100%; height: 130px;" src="upload/<?=$_SESSION['pp']?>"
-                         class="img-fluid rounded-circle">-->
-                    <h3 class="display-4 " style="color: white;"><?=$_SESSION['fname']?></h3>
-               <?php  echo   '<a href="update_profile.php?pro_upd='.$_SESSION['fname'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5">Edit profile<i class="fa fa-edit"></i></a>';?>
-                    
+            <div class="container-fluid pt-4 px-4" >
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
+
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">New Registrations</h6>       
+                            </div>
+
+                            <div class="table-responsive m-t-40">
+                              <table id="myTable" class="table table-bordered table-hover table-striped">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Username</th>
+                                    <th>Status</th>
+                                  </tr>
+                               
+
+                                </thead>
+                                <tbody>
+                            <!--view-->      
+                                <?php
+                                    $sql="SELECT * FROM users where status='' ";
+                                $query=mysqli_query($conn,$sql);
+                                if(!mysqli_num_rows($query) > 0 )
+                                  {
+                                    echo '<td colspan="7"><center>No Registration-Data!</center></td>';
+                                  }
+                                else
+                                  {       
+                                    while($rows=mysqli_fetch_array($query))
+                                    {
+                                     echo ' <tr><td>'.$rows['id'].'</td>
+                                            <td>'.$rows['fname'].'</td>
+                                            <td>'.$rows['username'].'</td>';
+                                      echo    "<td>".$rows['status']."<a  onClick=\"javascript:return confirm('Do you wants to approve this user?');\" href='update_status.php?sts_upd=".$rows['id']."'  class='btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5'><i class='fa fa-edit'>Approve</i></a>&nbsp";
+                                      echo   "<a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_notification.php?sts_del=".$rows['id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a> 
+                                      </td></tr>";
+                                      } 
+                                  }
+                                  ?>
+
+                                </tbody>
+                              </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </center>
+        
+
+
     </body>
 
 
