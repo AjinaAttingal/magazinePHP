@@ -61,12 +61,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="upload/default-pp.jpg" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?=$_SESSION['fname']?></h6>
-                        <span>Admin</span>
+                        <span>User</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -131,18 +131,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                             <a href="#" class="dropdown-item text-center">See all message</a>
                         </div>
                     </div>-->
-                    <!--<div class="nav-item dropdown">-->
-                        <?php 
-                        include("../connection/db_conn.php");
-                        $sql="select * from users where status='' ";
-                            $num=mysqli_query($conn, $sql);
-                            $count=mysqli_num_rows($num);
-
-                            ?>
+                    <!--<div class="nav-item dropdown">
+                       
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"><?php echo $count;?></i>
+                            <i class="fa fa-bell me-lg-2"><?php //echo $count;?></i>
                             <span class=" d-lg-inline-flex"><a href="notification.php">Notification</a></span>
-                        </a>
+                        </a>-->
                        <!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">View</h6>
@@ -165,7 +159,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="upload/default-pp.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?=$_SESSION['fname']?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -185,13 +179,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             <div class="d-flex justify-content-center align-items-center vh-100">
                 
                 <div class="shadow w-350 p-3 text-center">
-                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 100%; height: 130px;">
+                <img class="rounded-circle" src="upload/default-pp.jpg" alt="" style="width: 100%; height: 130px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                    
                 <!--    <img style="width: 100%; height: 130px;" src="upload/<?=$_SESSION['pp']?>"
                          class="img-fluid rounded-circle">-->
                     <h3 class="display-4 " style="color: white;"><?=$_SESSION['fname']?></h3>
-               <?php // echo   '<a href="update_profile.php?pro_upd='.$_SESSION['fname'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5">Edit profile<i class="fa fa-edit"></i></a>';?>
+               <?php  echo   '<a href="update_profile.php?pro_upd='.$_SESSION['fname'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5">Edit profile<i class="fa fa-edit"></i></a>';?>
                     
                 </div>
             </div>

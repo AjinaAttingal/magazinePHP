@@ -43,7 +43,7 @@
                  // $stmt->execute([$fname, $uname, $pass, $new_img_name]);
    
                  // header("Location: home.php?success=Your account has been edited successfully");
-                  echo "<script> alert('Your account has been edited successfully...!'); window.location.href='home.php';</script>";
+                  echo "<script> alert('Your account has been edited successfully...!'); window.location.href='user_profile.php';</script>";
 
                    exit;
                }else 
@@ -69,7 +69,7 @@
              // $stmt->execute([$fname, $uname, $pass]);
               mysqli_query($conn, $sql);
              // header("Location: home.php?success=Your account has been edited successfully");
-              echo "<script> alert('Updated Successfully...!'); window.location.href='home.php';</script>";
+              echo "<script> alert('Updated Successfully...!'); window.location.href='user_profile.php';</script>";
               exit;
          }
        }
@@ -201,7 +201,7 @@
                         <input type="text" class="form-control" placeholder="Password" name="pass">
                         <!--<input type="text" name="" placeholder="Date of Birth">
                         <input type="text" name="" placeholder="Gender">-->
-                        <button id="btn" value="Cancel"><a href="home.php" style="color: white;">Cancel</a></button>
+                        <button id="btn" value="Cancel"><a href="user_profile.php" style="color: white;">Cancel</a></button>
                         <button id="btn1" type="submit" name="submit">Confirm</button>
                     </div>
                 </form>

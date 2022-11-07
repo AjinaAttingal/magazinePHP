@@ -35,16 +35,25 @@ if(isset($_POST['uname']) &&
           $fname =  $user['fname'];
           $id =  $user['id'];
           $pp =  $user['pp'];
+         $status=$user['status'];
 
           if($username === $uname){
-             if(password_verify($pass, $password)){
+             if(password_verify($pass, $password))
+             {
+               if($status=='1'){
                  $_SESSION['id'] = $id;
                  $_SESSION['fname'] = $fname;
                  $_SESSION['pp'] = $pp;
-
+                 header("Location: ../user.php");
+                 exit;
+               }else if($status=='0'){
+                  $_SESSION['id'] = $id;
+                  $_SESSION['fname'] = $fname;
+                  $_SESSION['pp'] = $pp;
                  header("Location: ../home.php");
                  exit;
-             }else {
+             }
+            }else {
                $em = "Incorect User name or password";
                header("Location: ../login.php?error=$em&$data");
                exit;
