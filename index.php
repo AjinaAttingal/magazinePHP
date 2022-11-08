@@ -292,7 +292,7 @@
         </div>
         <!-- End: Slider Section -->
         
-        <!-- Start: Search Section -->
+        <!-- Start: Search Section 
         <section class="search-filters">
             <div class="container">
                 <div class="filter-box">
@@ -336,7 +336,7 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- End: Search Section -->
         
         <!-- Start: Welcome Section -->
@@ -346,7 +346,7 @@
                     <div class="col-md-6">
                         <div class="welcome-wrap">
                             <div class="welcome-text">
-                                <h2 class="section-title">Welcome to the libraria</h2>
+                                <h2 class="section-title">Welcome to the Magazine</h2>
                                 <span class="underline left"></span>
                                 <p class="lead">The standard chunk of Lorem Ipsum used since</p>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humor, or non-characteristic words etc.</p>
@@ -887,7 +887,7 @@
         <!-- End: Features -->
         
         <!-- Start: Newsletter -->
-        <section class="newsletter section-padding">
+        <!--<section class="newsletter section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -903,7 +903,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- End: Newsletter -->
         
         <?php
@@ -937,13 +937,8 @@
                 ?>
 
 
-        <section>
-            <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Contact Form</h2>
-                </div>
-            </div>
+        <section class="newsletter section-padding" >
+            <div class="container" style="margin-left: 28%;">
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <?php  
@@ -953,31 +948,33 @@
                         <div class="row no-gutters mb-5">
                             <div class="col-md-7">
                                 <div class="contact-wrap w-100 p-md-5 p-4">
-                                    <h3 class="mb-4">Send Us Feedback</h3>
+                                    <div class="center-content">
+                                        <h2 class="section-title">Send Us Feedback</h2>
+                                    </div>
                                     <div id="form-message-warning" class="mb-4"></div> 
                                     <form method="POST" action="">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="label" for="name">Full Name</label>
-                                                    <input type="text" class="form-control" name="f_name" placeholder="Name">
+                                                    <input type="text" class="form-control" class="form-control" name="f_name" placeholder="Name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6"> 
                                                 <div class="form-group">
                                                     <label class="label" for="email">Phone Number</label>
-                                                    <input type="text" class="form-control" name="phone"  placeholder="Phone Number">
+                                                    <input type="text" class="form-control" class="form-control" name="phone"  placeholder="Phone Number">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="label" for="subject">Message</label>
-                                                    <input type="text" class="form-control" name="f_message" placeholder="Your Message">
+                                                    <input type="text" class="form-control" class="form-control" name="f_message" placeholder="Your Message">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="submit" name="submit" value="Send Message" class="btn btn-primary">
+                                                    <input type="submit" class="form-control" name="submit" value="Send Message" class="btn btn-primary">
                                                     
                                                 </div>
                                             </div>
