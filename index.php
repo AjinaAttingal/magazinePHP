@@ -906,67 +906,91 @@
         </section>
         <!-- End: Newsletter -->
         
-        <div class="row">
-                                    <div class="contact-area">
-                                        <div class="containe" >
-                                            
-                                            <div class="col-md-5 border-gray-right" style=" margin-left: 450px ;">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="contact-form bg-light margin-right" style="margin-top: 20px; text-align: center;">
-                                                            <h2 style="color: black;">Send us a Feedback</h2>
-                                                            <span class="underline left"></span>
-                                                            <div class="contact-fields">
-                                                                <form id="contact" name="contact" action="http://libraria.demo.presstigers.com/contact.html" method="post" >
-                                                                    <div class="row">
-                                                                        <div class="col-md-6 col-sm-6">
-                                                                            <div class="form-group">
-                                                                                <input class="form-control" type="text" placeholder="Full Name" name="f_name" id="first-name" size="30" value="" aria-required="true" />
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--<div class="col-md-6 col-sm-6">
-                                                                            <div class="form-group">
-                                                                                <input class="form-control" type="text" placeholder="Last Name" name="l_name" id="last-name" size="30" value="" aria-required="true" />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 col-sm-6">
-                                                                            <div class="form-group">
-                                                                                <input class="form-control" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email" name="email" id="email" size="30" value="" aria-required="true" />
-                                                                            </div>
-                                                                        </div>-->
-                                                                        <div class="col-md-6 col-sm-6">
-                                                                            <div class="form-group">
-                                                                                <input class="form-control" type="text" placeholder="Phone Number" name="phone" id="phone" size="30" value="" aria-required="true" />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group">
-                                                                                <textarea class="form-control" placeholder="Your message" name="" id="message" aria-required="true"></textarea>
-                                                                                <div class="clearfix"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-sm-12">
-                                                                            <div class="form-group form-submit">
-                                                                                <input class="btn btn-default" id="submit-contact-form" type="button" name="submit" value="Send Message"  />
-                                                                            </div>
-                                                                        </div>
-                                                                        <div id="success">
-                                                                            <span>Your message was sent successfully! Our team will contact you soon.</span>
-                                                                        </div>
+        <?php
+            include("connection/db_conn.php");
+            error_reporting(0);
+            session_start();        
+             if(isset($_POST['submit'] ))
+                {
+                  if(empty($_POST['f_name'])||empty($_POST['phone'])||empty($_POST['f_message']))
+                      {
+                        $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong>field Required!</strong>
+                                          </div>';
+                                          echo "<script> alert('Updated Failed...!'); window.location.href='index.php';</script>";
+                }
+                  else
+                      {
+                          
+                        $check_cat= mysqli_query($conn, "SELECT feed_name FROM feedback where feed_name = '".$_POST['f_name']."' "); 
+                 
+                        $sql = "INSERT INTO feedback(feed_name,feed_number,feed_message) VALUES('".$_POST['f_name']."','".$_POST['phone']."','".$_POST['f_message']."')";
+                        mysqli_query($conn, $sql);
+                        $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                New Category Added Successfully.</br></div>';
+                                                echo "<script> alert('Updated Successfully...!'); window.location.href='index.php';</script>";
+                    }
 
-                                                                        <div id="error">
-                                                                            <span>Something went wrong, try refreshing and submitting the form again.</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </form> 
-                                                            </div>                                                                   
-                                                        </div>
-                                                    </div>
+                }
+                ?>
+
+
+        <section>
+            <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Contact Form</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <?php  
+                      echo $error;
+                      echo $success; ?>
+                    <div class="wrapper">
+                        <div class="row no-gutters mb-5">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Send Us Feedback</h3>
+                                    <div id="form-message-warning" class="mb-4"></div> 
+                                    <form method="POST" action="">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="name">Full Name</label>
+                                                    <input type="text" class="form-control" name="f_name" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Phone Number</label>
+                                                    <input type="text" class="form-control" name="phone"  placeholder="Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="label" for="subject">Message</label>
+                                                    <input type="text" class="form-control" name="f_message" placeholder="Your Message">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" name="submit" value="Send Message" class="btn btn-primary">
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
         <!-- Start: Meet Staff -->
         <section class="team section-padding">
             <div class="container">
