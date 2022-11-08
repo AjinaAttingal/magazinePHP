@@ -258,121 +258,17 @@
                 <main id="main" class="site-main">
                     <div class="main-news-list">
                         <div class="container">
-                            <!-- Start: Search Section -->
-                            <!--<section class="search-filters">
-                                <div class="filter-box">
-                                    <h3>Find the library events &amp; classes</h3>
-                                    <form action="http://libraria.demo.presstigers.com/news-events-detail.html" method="get">
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-6">
-                                                    <div class="form-group">
-                                                        <label class="sr-only" for="keywords">Search by Keyword</label>
-                                                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords" type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-3">
-                                                    <div class="form-group">
-                                                        <select name="category" id="category" class="form-control">
-                                                            <option>All Categories</option>
-                                                            <option>Category 01</option>
-                                                            <option>Category 02</option>
-                                                            <option>Category 03</option>
-                                                            <option>Category 04</option>
-                                                            <option>Category 05</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-3">
-                                                    <div class="form-group">
-                                                        <select name="locations" id="locations" class="form-control">
-                                                            <option>All Locations</option>
-                                                            <option>Location 01</option>
-                                                            <option>Location 02</option>
-                                                            <option>Location 03</option>
-                                                            <option>Location 04</option>
-                                                            <option>Location 05</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <select name="startdate" id="startdate" class="form-control">
-                                                                    <option>Start Date</option>
-                                                                    <option>Start Date 01</option>
-                                                                    <option>Start Date 02</option>
-                                                                    <option>Start Date 03</option>
-                                                                    <option>Start Date 04</option>
-                                                                    <option>Start Date 05</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <select name="enddate" id="enddate" class="form-control">
-                                                                    <option>End Date</option>
-                                                                    <option>End Date 01</option>
-                                                                    <option>End Date 02</option>
-                                                                    <option>End Date 03</option>
-                                                                    <option>End Date 04</option>
-                                                                    <option>End Date 05</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                </div>
-                                                <div class="col-md-4 col-sm-3">
-                                                    <div class="form-group">
-                                                        <select name="agegroup" id="agegroup" class="form-control">
-                                                            <option>Age Group</option>
-                                                            <option>Age Group 01</option>
-                                                            <option>Age Group 02</option>
-                                                            <option>Age Group 03</option>
-                                                            <option>Age Group 04</option>
-                                                            <option>Age Group 05</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-3">
-                                                    <div class="form-group">
-                                                        <select name="language" id="language" class="form-control">
-                                                            <option>Language</option>
-                                                            <option>Language 01</option>
-                                                            <option>Language 02</option>
-                                                            <option>Language 03</option>
-                                                            <option>Language 04</option>
-                                                            <option>Language 05</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="row">
-                                                <div class="col-md-12 col-sm-6">
-                                                    <div class="form-group">
-                                                        <input class="form-control btn-clearform" type="submit" value="Clear Form">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 col-sm-6">
-                                                    <div class="form-group">
-                                                        <input class="form-control" type="submit" value="Find Event">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="clear"></div>
-                            </section>-->
-                            <!-- End: Search Section -->
                             <div class="row">
                                 <div class="col-md-9 col-md-push-3 news-events-list-view">
+                                    
                                     <div class="news-list-box">
                                         <div class="single-news-list">
-                                            <div class="social-content">
+                                            <?php
+                                        include("connection/db_conn.php");
+                                          // Fetch all users data from database
+                                          $result=mysqli_query($conn,"SELECT * FROM ads ");
+                                          while ($user_data=mysqli_fetch_array($result)) { ?>
+                                            <!--<div class="social-content">
                                                 <div class="social-share">
                                                     <ul>
                                                         <li><a href="#."><i class="fa fa-comment"></i> 37</a></li>
@@ -389,23 +285,22 @@
                                                         <li><a href="#." target="_blank"><i class="fa fa-linkedin"></i></a></li>
                                                     </ul>
                                                 </div>
-                                            </div>
-
+                                            </div>-->
                                             
                                             <figure>
-                                                <a href="news-events-detail.html"><img src="images/news-event/news-listing-01.jpg" alt="News &amp; Event"></a>
+                                                <?php  echo "<img style='width:250px height:200px ' src='Admin/img/Ads/".$user_data['ad_img']."'>" ?>
                                             </figure>
                                             <div class="content-block">
                                                 <div class="member-info">
                                                     <div class="content_meta_category">
                                                         <span class="arrow-right"></span>
-                                                        <a href="#." rel="category tag">EVENT</a>
+                                                        <a href="#." rel="category tag">ADS</a>
                                                     </div>
                                                     <ul class="news-event-info">
                                                         <li>
                                                             <a href="#" target="_blank">
-                                                                <i class="fa fa-calendar"></i>
-                                                                July 25, 2016
+                                                                
+                                                                <?php echo"<a style='font-size:16px' href='news-events-list-view.php'><i class='fa fa-calendar'>".$user_data['ad_date']."</i></a>"; ?>
                                                             </a>
                                                         </li>
                                                         <li>
@@ -416,202 +311,22 @@
                                                         </li>
                                                         <li>
                                                             <a href="#" target="_blank">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                New York, USA
+                                                                
+                                                                <?php echo"<a style='font-size:16px' href='news-events-list-view.php'><i class='fa fa-map-marker'>".$user_data['ad_address']."</i></a>"; ?>
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                    <h3><a href="news-events-detail.html">It uses a dictionary of over 200 Latin</a></h3>
-                                                    <p>Morbi in erat laoreet, eleifend mi sit amet, eleifend mauris. Duis magna turpis, semper ac ligula id, elementum hendrerit augue. Aliquam euismod sem ut justo ultrices, in eleifend sapien hendrerit. Vestibulum sollicitudin dapibus aliquet. Suspendisse a commodo ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque bibendum est turpis, at tristique velit. Quisque bibendum est turpis, at tristique velit.</p>
-                                                    <a class="btn btn-primary" href="news-events-detail.html">Read More</a>
+                                                    <h3><?php echo"<a style='font-size:16px' href='news-events-detail.php'>".$user_data['ad_name']."</a>"; ?></h3>
+                                                    <p><?php echo"<a style='font-size:16px ' href='news-events-list-view.php'>".$user_data['ad_description']."</a>"; ?></p>
+                                                    <!--<a class="btn btn-primary" href="news-events-detail.html">Read More</a>-->
                                                 </div>
                                             </div>
+                                            <?php } ?>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
-                                    <div class="news-list-box">
-                                        <div class="single-news-list">
-                                            <div class="social-content">
-                                                <div class="social-share">
-                                                    <ul>
-                                                        <li><a href="#."><i class="fa fa-comment"></i> 37</a></li>
-                                                        <li><a href="#."><i class="fa fa-thumbs-o-up"></i> 110</a></li>
-                                                        <li><a href="#."><i class="fa fa-eye"></i> 180</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="social-media">
-                                                    <ul>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-rss"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <figure>
-                                                <a href="news-events-detail.html"><img src="images/news-event/news-listing-02.jpg" alt="News &amp; Event"></a>
-                                            </figure>
-                                            <div class="content-block">
-                                                <div class="member-info">
-                                                    <div class="content_meta_category">
-                                                        <span class="arrow-right"></span>
-                                                        <a href="#." rel="category tag">EVENT</a>
-                                                    </div>
-                                                    <ul class="news-event-info">
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-calendar"></i>
-                                                                July 25, 2016
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                10:15 AM - 10:15 PM 
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                New York, USA
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <h3><a href="news-events-detail.html">It uses a dictionary of over 200 Latin</a></h3>
-                                                    <p>Morbi in erat laoreet, eleifend mi sit amet, eleifend mauris. Duis magna turpis, semper ac ligula id, elementum hendrerit augue. Aliquam euismod sem ut justo ultrices, in eleifend sapien hendrerit. Vestibulum sollicitudin dapibus aliquet. Suspendisse a commodo ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque bibendum est turpis, at tristique velit. Quisque bibendum est turpis, at tristique velit.</p>
-                                                    <a class="btn btn-primary" href="news-events-detail.html">Read More</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="news-list-box">
-                                        <div class="single-news-list">
-                                            <div class="social-content">
-                                                <div class="social-share">
-                                                    <ul>
-                                                        <li><a href="#."><i class="fa fa-comment"></i> 37</a></li>
-                                                        <li><a href="#."><i class="fa fa-thumbs-o-up"></i> 110</a></li>
-                                                        <li><a href="#."><i class="fa fa-eye"></i> 180</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="social-media">
-                                                    <ul>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-rss"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <figure>
-                                                <a href="news-events-detail.html"><img src="images/news-event/news-listing-03.jpg" alt="News &amp; Event"></a>
-                                            </figure>
-                                            <div class="content-block">
-                                                <div class="member-info">
-                                                    <div class="content_meta_category">
-                                                        <span class="arrow-right"></span>
-                                                        <a href="#." rel="category tag">EVENT</a>
-                                                    </div>
-                                                    <ul class="news-event-info">
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-calendar"></i>
-                                                                July 25, 2016
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                10:15 AM - 10:15 PM 
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                New York, USA
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <h3><a href="news-events-detail.html">It uses a dictionary of over 200 Latin</a></h3>
-                                                    <p>Morbi in erat laoreet, eleifend mi sit amet, eleifend mauris. Duis magna turpis, semper ac ligula id, elementum hendrerit augue. Aliquam euismod sem ut justo ultrices, in eleifend sapien hendrerit. Vestibulum sollicitudin dapibus aliquet. Suspendisse a commodo ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque bibendum est turpis, at tristique velit. Quisque bibendum est turpis, at tristique velit.</p>
-                                                    <a class="btn btn-primary" href="news-events-detail.html">Read More</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="news-list-box">
-                                        <div class="single-news-list">
-                                            <div class="social-content">
-                                                <div class="social-share">
-                                                    <ul>
-                                                        <li><a href="#."><i class="fa fa-comment"></i> 37</a></li>
-                                                        <li><a href="#."><i class="fa fa-thumbs-o-up"></i> 110</a></li>
-                                                        <li><a href="#."><i class="fa fa-eye"></i> 180</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="social-media">
-                                                    <ul>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-rss"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <figure>
-                                                <a href="news-events-detail.html"><img src="images/news-event/news-listing-04.jpg" alt="News &amp; Event"></a>
-                                            </figure>
-                                            <div class="content-block">
-                                                <div class="member-info">
-                                                    <div class="content_meta_category">
-                                                        <span class="arrow-right"></span>
-                                                        <a href="#." rel="category tag">EVENT</a>
-                                                    </div>
-                                                    <ul class="news-event-info">
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-calendar"></i>
-                                                                July 25, 2016
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                10:15 AM - 10:15 PM 
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                New York, USA
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <h3><a href="news-events-detail.html">It uses a dictionary of over 200 Latin</a></h3>
-                                                    <p>Morbi in erat laoreet, eleifend mi sit amet, eleifend mauris. Duis magna turpis, semper ac ligula id, elementum hendrerit augue. Aliquam euismod sem ut justo ultrices, in eleifend sapien hendrerit. Vestibulum sollicitudin dapibus aliquet. Suspendisse a commodo ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque bibendum est turpis, at tristique velit. Quisque bibendum est turpis, at tristique velit.</p>
-                                                    <a class="btn btn-primary" href="news-events-detail.html">Read More</a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <nav class="navigation pagination text-center">
-                                        <h2 class="screen-reader-text">Posts navigation</h2>
-                                        <div class="nav-links">
-                                            <a class="prev page-numbers" href="#."><i class="fa fa-long-arrow-left"></i> Previous</a>
-                                            <a class="page-numbers" href="#.">1</a>
-                                            <span class="page-numbers current">2</span>
-                                            <a class="page-numbers" href="#.">3</a>
-                                            <a class="page-numbers" href="#.">4</a>
-                                            <a class="next page-numbers" href="#.">Next <i class="fa fa-long-arrow-right"></i></a>
-                                        </div>
-                                    </nav>
                                 </div>
+
                                 <div class="col-md-3 col-md-pull-9">
                                     <aside id="secondary" class="sidebar widget-area">
                                         <div class="widget widget_search">
@@ -714,7 +429,7 @@
                                         </div>
                                     </aside>
                                 </div>
-                            </div>
+                            </div>     
                         </div>
                     </div>
                 </main>
