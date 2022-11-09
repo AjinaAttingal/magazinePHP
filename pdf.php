@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-md-9">
                                 <!-- Header Topbar -->
-                                <div class="header-topbar hidden-sm hidden-xs">
+                                <!--<div class="header-topbar hidden-sm hidden-xs">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="topbar-info">
@@ -122,7 +122,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown">
@@ -134,18 +134,18 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown active">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
-                                            <ul class="dropdown-menu">
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.php">Books &amp; Media</a>
+                                            <!--<ul class="dropdown-menu">
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
-                                                <!--<li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
+                                                <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
                                                 <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
                                                 <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
                                                 <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                                <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>-->
-                                            </ul>
+                                                <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
+                                            </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.php">News &amp; Events</a>
                                             
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
@@ -161,15 +161,15 @@
                                                 <li><a href="404.html">404/Error</a></li>
                                             </ul>
                                         </li>-->
-                                        <li class="dropdown">
+                                        <!--<li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                            <!--<ul class="dropdown-menu">
+                                            <ul class="dropdown-menu">
                                                 <li><a href="blog.html">Blog Grid View</a></li>
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>-->
+                                            </ul>
                                         </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="services.html">Services</a></li>-->
+                                        <li><a href="contact.php">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

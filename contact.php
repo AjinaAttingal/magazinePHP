@@ -22,8 +22,6 @@
         <link href="css/mmenu.css" rel="stylesheet" type="text/css" />
         <link href="css/mmenu.positioning.css" rel="stylesheet" type="text/css" />
 
-        <link rel="stylesheet" type="text/css" href="css/jquery.accordion.css">
-
         <!-- Stylesheet -->
         <link href="style.css" rel="stylesheet" type="text/css" />
 
@@ -35,6 +33,7 @@
         <![endif]-->
 
     </head>
+
 
     <body>
 
@@ -127,7 +126,7 @@
                                 </div>-->
                                 <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
-                                        <li class="dropdown ">
+                                        <li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index.php">Home</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="index-2.html">Home V1</a></li>
@@ -145,7 +144,7 @@
                                                 <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
                                             </ul>-->
                                         </li>
-                                        <li class="dropdown active">
+                                        <li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.php">News &amp; Events</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
@@ -162,14 +161,14 @@
                                             </ul>
                                         </li>-->
                                         <!--<li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.php">Blog</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="blog.html">Blog Grid View</a></li>
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="services.php">Services</a></li>-->
-                                        <li><a href="contact.php">Contact</a></li>
+                                        <li><a href="services.html">Services</a></li>-->
+                                        <li class="active"><a href="contact.php">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -235,207 +234,193 @@
         <!-- End: Header Section -->
 
         <!-- Start: Page Banner -->
-        <section class="page-banner news-listing-banner services-banner">
+        <section class="page-banner services-banner">
             <div class="container">
                 <div class="banner-header">
-                    <h2>News Listing</h2>
+                    <h2>Contact Us</h2>
                     <span class="underline center"></span>
                     <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
                 </div>
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li>News</li>
+                        <li>Contact</li>
                     </ul>
                 </div>
             </div>
         </section>
         <!-- End: Page Banner -->
-
-        <!-- Start: Products Section -->
-        <div id="content" class="site-content" style="margin-top: 40px;">
+        
+        <!-- Start: Contact Us Section -->
+        <div id="content" class="site-content">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
-                    <div class="main-news-list">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-9 col-md-push-3 news-events-list-view">
-                                    
-                                    <div class="news-list-box">
-                                        <div class="single-news-list">
-                                            <?php
-                                        include("connection/db_conn.php");
-                                          // Fetch all users data from database
-                                          $result=mysqli_query($conn,"SELECT * FROM ads ");
-                                          while ($user_data=mysqli_fetch_array($result)) { ?>
-                                            <!--<div class="social-content">
-                                                <div class="social-share">
-                                                    <ul>
-                                                        <li><a href="#."><i class="fa fa-comment"></i> 37</a></li>
-                                                        <li><a href="#."><i class="fa fa-thumbs-o-up"></i> 110</a></li>
-                                                        <li><a href="#."><i class="fa fa-eye"></i> 180</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="social-media">
-                                                    <ul>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-rss"></i></a></li>
-                                                        <li><a href="#." target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>-->
-                                            
-                                            <figure>
-                                                <?php  echo "<img style='width:250px height:200px ' src='Admin/img/Ads/".$user_data['ad_img']."'>" ?>
-                                            </figure>
-                                            <div class="content-block">
-                                                <div class="member-info">
-                                                    <div class="content_meta_category">
-                                                        <span class="arrow-right"></span>
-                                                        <a href="#." rel="category tag">ADS</a>
+                    <div class="contact-main">
+                        <div class="contact-us">
+                            <div class="container">
+                                <div class="contact-location">
+                                    <div class="flipcard">
+                                        <div class="front">
+                                            <div class="top-info">
+                                                <span><i class="fa fa-map-marker" aria-hidden="true"></i> Office Address</span>
+                                            </div>
+                                            <div class="bottom-info">
+                                                <span class="top-arrow"></span>
+                                                <ul>
+                                                    <li><h3>Ess Bee Infotech</h3></li>
+                                                    <li><h6>Kadavanthra</h6></li>
+                                                    <li><h6>Kochi</h6></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div class="bottom-info orange-bg">
+                                                <span class="bottom-arrow"></span>
+                                                <ul>
+                                                    <li><h3>Ess Bee Infotech</h3></li>
+                                                    <li><h6>Kadavanthra</h6></li>
+                                                    <li><h6>Kochi</h6></li>
+                                                </ul>
+                                            </div>
+                                            <div class="top-info dark-bg">
+                                                <span><i class="fa fa-map-marker" aria-hidden="true"></i> Office Address</span>
+                                            </div>                                                
+                                        </div>
+                                    </div>
+                                    <div class="flipcard">
+                                        <div class="front">
+                                            <div class="top-info">
+                                                <span><i class="fa fa-fax" aria-hidden="true"></i> Phone and Fax</span>
+                                            </div>
+                                            <div class="bottom-info">
+                                                <span class="top-arrow"></span>
+                                                <ul>
+                                                    <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
+                                                    <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
+                                                    <li><a href="fax:(001)-254-7359">Fax: (001)-254-7359</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div class="bottom-info orange-bg">
+                                                <span class="bottom-arrow"></span>
+                                                <ul>
+                                                    <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
+                                                    <li><a href="tel:+123-456-7890">Local: +123-456-7890</a></li>
+                                                    <li><a href="fax:(001)-254-7359">Fax: (001)-254-7359</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="top-info dark-bg">
+                                                <span><i class="fa fa-fax" aria-hidden="true"></i> Phone and Fax</span>
+                                            </div>                                                
+                                        </div>
+                                    </div>
+                                    <div class="flipcard">
+                                        <div class="front">
+                                            <div class="top-info">
+                                                <span><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</span>
+                                            </div>
+                                            <div class="bottom-info">
+                                                <span class="top-arrow"></span>
+                                                <ul>
+                                                    <li>www.libraria.com</li>
+                                                    <li>support@libraria.com</li>
+                                                    <li>info@libraria.com</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="back">
+                                            <div class="bottom-info orange-bg">
+                                                <span class="bottom-arrow"></span>
+                                                <ul>
+                                                    <li><a href="http://www.libraria.com/">www.libraria.com </a></li>
+                                                    <li><a href="mailto:support@libraria.com">support@libraria.com</a></li>
+                                                    <li><a href="mailto:info@libraria.com">info@libraria.com</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="top-info dark-bg">
+                                                <span><i class="fa fa-envelope" aria-hidden="true"></i> Email Address</span>
+                                            </div>                                                
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="contact-area" style="width: 100%;">
+                                        <div class="containe">
+                                            <div class="col-md-5 col-md-offset-1 border-gray-left">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="contact-map bg-light " >
+                                                            <div class="company-map" id="map"></div>
+                                                        </div>
                                                     </div>
-                                                    <ul class="news-event-info">
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                
-                                                                <?php echo"<a style='font-size:16px' href='news-events-list-view.php'><i class='fa fa-calendar'>".$user_data['ad_date']."</i></a>"; ?>
-                                                            </a>
-                                                        </li>
-                                                        <!--<li>
-                                                            <a href="#" target="_blank">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                10:15 AM - 10:15 PM 
-                                                            </a>
-                                                        </li>-->
-                                                        <li>
-                                                            <a href="#" target="_blank">
-                                                                
-                                                                <?php echo"<a style='font-size:16px' href='news-events-list-view.php'><i class='fa fa-map-marker'>".$user_data['ad_address']."</i></a>"; ?>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    <h3><?php echo"<a style='font-size:16px' href='news-events-detail.php'>".$user_data['ad_name']."</a>"; ?></h3>
-                                                    <p><?php echo"<a style='font-size:16px ' href='news-events-list-view.php'>".$user_data['ad_description']."</a>"; ?></p>
-                                                    <!--<a class="btn btn-primary" href="news-events-detail.html">Read More</a>-->
                                                 </div>
                                             </div>
-                                            <?php } ?>
-                                            <div class="clearfix"></div>
+                                            <div class="col-md-5 border-gray-right">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="contact-form bg-light">
+                                                            <h2>Send us a message</h2>
+                                                            <span class="underline left"></span>
+                                                            <div class="contact-fields">
+                                                                <form id="contact" name="contact" action="http://libraria.demo.presstigers.com/contact.html" method="post" >
+                                                                    <div class="row">
+                                                                        <div class="col-md-6 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="text" placeholder="First Name" name="first-name" id="first-name" size="30" value="" aria-required="true" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="text" placeholder="Last Name" name="last-name" id="last-name" size="30" value="" aria-required="true" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email" name="email" id="email" size="30" value="" aria-required="true" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="text" placeholder="Phone Number" name="phone" id="phone" size="30" value="" aria-required="true" />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <textarea class="form-control" placeholder="Your message" id="message" aria-required="true"></textarea>
+                                                                                <div class="clearfix"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group form-submit">
+                                                                                <input class="btn btn-default" id="submit-contact-form" type="button" name="submit" value="Send Message"  />
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="success">
+                                                                            <span>Your message was sent successfully! Our team will contact you soon.</span>
+                                                                        </div>
+
+                                                                        <div id="error">
+                                                                            <span>Something went wrong, try refreshing and submitting the form again.</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </form> 
+                                                            </div>                                                                   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="col-md-3 col-md-pull-9" >
-                                    <aside id="secondary" class="sidebar widget-area">
-                                        <div class="widget widget_search">
-                                            <h4 class="widget-title" data-control>Search News</h4>
-                                            <form method="get" action="#." class="form-horizontal search-form">
-                                                <input class="form-control" id="inputEmail" placeholder="Search Here" value="" name="s" type="text">
-                                                <button type="submit"><i class="fa fa-search"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class="widget widget_related_search" >
-                                            <h4 class="widget-title" data-control>Related Searches</h4>
-                                            <div class="widget_categories">
-                                                <ul>
-                                                    <li><a href="#">Love stories <span>(18)</span></a></li>
-                                                    <li><a href="#">Texas <span>(04)</span></a></li>
-                                                    <li><a href="#">Rich people <span>(03)</span></a></li>
-                                                    <li><a href="#">Humorous stories <span>(02)</span></a></li>
-                                                    <li><a href="#">Widows <span>(02)</span></a></li>
-                                                    <li><a href="#">Women <span>(11)</span></a></li>
-                                                    <li><a href="#">Babysitters <span>(25)</span></a></li>
-                                                    <li><a href="#">Law firms <span>(09)</span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="widget widget_recent_entries">
-                                            <h4 class="widget-title" data-control>Recent News</h4>
-                                            <ul>
-                                                <li>
-                                                    <figure>
-                                                        <img src="images/order-item-04.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">It uses a dictionary</a>
-                                                    <span><i class="fa fa-calendar"></i> &nbsp; July 25, 2016</span>
-                                                    <span><i class="fa fa-clock-o"></i> &nbsp; 10:15 AM - 10:15 PM</span>
-                                                    <span><i class="fa fa-map-marker"></i> &nbsp; New York, USA</span>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                <li>
-                                                    <figure>
-                                                        <img src="images/order-item-05.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">It uses a dictionary</a>
-                                                    <span><i class="fa fa-calendar"></i> &nbsp; July 25, 2016</span>
-                                                    <span><i class="fa fa-clock-o"></i> &nbsp; 10:15 AM - 10:15 PM</span>
-                                                    <span><i class="fa fa-map-marker"></i> &nbsp; New York, USA</span>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                                <li>
-                                                    <figure>
-                                                        <img src="images/order-item-06.jpg" alt="product" />
-                                                    </figure>
-                                                    <a href="#">It uses a dictionary</a>
-                                                    <span><i class="fa fa-calendar"></i> &nbsp; July 25, 2016</span>
-                                                    <span><i class="fa fa-clock-o"></i> &nbsp; 10:15 AM - 10:15 PM</span>
-                                                    <span><i class="fa fa-map-marker"></i> &nbsp; New York, USA</span>
-                                                    <div class="clearfix"></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="widget widget_archives">
-                                            <h4 class="widget-title" data-control>News Archives</h4>
-                                            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
-                                                <div class="form-group">
-                                                    <select name="month" id="month" class="form-control">
-                                                        <option>Select Month</option>
-                                                        <option>Month 01</option>
-                                                        <option>Month 02</option>
-                                                        <option>Month 03</option>
-                                                        <option>Month 04</option>
-                                                        <option>Month 05</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="widget widget_tag_cloud">
-                                            <h4 class="widget-title" data-control>News Tags</h4>
-                                            <ul>
-                                                <li><a href="#">Fashion</a></li>
-                                                <li><a href="#">Life Style</a></li>
-                                                <li><a href="#">Beauty</a></li>
-                                                <li><a href="#">Music</a></li>
-                                                <li><a href="#">Health</a></li>
-                                                <li><a href="#">Travel</a></li>
-                                                <li><a href="#">Library</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="widget twitter-widget">
-                                            <h3 class="footer-widget-title">Recent Tweets</h3>
-                                            <span class="underline left"></span>
-                                            <div id="twitter-feed-sidebar">
-                                                <ul>
-                                                    <li>
-                                                        <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
-                                                    </li>
-                                                    <li>
-                                                        <p><a href="#">@TemplateLibraria</a> Sed ut perspiciatis unde omnis iste natus error sit voluptatem. <a href="#">template-libraria.com</a></p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </aside>
-                                </div>
-                            </div>     
+                            </div>
                         </div>
                     </div>
                 </main>
             </div>
-        </div>-->
-        <!-- End: Products Section -->
+        </div>
+        <!-- End: Contact Us Section -->
 
         <!-- Start: Social Network -->
         <!--<section class="social-network section-padding">
@@ -644,6 +629,12 @@
         <!-- bxSlider -->
         <script type="text/javascript" src="js/bxslider.min.js"></script>
         
+        <!-- Google Map API -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT5k-RhvFSVIuCALkpHhKgQx6SJUd9gpI"></script>
+
+        <!-- Google Map (Custom Style) -->
+        <script type="text/javascript" src="js/google.map.js"></script>
+
         <!-- Custom Scripts -->
         <script type="text/javascript" src="js/main.js"></script>
 
