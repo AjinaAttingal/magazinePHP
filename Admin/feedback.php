@@ -214,9 +214,9 @@
                                 <td>'.$rows['feed_name'].'</td>
                                 <td>'.$rows['feed_msg'].'</td>
                                 <td>'.$rows['feed_date'].'</td>';
-                           echo     "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_feedback.php?feed_del=".$rows['feed_id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
-                        echo    '<a href="update_feedback.php?feed_upd='.$rows['feed_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
-                                </td></tr>';
+                           echo     "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_feedback.php?feed_del=".$rows['feed_id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a></td></tr>";
+                       /* echo    '<a href="update_feedback.php?feed_upd='.$rows['feed_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>;
+                              '</td></tr>';*/
                           } 
                       }
                       ?>
