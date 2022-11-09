@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-9">
                                 <!-- Header Topbar -->
-                                <div class="header-topbar hidden-sm hidden-xs">
+                                <!--<div class="header-topbar hidden-sm hidden-xs">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="topbar-info">
@@ -121,7 +121,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown active">
@@ -133,7 +133,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.php">Books &amp; Media</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
                                                 <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
@@ -143,7 +143,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.php">News &amp; Events</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
                                                 <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
@@ -158,15 +158,15 @@
                                                 <li><a href="404.html">404/Error</a></li>
                                             </ul>
                                         </li>-->
-                                        <li class="dropdown">
+                                        <!--<li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                            <!--<ul class="dropdown-menu">
+                                            <ul class="dropdown-menu">
                                                 <li><a href="blog.html">Blog Grid View</a></li>
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>-->
+                                            </ul>
                                         </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="services.html">Services</a></li>-->
+                                        <li><a href="contact.phpf">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
+                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
                             </div>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
         </div>
         <!-- End: Slider Section -->
         
-        <!-- Start: Search Section -->
+        <!-- Start: Search Section 
         <section class="search-filters">
             <div class="container">
                 <div class="filter-box">
@@ -336,7 +336,7 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- End: Search Section -->
         
         <!-- Start: Welcome Section -->
@@ -346,7 +346,7 @@
                     <div class="col-md-6">
                         <div class="welcome-wrap">
                             <div class="welcome-text">
-                                <h2 class="section-title">Welcome to the libraria</h2>
+                                <h2 class="section-title">Welcome to the Magazine</h2>
                                 <span class="underline left"></span>
                                 <p class="lead">The standard chunk of Lorem Ipsum used since</p>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humor, or non-characteristic words etc.</p>
@@ -887,7 +887,7 @@
         <!-- End: Features -->
         
         <!-- Start: Newsletter -->
-        <section class="newsletter section-padding">
+        <!--<section class="newsletter section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -903,14 +903,96 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- End: Newsletter -->
         
+        <?php
+            include("connection/db_conn.php");
+            error_reporting(0);
+            session_start();        
+             if(isset($_POST['submit'] ))
+                {
+                  if(empty($_POST['f_name'])||empty($_POST['phone'])||empty($_POST['f_message']))
+                      {
+                        $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong>field Required!</strong>
+                                          </div>';
+                                          echo "<script> alert('Updated Failed...!'); window.location.href='index.php';</script>";
+                }
+                  else
+                      {
+                          
+                        $check_cat= mysqli_query($conn, "SELECT feed_name FROM feedback where feed_name = '".$_POST['f_name']."' "); 
+                 
+                        $sql = "INSERT INTO feedback(feed_name,feed_number,feed_message) VALUES('".$_POST['f_name']."','".$_POST['phone']."','".$_POST['f_message']."')";
+                        mysqli_query($conn, $sql);
+                        $success =  '<div class="alert alert-success alert-dismissible fade show">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                New Category Added Successfully.</br></div>';
+                                                echo "<script> alert('Updated Successfully...!'); window.location.href='index.php';</script>";
+                    }
+
+                }
+                ?>
+
+
+        <section class="newsletter section-padding" >
+            <div class="container" style="margin-left: 28%;">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <?php  
+                      echo $error;
+                      echo $success; ?>
+                    <div class="wrapper">
+                        <div class="row no-gutters mb-5">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <div class="center-content">
+                                        <h2 class="section-title">Send Us Feedback</h2>
+                                    </div>
+                                    <div id="form-message-warning" class="mb-4"></div> 
+                                    <form method="POST" action="">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group" style="margin-top: 60px;">
+                                                    
+                                                    <input type="text" class="form-control" class="form-control" name="f_name" placeholder="Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                                <div class="form-group" style="margin-top: 60px;">
+                                                    
+                                                    <input type="text" class="form-control" class="form-control" name="phone"  placeholder="Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group" style="margin-top: 10px;">
+                                                    
+                                                    <input type="text" class="form-control" class="form-control" name="f_message" placeholder="Your Message">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group" style="margin-top: 10px;">
+                                                    <input type="submit" class="form-control" name="submit" value="Send Message" class="btn btn-primary">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
         <!-- Start: Meet Staff -->
         <section class="team section-padding">
             <div class="container">
                 <div class="center-content">
-                    <h2 class="section-title">Meet Our Staff</h2>
+                    <h2 class="section-title">Meet Our Author's</h2>
                     <span class="underline center"></span>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
@@ -1028,13 +1110,13 @@
         <!-- Start: Latest Blog -->
         <section class="latest-blog section-padding banner">
             <div class="container">
-                <div class="center-content">
+                <!--<div class="center-content">
                     <h2 class="section-title">Latest from Blog</h2>
                     <span class="underline center"></span>
                     <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                </div>
+                </div>-->
                 <div class="tabs-container">
-                    <div class="tabs-menu">
+                    <!--<div class="tabs-menu">
                         <ul>
                             <li class="active">
                                 <a href="#" class="bg-yellow">
@@ -1085,9 +1167,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                     <div class="tabs-list">
-                        <div class="tab-content active">
+                        <!--<div class="tab-content active">
                             <article>
                                 <figure>
                                     <img src="images/latest-blog-img-home-v1.jpg" alt="Latest Blog">
@@ -1356,7 +1438,7 @@
                                     <a class="btn btn-dark-gray">Read More</a>
                                 </div>
                             </article>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -1364,7 +1446,7 @@
         <!-- End: Latest Blog -->
         
         <!-- Start: Our Community Section -->
-        <section class="community-testimonial">
+        <!--<section class="community-testimonial">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-title">Words From our Community</h2>
@@ -1598,7 +1680,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- End: Our Community Section -->
         
         <!-- Start: News & Event -->
@@ -1715,7 +1797,7 @@
         <!-- End: News & Event -->
         
         <!-- Start: Social Network -->
-        <section class="social-network section-padding">
+        <!--<section class="social-network section-padding">
             <div class="container">
                 <div class="center-content">
                     <h2 class="section-title">Follow Us</h2>
@@ -1767,7 +1849,7 @@
                     </li>
                 </ul>
             </div>
-        </section>
+        </section>-->
         <!-- End: Social Network -->
         
         <!-- Start: Footer -->
@@ -1777,7 +1859,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6 widget-container">
                             <div id="text-2" class="widget widget_text">
-                                <h3 class="footer-widget-title">About Libraria</h3>
+                                <h3 class="footer-widget-title">About Magazine</h3>
                                 <span class="underline left"></span>
                                 <div class="textwidget">
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking.
@@ -1785,37 +1867,36 @@
                                 <address>
                                     <div class="info">
                                         <i class="fa fa-location-arrow"></i>
-                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                        <span>Ess Bee Infotech | Kadavanthra | Kochi</span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-envelope"></i>
-                                        <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                        <span><a href="mailto:support@libraria.com">aljooantony@essbeinfotech.com</a></span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-phone"></i>
-                                        <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                        <span><a href="tel:012-345-6789">+91 8606475101</a></span>
                                     </div>
                                 </address>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 widget-container">
+                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 170px;">
                             <div id="nav_menu-2" class="widget widget_nav_menu">
                                 <h3 class="footer-widget-title">Quick Links</h3>
                                 <span class="underline left"></span>
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
-                                        <li><a href="#">Library News</a></li>
+                                        <li><a href="#">News</a></li>
                                         <li><a href="#">History</a></li>
-                                        <li><a href="#">Meet Our Staff</a></li>
+                                        <li><a href="#">Meet Our Author's</a></li>
                                         <li><a href="#">Board of Trustees</a></li>
-                                        <li><a href="#">Budget</a></li>
-                                        <li><a href="#">Annual Report</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
-                        <div class="col-md-2 col-sm-6 widget-container">
+                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 165px;">
                             <div id="text-4" class="widget widget_text">
                                 <h3 class="footer-widget-title">Timing</h3>
                                 <span class="underline left"></span>
@@ -1831,7 +1912,7 @@
                                 </div>
                             </div>			
                         </div>
-                        <div class="col-md-4 col-sm-6 widget-container">
+                        <!--<div class="col-md-4 col-sm-6 widget-container">
                             <div class="widget twitter-widget">
                                 <h3 class="footer-widget-title">Latest Tweets</h3>
                                 <span class="underline left"></span>
@@ -1846,7 +1927,7 @@
                                     </ul>
                                 </div>
                             </div>			
-                        </div>
+                        </div>-->
                     </div>
                 </div>                
             </div>
@@ -1854,17 +1935,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-text col-md-3">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                            <p><a target="_blank" href="https://www.templateshub.net">Magazine</a></p>
                         </div>
                         <div class="col-md-9 pull-right">
                             <ul>
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
-                                <li><a href="news-events-list-view.html">News &amp; Events</a></li>
-                                <li><a href="#">Kids &amp; Teens</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="books-media-list-view.php">Books &amp; Media</a></li>
+                                <li><a href="news-events-list-view.php">News &amp; Events</a></li>
+                                <!--<li><a href="#">Kids &amp; Teens</a></li>
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="#">Research</a></li>
-                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog.html">Blog</a></li>-->
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

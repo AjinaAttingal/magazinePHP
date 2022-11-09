@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-md-9">
                                 <!-- Header Topbar -->
-                                <div class="header-topbar hidden-sm hidden-xs">
+                                <!--<div class="header-topbar hidden-sm hidden-xs">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="topbar-info">
@@ -125,7 +125,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown ">
@@ -137,7 +137,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown active">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.php">Books &amp; Media</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
                                                 <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
@@ -147,7 +147,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.php">News &amp; Events</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
                                                 <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
@@ -162,15 +162,15 @@
                                                 <li><a href="404.html">404/Error</a></li>
                                             </ul>
                                         </li>-->
-                                        <li class="dropdown">
+                                        <!--<li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                            <!--<ul class="dropdown-menu">
+                                            <ul class="dropdown-menu">
                                                 <li><a href="blog.html">Blog Grid View</a></li>
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>-->
+                                            </ul>
                                         </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="services.html">Services</a></li>-->
+                                        <li><a href="contact.php">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -259,13 +259,13 @@
                 <main id="main" class="site-main">
                     <div class="books-media-list">
                         <div class="container">
-                            <div class="row">
+                            <div class="row" style="margin-top: 40px;">
                                 <!-- Start: Search Section -->
-                                <section class="search-filters">
+                                <!--<section class="search-filters">
                                     <div class="container">
                                         <div class="filter-box">
                                             <h3>What are you looking for at the library?</h3>
-                                            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                                            <form action="" method="get">
                                                 <div class="col-md-4 col-sm-6">
                                                     <div class="form-group">
                                                         <label class="sr-only" for="keywords">Search by Keyword</label>
@@ -304,7 +304,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </section>
+                                </section>-->
                                 <!-- End: Search Section -->
                             </div>
                             <div class="row">
@@ -1035,7 +1035,7 @@
                         <section class="team staff-picks">
                             <div class="container">
                                 <div class="center-content">
-                                    <h2 class="section-title">Staff Picks</h2>
+                                    <h2 class="section-title">Author's</h2>
                                     <span class="underline center"></span>
                                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </div>
@@ -1171,7 +1171,7 @@
         <!-- End: Books & Media Section -->
 
         <!-- Start: Social Network -->
-        <section class="social-network section-padding">
+        <!--<section class="social-network section-padding">
             <div class="container">
                 <div class="center-content">
                     <h2 class="section-title">Follow Us</h2>
@@ -1223,7 +1223,7 @@
                     </li>
                 </ul>
             </div>
-        </section>
+        </section>-->
         <!-- End: Social Network -->
 
         <!-- Start: Footer -->
@@ -1233,7 +1233,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6 widget-container">
                             <div id="text-2" class="widget widget_text">
-                                <h3 class="footer-widget-title">About Libraria</h3>
+                                <h3 class="footer-widget-title">About Magazine</h3>
                                 <span class="underline left"></span>
                                 <div class="textwidget">
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking.
@@ -1241,37 +1241,36 @@
                                 <address>
                                     <div class="info">
                                         <i class="fa fa-location-arrow"></i>
-                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
+                                        <span>Ess Bee Infotech | Kadavanthra | Kochi</span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-envelope"></i>
-                                        <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
+                                        <span><a href="mailto:support@libraria.com">aljooantony@essbeinfotech.com</a></span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-phone"></i>
-                                        <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
+                                        <span><a href="tel:012-345-6789">+91 8606475101</a></span>
                                     </div>
                                 </address>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 widget-container">
+                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 170px;">
                             <div id="nav_menu-2" class="widget widget_nav_menu">
                                 <h3 class="footer-widget-title">Quick Links</h3>
                                 <span class="underline left"></span>
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
-                                        <li><a href="#">Library News</a></li>
+                                        <li><a href="#">News</a></li>
                                         <li><a href="#">History</a></li>
-                                        <li><a href="#">Meet Our Staff</a></li>
+                                        <li><a href="#">Meet Our Author's</a></li>
                                         <li><a href="#">Board of Trustees</a></li>
-                                        <li><a href="#">Budget</a></li>
-                                        <li><a href="#">Annual Report</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
-                        <div class="col-md-2 col-sm-6 widget-container">
+                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 165px;">
                             <div id="text-4" class="widget widget_text">
                                 <h3 class="footer-widget-title">Timing</h3>
                                 <span class="underline left"></span>
@@ -1285,9 +1284,9 @@
                                         <li><a href="#">Branches</a></li>
                                     </ul>
                                 </div>
-                            </div>			
+                            </div>          
                         </div>
-                        <div class="col-md-4 col-sm-6 widget-container">
+                        <!--<div class="col-md-4 col-sm-6 widget-container">
                             <div class="widget twitter-widget">
                                 <h3 class="footer-widget-title">Latest Tweets</h3>
                                 <span class="underline left"></span>
@@ -1301,8 +1300,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>			
-                        </div>
+                            </div>          
+                        </div>-->
                     </div>
                 </div>                
             </div>
@@ -1310,17 +1309,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-text col-md-3">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+                            <p><a target="_blank" href="https://www.templateshub.net">Magazine</a></p>
                         </div>
                         <div class="col-md-9 pull-right">
                             <ul>
-                                <li><a href="index-2.html">Home</a></li>
-                                <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
-                                <li><a href="news-events-list-view.html">News &amp; Events</a></li>
-                                <li><a href="#">Kids &amp; Teens</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="books-media-list-view.php">Books &amp; Media</a></li>
+                                <li><a href="news-events-list-view.php">News &amp; Events</a></li>
+                                <!--<li><a href="#">Kids &amp; Teens</a></li>
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="#">Research</a></li>
-                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog.html">Blog</a></li>-->
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>
