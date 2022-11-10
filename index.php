@@ -263,7 +263,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
+                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
                             </div>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
+                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
                             </div>
                         </div>
                     </div>
@@ -426,7 +426,7 @@
 
     <!-- ##### Product Area Start ##### -->
     <section class="new-arrivals-products-area bg-gray section-padding-100">
-        <div >
+        <div  >
             <div class="row">
 
                 <?php
@@ -439,13 +439,13 @@
                        echo "<div class='product-info mt-15 text-center'><th>".$user_data['subcat_name']."</td></div>"; -->
                      
                         <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-product-area mb-50 wow fadeInUp" >
+                <div class="col-12 col-sm-6 col-lg-3" >
+                    <div class="single-product-area mb-50 wow fadeInUp">
                         <!-- Product Image -->
                         <div class="product-img">
                             <a href="shop-details.html">
                                 <!-- <img src="Upload/SubCategory" alt=""> -->
-                                <?php  echo "<img style='width:250px height:200px ' src='Admin/img/Magazine/".$user_data['mag_img']."'>" ?>
+                                <?php  echo "<img style='width:320px; height:420px; margin-left:10px;' src='Admin/img/Magazine/".$user_data['mag_img']."'>" ?>
                                 </a>
 
 <!--                            <div class="product-meta d-flex">-->
@@ -455,9 +455,7 @@
 <!--                            </div>-->
                         </div>
                         <!-- Product Info -->
-                        <div class="product-info mt-15 text-center text-" >
-                            
-                                <p style="color: #ff7236;"><?php echo'<a style="font-size:18px" href="pdf.php?mag_id='.$user_data['mag_id'].'">'.$user_data['mag_name']."</a>"; ?></p>
+                                <p style="color: #ff7236; text-align: center; padding-top: 5px;"><?php echo'<a style="font-size:18px " href="pdf.php?mag_id='.$user_data['mag_id'].'">'.$user_data['mag_name']."</a>"; ?></p>
 
                         </div>
                         

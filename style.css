@@ -16371,7 +16371,7 @@ a:focus {
 @media (max-width: 767px) {
   .single-book-box {
     border-width: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding-bottom: 60px;
   }
 }
@@ -16560,9 +16560,9 @@ a:focus {
   background-color: #fff;
   display: inline-block;
   position: absolute;
-  right: -10px;
-  width: 567px;
-  padding: 49px 30px;
+  
+  width: 520px;
+  padding: 80px 10px;
   top: 50%;
   transform: translateY(-50%);
   -moz-transition: all 0.3s ease-in-out;
