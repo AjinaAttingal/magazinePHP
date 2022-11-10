@@ -51,16 +51,16 @@ if(isset($_POST['fname']) &&
                $stmt = $conn->prepare($sql);
                $stmt->execute([$fname, $uname, $pass, $new_img_name]);
 
-               header("Location: ../index.php?success=Your account has been created successfully");
+               header("Location: ../user_form.php?success=Your account has been created successfully");
                 exit;
             }else {
                $em = "You can't upload files of this type";
-               header("Location: ../index.php?error=$em&$data");
+               header("Location: ../user_form.php?error=$em&$data");
                exit;
             }
          }else {
             $em = "unknown error occurred!";
-            header("Location: ../index.php?error=$em&$data");
+            header("Location: ../user_form.php?error=$em&$data");
             exit;
          }
 
@@ -71,13 +71,13 @@ if(isset($_POST['fname']) &&
        	$stmt = $conn->prepare($sql);
        	$stmt->execute([$fname, $uname, $pass]);
 
-       	header("Location: ../index.php?success=Your account has been created successfully");
+       	header("Location: ../user_form.php?success=Your account has been created successfully");
    	    exit;
       }
     }
 
 
 }else {
-	header("Location: ../index.php?error=error");
+	header("Location: ../user_form.php?error=error");
 	exit;
 }

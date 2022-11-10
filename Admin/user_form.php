@@ -178,7 +178,7 @@
 
             
             <center>
-                <form class="shadow w-450 p-3" action="" method="post" enctype="multipart/form-data">
+                <form class="shadow w-450 p-3" action="php/signup.php" method="post" enctype="multipart/form-data">
                     <div style="margin-top: 60px;">
                         <h4 class="display-4  fs-1">Create Profile</h4><br>
                         already have an account !<a href="login.php" style="color: white;">Login</a></button><br><br>
