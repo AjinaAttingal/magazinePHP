@@ -14,15 +14,15 @@ if(isset($_POST['fname']) &&
     
     if (empty($fname)) {
     	$em = "Full name is required";
-    	header("Location: ../index.php?error=$em&$data");
+    	header("Location: ../user_form.php?error=$em&$data");
 	    exit;
     }else if(empty($uname)){
     	$em = "User name is required";
-    	header("Location: ../index.php?error=$em&$data");
+    	header("Location: ../user_form.php?error=$em&$data");
 	    exit;
     }else if(empty($pass)){
     	$em = "Password is required";
-    	header("Location: ../index.php?error=$em&$data");
+    	header("Location: ../user_form.php?error=$em&$data");
 	    exit;
     }else {
       // hashing the password

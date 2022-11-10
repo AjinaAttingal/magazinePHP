@@ -5,6 +5,7 @@ session_start();
 
 
 if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
+    
  ?>
 <head>
     <meta charset="utf-8">
@@ -159,7 +160,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             
-                            <img class="rounded-circle me-lg-2" src="upload/default-pp.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="upload/<?=$_SESSION['pp']?>" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?=$_SESSION['fname']?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -179,7 +180,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
             <div class="d-flex justify-content-center align-items-center vh-100">
                 
                 <div class="shadow w-350 p-3 text-center">
-                <img class="rounded-circle" src="upload/default-pp.jpg" alt="" style="width: 100%; height: 130px;">
+                <img class="rounded-circle" src="upload/<?=$_SESSION['pp']?>" alt="" style="width: 100%; height: 130px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                    
                 <!--    <img style="width: 100%; height: 130px;" src="upload/<?=$_SESSION['pp']?>"
