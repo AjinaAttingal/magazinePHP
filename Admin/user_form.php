@@ -52,16 +52,16 @@
                }else 
                 {
                   $em = "You can't upload files of this type";
-                  header("Location: user_form.php?error=$em&$data");
-                 // echo "<script> alert('You can't upload files of this type...!'); window.location.href='home.php';</script>";
+                 // header("Location: user_form.php?error=$em&$data");
+                 echo "<script> alert('You can't upload files of this type...!'); window.location.href='user_form.php';</script>";
 
                   exit;
                  }
             }else 
             {
                $em = "unknown error occurred!";
-               header("Location: user_form.php?error=$em&$data");
-//echo "<script> alert('unknown error occurred...!'); window.location.href='home.php';</script>";
+              // header("Location: user_form.php?error=$em&$data");
+                echo "<script> alert('unknown error occurred...!'); window.location.href='user_form.php';</script>";
                exit;
             }
    
@@ -71,12 +71,12 @@
             // $stmt = $conn->prepare($sql);
              // $stmt->execute([$fname, $uname, $pass]);
               mysqli_query($conn, $sql);
-              header("Location: login.php?success=Your account has been registered successfully");
-             // echo "<script> alert('Updated Successfully...!'); window.location.href='home.php';</script>";
+             // header("Location: login.php?success=Your account has been registered successfully");
+             echo "<script> alert('Registered Successfully...!'); window.location.href='login.php';</script>";
               exit;
          }
        }
-       
+      
 ?>   
 <head>
     <meta charset="utf-8">

@@ -53,17 +53,17 @@
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Magazine</h3>
                             </a>
-                            <?php if(isset($_GET['error'])){ ?>
+                           <!-- <?php //if(isset($_GET['error'])){ ?>
                             <div class="alert alert-danger" role="alert">
-                              <?php echo $_GET['error']; ?>
+                              <?php //echo $_GET['error']; ?>
                             </div>
-                            <?php } ?>
+                            <?php //} ?>-->
                             <h3>Sign In</h3>
 
                         </div>
                         <form action="php/login.php" method="post">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" placeholder="name@example.com" name="uname" value="<?php echo (isset($_GET['uname']))?$_GET['uname']:"" ?>">
+                                <input type="text" class="form-control" placeholder="username" name="uname">
                                 <label>User Name</label>
                             </div>
                             <div class="form-floating mb-4">
