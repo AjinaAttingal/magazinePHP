@@ -7,16 +7,56 @@
     // Insert record
         if(isset($_POST['submit'])){
 
-          $title = $_POST['title'];
-          $short_desc = $_POST['short_desc'];
-          $long_desc = $_POST['long_desc'];
+            if(empty($_POST['title']))
+            {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>field Required!</strong>
+                              </div>';
+            }
+      else
+          
+            {
+            $error = '<div class="alert alert-danger alert-dismissible fade show">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      <strong>Magazine already exist!</strong>
+                                    </div>';
+            
+                        $fname =  $_FILES["image"]["name"];
+                        $temp = $_FILES["image"]["tmp_name"];
+                        
+                        $fsize = $_FILES['image']['size'];
+                        $extension = explode('.',$fname);
+                        $extension = strtolower(end($extension));  
+                        $fnew = uniqid().'.'.$extension;
+                        
+                        $store = "img/Text/".$fname;                    
+                    if($extension == 'jpg'||$extension == 'png'||$extension == 'gif' )
+                    {        
+                        if($fsize>=100000000)
+                        {
+                        $error =  '<div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>Max Image Size is 1024kb!</strong> Try different Image.
+                                    </div>';
+                        }
 
-          if($title != ''){
+                      $title = $_POST['title'];
+                      $short_desc = $_POST['short_desc'];
+                      $long_desc = $_POST['long_desc'];
 
-            mysqli_query($conn, "INSERT INTO contents(title,short_desc,long_desc) VALUES('".$title."','".$short_desc."','".$long_desc."') ");
-            header('location: text.php');
-          }
-        }
+                      if($title != ''){
+
+                        mysqli_query($conn, "INSERT INTO contents(title,short_desc,long_desc,image) VALUES('".$title."','".$short_desc."','".$long_desc."','".$fname."') ");
+                        header('location: text.php');
+                        move_uploaded_file($temp,$store);
+                      }
+                     
+                       
+                      
+                    }
+                }
+            }
 
     /*if($_SESSION['uname'] != 'admin'){
           header("location:login.php");
@@ -169,8 +209,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
+
                     <a href="home.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
@@ -283,10 +323,10 @@
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Add Magazine</h6>
                             <div class="card-body">
-                                <form method='post' action=''>
+                                <!--<form method='post' action=''>
                                    Title : 
                                    <input type="text" name="title" ><br>
-
+                                   <input type="file" name="file"><br>
                                    Short Description: 
                                    <textarea id='short_desc' name='short_desc'>       </textarea><br>
 
@@ -294,6 +334,74 @@
                                    <textarea id='long_desc' name='long_desc' ></textarea><br>
 
                                    <input type="submit" name="submit" value="Submit">
+                                </form>-->
+
+
+                                <form method=POST action=""  enctype="multipart/form-data">
+                                    <div class="form-body">
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name</label>
+                                                    <input type="text" name="title" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Short Description</label>
+                                                    <input type="text" name="short_desc" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    Long Description: 
+                                                    <textarea id='long_desc' name='long_desc' ></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Image</label>
+                                                    <input type="file" name="image"  id="lastName" class="form-control bg-dark" placeholder="12n">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--<div class="row p-t-20">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category Name</label>
+                                                    <input type="text" name="sub_category_name" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <!--<div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Category</label>
+                                                    <select name="category_name" class="form-control bg-dark" data-placeholder="Choose a Category" tabindex="1">
+                                                       <option>--Select Category--</option>-->
+                                                       
+                                         
+                                                      <?php /*$ssql ="select * from category";
+                                                        $res=mysqli_query($conn, $ssql); 
+                                                        while($row=mysqli_fetch_array($res))  
+                                                        {
+                                                          echo' <option value="'.$row['cat_name'].'">'.$row['cat_name'].'</option>';;
+                                                        }*/  
+                                                                               
+                                                        ?> 
+                                                    <!--</select>
+                                                </div>
+                                            </div>-->
+                                        <!--<div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Upload file</label>
+                                                    <input type="file" name="mag_file"  id="lName" class="form-control bg-dark" placeholder="12n">
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                    <div class="form-actions" style="margin-left: 95%; margin-top: 20px;">
+                                        <input type="submit" name="submit" class="btn btn-primary" value="Save">
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -316,7 +424,7 @@
                                     <th>Title</th>
                                     <th>Short Description</th>
                                     <th>Long Description</th>
-                                    
+                                    <th>Image</th>
                                     <th>Action</th>
                                   </tr>
                                
@@ -340,9 +448,10 @@
                                      echo ' <tr>
                                             <td>'.$rows['id'].'</td>
                                             <td>'.$rows['title'].'</td>
-                                           
+                                            
                                             <td>'.$rows['short_desc'].'</td>
-                                            <td>'.$rows['long_desc'].'</td>';
+                                            <td>'.$rows['long_desc'].'</td>
+                                            <td><img src="img/Text/'.$rows['image'].'" width="50" height="50"></td>';
                                      echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_text.php?text_del=".$rows['id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
                                       echo   '<a href="update_texxt.php?text_upd='.$rows['id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
@@ -657,7 +766,7 @@
     <script type="text/javascript">
 
         // Initialize CKEditor
-        CKEDITOR.inline( 'short_desc' );
+        
 
         CKEDITOR.replace('long_desc',{
 

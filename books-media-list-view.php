@@ -323,21 +323,21 @@
                                             <div class="col-md-4 col-sm-4">
                                                 <div class="filter-result">Showing items 1 to 9 of 19 total</div>
                                             </div>
-                                            <div class="col-md-3 col-sm-3 pull-right">
+                                            <!--<div class="col-md-3 col-sm-3 pull-right">
                                                 <div class="filter-toggle">
                                                     <a href="books-media-gird-view-v1.html"><i class="glyphicon glyphicon-th-large"></i></a>
                                                     <a href="books-media-list-view.html" class="active"><i class="glyphicon glyphicon-th-list"></i></a>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                     <div class="books-list">
                                         <article> 
-                                            <div class="single-book-box">                                                
+                                            <div class="single-book-box" >                                                
                                                 <div class="post-thumbnail">
                                                     <div class="book-list-icon yellow-icon"></div>
-                                                    <a href="books-media-detail-v1.html"><img alt="Book" src="images/books-media/list-view/book-media-01.jpg" /></a>                                                                 </div>
-                                                <div class="post-detail">
+                                                    <a href="books-media-detail-v1.php"><img alt="Book" src="images/books-media/list-view/book-media-01.jpg" /></a>                                                                 </div>
+                                                <div class="post-detail" >
                                                     <div class="books-social-sharing">
                                                         <ul>
                                                             <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -375,8 +375,8 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <header class="entry-header">
-                                                        <div class="row">
+                                                    <header class="entry-header" >
+                                                        <div class="row" >
                                                             <div class="col-sm-6">
                                                                 <h3 class="entry-title">
                                                                     <a href="books-media-detail-v1.html">The Great Gatsby</a>
