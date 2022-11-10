@@ -52,7 +52,11 @@ if(isset($_POST['uname']) &&
                   $_SESSION['pp'] = $pp;
                  header("Location: ../home.php");
                  exit;
-             }
+             }else {
+               $em = "Not approved!!!";
+               header("Location: ../login.php?error=$em&$data");
+               exit;}
+
             }else {
                $em = "Incorect User name or password";
                header("Location: ../login.php?error=$em&$data");
