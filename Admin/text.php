@@ -440,6 +440,8 @@
                 </div>
              <div class="container-fluid pt-4 px-4" >
                 <div class="row g-4">
+                    
+                        
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
 
                         <div class="h-100 bg-secondary rounded p-4">
@@ -448,6 +450,27 @@
                             </div>
 
                             <div class="table-responsive m-t-40">
+                                <div style="border:1px solid green; ">
+                            <?php
+                            include_once("../connection/db_conn.php");
+                            $showRecordPerPage = 10;
+                            if(isset($_GET['page']) && !empty($_GET['page'])){
+                                $currentPage = $_GET['page'];
+                            }else{
+                                $currentPage = 1;
+                            }
+                            $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
+                            $total = "SELECT * FROM contents where status=0";
+                            $allResult = mysqli_query($conn, $total);
+                            $totalAll = mysqli_num_rows($allResult);
+                            $lastPage = ceil($totalAll/$showRecordPerPage);
+                            $firstPage = 1;
+                            $nextPage = $currentPage + 1;
+                            $previousPage = $currentPage - 1;
+                            $query = "SELECT * FROM `contents` where status=0 LIMIT $startFrom, $showRecordPerPage";
+                            $Result = mysqli_query($conn, $query);      
+                            ?>
+                        </div>
                               <table id="myTable" class="table table-bordered table-hover table-striped">
                                 <thead class="thead-dark">
                                   <tr>
@@ -469,18 +492,11 @@
 
                                 <!--view-->      
                                 <?php
-                                    $sql="SELECT * FROM contents order by id desc";
-                                $query=mysqli_query($conn,$sql);
-                                if(!mysqli_num_rows($query) > 0 )
-                                  {
-                                    echo '<td colspan="7"><center>No Magazine-Data!</center></td>';
-                                  }
-                                else
-                                  {       
-                                    while($rows=mysqli_fetch_array($query))
+                                       
+                                    while($rows=mysqli_fetch_assoc($Result))
                                     {
-                                        
-                                     echo ' <tr>
+                                   ?>     
+                                  <?php   echo ' <tr>
                                             <td>'.$rows['id'].'</td>
                                             <td>'.$rows['title'].'</td>
                                             
@@ -495,16 +511,41 @@
                                       echo   '<a href="update_texxt.php?text_upd='.$rows['id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
                                       } 
-                                  }
+                                  
                                   ?>
 
                                 </tbody>
                               </table>
+                              <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                        <?php if($currentPage != $firstPage) { ?>
+                            <li class="page-item">
+                            <a class="page-link" href="?page=<?php echo $firstPage ?>" tabindex="-1" aria-label="Previous">
+                                <span aria-hidden="true">First</span>           
+                            </a>
+                            </li>
+                            <?php } ?>
+                            <?php if($currentPage >= 2) { ?>
+                                <li class="page-item"><a class="page-link" href="?page=<?php echo $previousPage ?>"><?php echo $previousPage ?></a></li>
+                            <?php } ?>
+                            <li class="page-item active"><a class="page-link" href="?page=<?php echo $currentPage ?>"><?php echo $currentPage ?></a></li>
+                            <?php if($currentPage != $lastPage) { ?>
+                                <li class="page-item"><a class="page-link" href="?page=<?php echo $nextPage ?>"><?php echo $nextPage ?></a></li>
+                                <li class="page-item">
+                                <a class="page-link" href="?page=<?php echo $lastPage ?>" aria-label="Next">
+                                    <span aria-hidden="true">Last</span>
+                                </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                        
+                        </nav>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+ 
         
                             <!--<table class="table">
                                 <thead>
