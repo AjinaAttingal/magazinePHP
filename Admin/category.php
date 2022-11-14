@@ -205,11 +205,11 @@
 
             <!-- Widget Start -->
             <div class="container-fluid pt-4 px-4" >
-                <div class="row g-4">
+                <div class="col-lg-12">
                     <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Add Category</h6>
+                        <div class="h-100 bg-secondary rounded p-4 ">
+                            <div class="d-flex align-items-center justify-content-between mb-2 card-header" style="background-color:#dc3545 ;">
+                                <h6 class="mb-0 text-white">Add Category</h6>
                                 
                             </div>
                             <form method=POST action="">
@@ -240,7 +240,7 @@
 
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Category Details</h6>       
+                                <h6 class="mb-0 ">Category Details</h6>       
                             </div>
 
                             <div class="table-responsive m-t-40">

@@ -308,6 +308,7 @@
                                 <!-- End: Search Section -->
                             </div>
                             <div class="row">
+                                
                                 <div class="col-md-9 col-md-push-3">
                                     <div class="filter-options margin-list">
                                         <div class="row">                                            
@@ -332,13 +333,18 @@
                                         </div>
                                     </div>
                                     <div class="books-list">
+                                        <?php
+                                    include("connection/db_conn.php");
+                                      // Fetch all users data from database
+                                      $result=mysqli_query($conn,"SELECT * FROM contents ORDER BY title,short_desc,long_desc,image,edition,author,publisher,isbn DESC");
+                                      while ($user_data=mysqli_fetch_array($result)) { ?>
                                         <article> 
                                             <div class="single-book-box" >                                                
                                                 <div class="post-thumbnail">
                                                     <div class="book-list-icon yellow-icon"></div>
-                                                    <a href="books-media-detail-v1.php"><img alt="Book" src="images/books-media/list-view/book-media-01.jpg" /></a>                                                                 </div>
-                                                <div class="post-detail" >
-                                                    <div class="books-social-sharing">
+                                                    <?php  echo "<img style='width:320px; height:420px;' src='Admin/img/Text/".$user_data['image']."'>" ?>                                                                 </div>
+                                                <div class="post-detail" style="width: 514px; height: 342px; margin-right: 11px;" >
+                                                    <div class="books-social-sharing" >
                                                         <ul>
                                                             <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -347,7 +353,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="optional-links">
+                                                    <div class="optional-links" style=" margin-top: 8px;">
                                                         <ul>
                                                             <li>
                                                                 <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
@@ -378,18 +384,26 @@
                                                     <header class="entry-header" >
                                                         <div class="row" >
                                                             <div class="col-sm-6">
-                                                                <h3 class="entry-title">
-                                                                    <a href="books-media-detail-v1.html">The Great Gatsby</a>
+                                                                <h3 class="entry-title"><span style="font: oblique 25px monospace; cursor: pointer;">
+                                                                    <?php echo "<a href:'' >".$user_data['title']."</a>";?></span>
                                                                 </h3>
                                                                 <ul>
-                                                                    <li><strong>Author:</strong> F. Scott Fitzgerald</li>
-                                                                    <li><strong>ISBN:</strong> 9781581573268</li>
+                                                                    <li>
+                                                                        <h3 class="entry-title"><span style="font-size: 12px;">Author: </span><?php echo "<a href:'' >".$user_data['author']."</a>";?></h3>
+                                                                    </li>
+                                                                    <li>
+                                                                        <h3 class="entry-title"><span style="font-size: 12px;">ISBN: </span><?php echo "<a href:'' >".$user_data['isbn']."</a>";?></h3>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <ul>
-                                                                    <li><strong>Edition:</strong> First editio</li>
-                                                                    <li><strong>Local Availability:</strong> 0 (of 1)</li>
+                                                                    <li>
+                                                                        <h3 class="entry-title"><span style="font-size: 12px;">Edition: </span><?php echo "<a href:'' >".$user_data['edition']."</a>";?></h3>
+                                                                    </li>
+                                                                    <li>
+                                                                        <h3 class="entry-title"><span style="font-size: 12px;">Publisher: </span><?php echo "<a href:'' >".$user_data['publisher']."</a>";?></h3>
+                                                                    </li>
                                                                     <li>
                                                                         <div class="rating">
                                                                             <strong>Rating: </strong>
@@ -405,7 +419,7 @@
                                                         </div>
                                                     </header>
                                                     <div class="entry-content">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                                        <p style="color: #ff7236; text-align: center; padding-top: 5px;"><?php echo'<a style="font-size:18px " href="#?id='.$user_data['id'].'">'.$user_data['long_desc']."</a>"; ?></p>
                                                     </div>
                                                     <footer class="entry-footer">
                                                         <a class="btn btn-dark-gray" href="books-media-detail-v1.html">Read More</a>
@@ -413,15 +427,17 @@
                                                 </div>
                                                 <div class="clear"></div>
                                             </div>
+                                            <?php } 
+              ?>
                                         </article>
-                                        <article> 
+                                        <!--<article> 
                                             <div class="single-book-box">
                                                 <div class="post-thumbnail">
                                                     <div class="book-list-icon light-green-icon"></div>
                                                     <a href="books-media-detail-v1.html"><img alt="Book" src="images/books-media/list-view/book-media-02.jpg" /></a>                                                    
                                                 </div>
-                                                <div class="post-detail">
-                                                    <div class="books-social-sharing">
+                                                <div class="post-detail" style="width: 535px; height: 384px; margin-right: 11px;">
+                                                    <div class="books-social-sharing " style="background-color: #f3f3f3; ">
                                                         <ul>
                                                             <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
                                                             <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -430,7 +446,7 @@
                                                             <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="optional-links">
+                                                    <div class="optional-links" style="margin-top: 26px;">
                                                         <ul>
                                                             <li>
                                                                 <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
@@ -813,7 +829,7 @@
                                                     </footer>
                                                 </div>
                                             </div>
-                                        </article>
+                                        </article>-->
                                     </div>
                                     <nav class="navigation pagination text-center">
                                         <h2 class="screen-reader-text">Posts navigation</h2>

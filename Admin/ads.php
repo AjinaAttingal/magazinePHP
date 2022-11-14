@@ -252,9 +252,12 @@
             <!-- Chart Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6" style="width: 100%;">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Ads Department</h6>
+                    <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
+                        <div class="h-100 bg-secondary rounded p-4 ">
+                            <div class="d-flex align-items-center justify-content-between mb-2 card-header" style="background-color:#dc3545 ;">
+                                <h6 class="mb-0 text-white">Ads Department</h6>
+                                
+                            </div>
                             <form method=POST action="#" enctype="multipart/form-data">
                                 <div class="d-flex align-items-center" style="margin-top: 50px;">
                                     <!--<img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">-->

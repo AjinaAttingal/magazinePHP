@@ -44,10 +44,14 @@
                       $title = $_POST['title'];
                       $short_desc = $_POST['short_desc'];
                       $long_desc = $_POST['long_desc'];
+                      $edition = $_POST['edition'];
+                      $author = $_POST['author'];
+                      $publisher = $_POST['publisher'];
+                      $isbn = $_POST['isbn'];
 
                       if($title != ''){
 
-                        mysqli_query($conn, "INSERT INTO contents(title,short_desc,long_desc,image) VALUES('".$title."','".$short_desc."','".$long_desc."','".$fname."') ");
+                        mysqli_query($conn, "INSERT INTO contents(title,short_desc,long_desc,image,edition,author,publisher,isbn) VALUES('".$title."','".$short_desc."','".$long_desc."','".$fname."','".$edition."','".$author."','".$publisher."','".$isbn."') ");
                         header('location: text.php');
                         move_uploaded_file($temp,$store);
                       }
@@ -352,10 +356,11 @@
                                                     <input type="text" name="short_desc" class="form-control" >
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    Long Description: 
-                                                    <textarea id='long_desc' name='long_desc' ></textarea>
+                                                    <label class="control-label">Edition</label>
+                                                    <input type="text" name="edition" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -364,6 +369,32 @@
                                                     <input type="file" name="image"  id="lastName" class="form-control bg-dark" placeholder="12n">
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Author</label>
+                                                    <input type="text" name="author" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Publisher</label>
+                                                    <input type="text" name="publisher" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">ISBN Number</label>
+                                                    <input type="text" name="isbn" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    Long Description: 
+                                                    <textarea id='long_desc' name='long_desc' ></textarea>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                         </div>
                                         <!--<div class="row p-t-20">
                                             <div class="col-md-12">
@@ -425,6 +456,10 @@
                                     <th>Short Description</th>
                                     <th>Long Description</th>
                                     <th>Image</th>
+                                    <th>Edition</th>
+                                    <th>Author</th>
+                                    <th>Publisher</th>
+                                    <th>Isbn Number</th>
                                     <th>Action</th>
                                   </tr>
                                
@@ -451,7 +486,11 @@
                                             
                                             <td>'.$rows['short_desc'].'</td>
                                             <td>'.$rows['long_desc'].'</td>
-                                            <td><img src="img/Text/'.$rows['image'].'" width="50" height="50"></td>';
+                                            <td><img src="img/Text/'.$rows['image'].'" width="50" height="50"></td>
+                                            <td>'.$rows['edition'].'</td>
+                                            <td>'.$rows['author'].'</td>
+                                            <td>'.$rows['publisher'].'</td>
+                                            <td>'.$rows['isbn'].'</td>';
                                      echo   "<td><a  onClick=\"javascript:return confirm('Do you wants to delete this?');\" href='delete_text.php?text_del=".$rows['id']."' class='btn btn-danger btn-flat btn-addon btn-xs m-b-10'><i class='fa fa-trash' style='font-size:16px'></i></a>"; 
                                       echo   '<a href="update_texxt.php?text_upd='.$rows['id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="fa fa-edit"></i></a>
                                             </td></tr>';
