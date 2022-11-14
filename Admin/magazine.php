@@ -267,9 +267,12 @@
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6" style="width: 100%;">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Add Magazine</h6>
+                    <div class="col-sm-12 col-md-6 col-xl-4" style="width: 100%;">
+                        <div class="h-100 bg-secondary rounded p-4 ">
+                            <div class="d-flex align-items-center justify-content-between mb-2 card-header" style="background-color:#dc3545 ;">
+                                <h6 class="mb-0 text-white">Add Magazine</h6>
+                                
+                            </div>
                             <div class="card-body">
                                 <form method=POST action=""  enctype="multipart/form-data">
                                     <div class="form-body">
