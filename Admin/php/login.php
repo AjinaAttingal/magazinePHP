@@ -44,7 +44,7 @@ if(isset($_POST['uname']) &&
                  $_SESSION['id'] = $id;
                  $_SESSION['fname'] = $fname;
                  $_SESSION['pp'] = $pp;
-                 header("Location: ../user_profile.php");
+                 header("Location: ../user/user_profile.php");
                  exit;
                }else if($status=='0'){
                   $_SESSION['id'] = $id;
