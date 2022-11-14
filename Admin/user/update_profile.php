@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include("../connection/db_conn.php");
+    include("../../connection/db_conn.php");
     error_reporting(0);
     session_start();
     /*if($_SESSION['uname'] != 'admin'){
@@ -33,11 +33,11 @@
                if(in_array($img_ex_to_lc, $allowed_exs))
                {
                   $new_img_name = uniqid($uname, true).'.'.$img_ex_to_lc;
-                  $img_upload_path = 'upload/'.$new_img_name;
+                  $img_upload_path = '../upload/'.$new_img_name;
                   move_uploaded_file($tmp_name, $img_upload_path);
    
                   // Insert into Database
-                  $sql = "UPDATE  users SET fname='$_POST[fname]',username='$_POST[uname]',password='$_POST[pass]',pp='$new_img_name'  where fname='$_GET[pro_upd]'";
+                  $sql = "UPDATE  users SET fname='$_POST[fname]',username='$_POST[uname]',pp='$new_img_name'  where fname='$_GET[pro_upd]'";
                 
                   //$stmt = $conn->prepare($sql);
                  // $stmt->execute([$fname, $uname, $pass, $new_img_name]);
@@ -50,7 +50,7 @@
                 {
                   $em = "You can't upload files of this type";
                  // header("Location: home.php?error=$em&$data");
-                  echo "<script> alert('You can't upload files of this type...!'); window.location.href='home.php';</script>";
+                  echo "<script> alert('You can't upload files of this type...!'); window.location.href='user_profile.php';</script>";
 
                   exit;
                  }
@@ -58,22 +58,44 @@
             {
                $em = "unknown error occurred!";
               // header("Location: home.php?error=$em&$data");
-               echo "<script> alert('unknown error occurred...!'); window.location.href='home.php';</script>";
+               echo "<script> alert('unknown error occurred...!'); window.location.href='user_profile.php';</script>";
                exit;
             }
    
            
          }else {
-              $sql = "UPDATE  users SET fname='$_POST[fname]', username='$_POST[uname]', password='$_POST[pass]' where fname='$_GET[pro_upd]'";
-             // $stmt = $conn->prepare($sql);
-             // $stmt->execute([$fname, $uname, $pass]);
+              $sql = "UPDATE  users SET fname='$_POST[fname]', username='$_POST[uname]' where fname='$_GET[pro_upd]'";
+            /* $pass = password_hash($pass, PASSWORD_DEFAULT);
+              $sql="UPDATE  users SET fname=?, username=?, password=? where fname='$_GET[pro_upd]'";
+               $stmt = $conn->prepare($sql);
+               $stmt->execute([$fname, $uname, $pass]);*/
               mysqli_query($conn, $sql);
-             // header("Location: home.php?success=Your account has been edited successfully");
+        
+        
+             /*   if (isset($_POST['newpass'])){
+             $pw=@$conn->query("select password from users where fname= '" . $_SESSION["fname"] . "'");
+             $row = $pw->fetch_object();
+             $pawo = $row->password ; 
+
+         if (md5($_POST['oldpass'])== $pawo){
+            
+            if ($_POST['newpass']==$_POST['conpass']){
+                @$conn->query("UPDATE users SET password='" . md5($_POST['newpass']) . "' WHERE fname='" . $_SESSION['fname'] . "'");
+                echo "success";
+            }
+                else { echo "Passwords do not match"; }
+        }
+
+    else { echo "Wrong password entered";}
+    }
+} */
+        // }
+             header("Location: update_profile.php?success=Your account has been edited successfully");
               echo "<script> alert('Updated Successfully...!'); window.location.href='user_profile.php';</script>";
               exit;
          }
        }
-       
+      
 ?>   
 <head>
     <meta charset="utf-8">
@@ -85,7 +107,7 @@
     
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,15 +119,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="style/css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/css/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="style/css/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style/css/css/styles.css">
+    <link href="../style/css/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style/css/css/styles.css">
 </head>
 
 <body>
@@ -119,12 +141,12 @@
         <!-- Spinner End -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="user_profile.php" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Magazine</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="upload/<?=$_SESSION['pp']?>" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="../upload/<?=$_SESSION['pp']?>" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -134,7 +156,7 @@
                 </div>
 
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="user_profile.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="category.php" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Category</a>
                     <a href="magazine.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Magazine</a>
                     <a href="feedback.php" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedback</a>
@@ -148,7 +170,7 @@
                 <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="user_profile.php" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -161,13 +183,13 @@
 
                 <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="upload/<?=$_SESSION['pp']?>" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="../upload/<?=$_SESSION['pp']?>" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?=$_GET['pro_upd']?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                            <!--<a href="profile1.html" class="dropdown-item">My Profile</a>--> 
                            <!-- <a href="#" class="dropdown-item">Settings</a> -->
-                            <a href="logout.php" class="dropdown-item">Log Out</a>
+                            <a href="../logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -194,11 +216,13 @@
                         $sql="select * from users where fname='.$_SESSION[fname].'";
                         $row=mysqli_query($conn,$sql);
                         ?>
-                        <input type="file" name="pp" id="file" accept="image/*">
+                       <input type="file" name="pp" id="file" accept="image/*">
                         <label for="file">Upload </label>
                         <input type="text" class="form-control" placeholder="First Name" name="fname"value="<?php echo $_SESSION[fname];?> ">
-                        <input type="text" class="form-control" placeholder="User Name" name="uname" value="<?php //echo $row['username'];?>">
-                        <input type="text" class="form-control" placeholder="Password" name="pass">
+                        <input type="text" class="form-control" placeholder="User Name" name="uname" value="<?php echo  $_SESSION[uname];?>">
+                       <!-- <input type="text" class="form-control" placeholder="Password" name="oldpass">
+                        <input type="text" class="form-control" placeholder="New Password" name="newpass">
+                        <input type="text" class="form-control" placeholder="Confirm Password" name="conpass">-->
                         <!--<input type="text" name="" placeholder="Date of Birth">
                         <input type="text" name="" placeholder="Gender">-->
                         <button id="btn" value="Cancel"><a href="user_profile.php" style="color: white;">Cancel</a></button>
@@ -217,16 +241,16 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../lib/chart/chart.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

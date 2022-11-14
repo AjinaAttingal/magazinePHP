@@ -44,7 +44,7 @@ if(isset($_POST['uname']) &&
                  $_SESSION['id'] = $id;
                  $_SESSION['fname'] = $fname;
                  $_SESSION['pp'] = $pp;
-                 header("Location: ../user_profile.php");
+                 header("Location: ../user/user_profile.php");
                  exit;
                }else if($status=='0'){
                   $_SESSION['id'] = $id;
@@ -52,7 +52,11 @@ if(isset($_POST['uname']) &&
                   $_SESSION['pp'] = $pp;
                  header("Location: ../home.php");
                  exit;
-             }
+             }else {
+               $em = "Not approved!!!";
+               header("Location: ../login.php?error=$em&$data");
+               exit;}
+
             }else {
                $em = "Incorect User name or password";
                header("Location: ../login.php?error=$em&$data");
