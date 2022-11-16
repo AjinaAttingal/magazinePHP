@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-9">
                                 <!-- Header Topbar -->
-                                <!--<div class="header-topbar hidden-sm hidden-xs">
+                                <div class="header-topbar hidden-sm hidden-xs">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="topbar-info">
@@ -121,11 +121,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>-->
+                                </div>
                                 <div class="navbar-collapse hidden-sm hidden-xs">
                                     <ul class="nav navbar-nav">
                                         <li class="dropdown active">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index.php">Home</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index.html">Home</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="index-2.html">Home V1</a></li>
                                                 <li><a href="home-v2.html">Home V2</a></li>
@@ -133,7 +133,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.php">Books &amp; Media</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
                                                 <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
@@ -143,7 +143,7 @@
                                             </ul>-->
                                         </li>
                                         <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.php">News &amp; Events</a>
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
                                             <!--<ul class="dropdown-menu">
                                                 <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
                                                 <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
@@ -158,15 +158,15 @@
                                                 <li><a href="404.html">404/Error</a></li>
                                             </ul>
                                         </li>-->
-                                        <!--<li class="dropdown">
+                                        <li class="dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-                                            <ul class="dropdown-menu">
+                                            <!--<ul class="dropdown-menu">
                                                 <li><a href="blog.html">Blog Grid View</a></li>
                                                 <li><a href="blog-detail.html">Blog Detail</a></li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
-                                        <li><a href="services.html">Services</a></li>-->
-                                        <li><a href="contact.phpf">Contact</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
+                                <a href="#" class="btn btn-default">Purchase</a>
                             </div>
                         </div>
                     </div>
@@ -263,7 +263,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
+                                <a href="#" class="btn btn-default">Purchase</a>
                             </div>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words.</p>
                             <div class="slide-buttons hidden-sm hidden-xs">    
                                 <a href="#" class="btn btn-primary">Read More</a>
-                                <!--<a href="#" class="btn btn-default">Purchase</a>-->
+                                <a href="#" class="btn btn-default">Purchase</a>
                             </div>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
         </div>
         <!-- End: Slider Section -->
         
-        <!-- Start: Search Section 
+        <!-- Start: Search Section -->
         <section class="search-filters">
             <div class="container">
                 <div class="filter-box">
@@ -336,7 +336,7 @@
                     </form>
                 </div>
             </div>
-        </section>-->
+        </section>
         <!-- End: Search Section -->
         
         <!-- Start: Welcome Section -->
@@ -346,7 +346,7 @@
                     <div class="col-md-6">
                         <div class="welcome-wrap">
                             <div class="welcome-text">
-                                <h2 class="section-title">Welcome to the Magazine</h2>
+                                <h2 class="section-title">Welcome to the libraria</h2>
                                 <span class="underline left"></span>
                                 <p class="lead">The standard chunk of Lorem Ipsum used since</p>
                                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humor, or randomized words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humor, or non-characteristic words etc.</p>
@@ -399,94 +399,421 @@
         <!-- End: Welcome Section -->
         
         <!-- Start: Category Filter -->
-                <section class="category-filter section-padding">
-                    <div class="container">
-                        <div class="center-content">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title">Check Out The New Releases</h2>
-                                    <span class="underline center"></span>
-                                    <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="filter-buttons">
-                            <div class="filter btn" data-filter="all">All Releases</div>
-                            <div class="filter btn" data-filter=".adults">Adults</div>
-                            <div class="filter btn" data-filter=".kids-teens">Kids &amp; Teens</div>
-                            <div class="filter btn" data-filter=".video">Video</div>
-                            <div class="filter btn" data-filter=".audio">Audio</div>
-                            <div class="filter btn" data-filter=".books">Books</div>
-                            <div class="filter btn" data-filter=".magazines">Magazines</div>
+        <section class="category-filter section-padding">
+            <div class="container">
+                <div class="center-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h2 class="section-title">Check Out The New Releases</h2>
+                            <span class="underline center"></span>
+                            <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
                         </div>
                     </div>
-                    
-              
-            <!-- ##### Portfolio Area End ##### -->
-
-            <!-- ##### Product Area Start ##### -->
-                        <section class="new-arrivals-products-area bg-gray section-padding-100">
-
-                            <div class="shop-products-area">
-                                <div class="row">                      
-                                    <?php
-                                    include_once("connection/db_conn.php");
-                                    $showRecordPerPage = 8;
-                                    if(isset($_GET['page']) && !empty($_GET['page'])){
-                                        $currentPage = $_GET['page'];
-                                    }else{
-                                        $currentPage = 1;
-                                    }
-                                    $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-                                    $total = "SELECT * FROM magazine where status=0";
-                                    $allResult = mysqli_query($conn, $total);
-                                    $totalAll = mysqli_num_rows($allResult);
-                                    $lastPage = ceil($totalAll/$showRecordPerPage);
-                                    $firstPage = 1;
-                                    $nextPage = $currentPage + 1;
-                                    $previousPage = $currentPage - 1;
-                                    $query = "SELECT * FROM `magazine` where status=0 LIMIT $startFrom, $showRecordPerPage";
-                                    $Result = mysqli_query($conn, $query);      
-                                    ?>
-                        
-                                    <?php
-                                    
-                                      while ($user_data=mysqli_fetch_assoc($Result)) { ?>
-                                           <!-- // code...
-                                          echo "<a href='shop-details.html'><img src='Admin/Product/sub product/".$user_data['subcat_image']."'></a>";
-                                           echo "<div class='product-info mt-15 text-center'><th>".$user_data['subcat_name']."</td></div>"; -->
-                                         
-                                            <!-- Single Product Area -->
-                                    <div class="col-12 col-sm-6 col-lg-3" >
-                                        <div class="single-product-area mb-50 ">
-                                            <!-- Product Image -->
-                                            <div class="product-img">
-                                                <a >
-                                                    <!-- <img src="Upload/SubCategory" alt=""> -->
-                                                    <?php  echo "<img style='width:320px; height:420px; margin-left:10px;' src='Admin/img/Magazine/".$user_data['mag_img']."'>" ?>
-                                                    </a>
-
-                    <!--                            <div class="product-meta d-flex">-->
-                    <!--                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>-->
-                    <!--                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>-->
-                    <!--                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>-->
-                    <!--                            </div>-->
-                                            </div>
-                                            <!-- Product Info -->
-                                                    <p style="color: #ff7236; text-align: center; padding-top: 5px;"><?php echo'<a style="font-size:18px " href="pdf.php?mag_id='.$user_data['mag_id'].'">'.$user_data['mag_name']."</a>"; ?></p>
-
-                                            </div> 
-                                        </div>
-                                    </div>
-                                <?php } ?>               
-                                </div>
-                            </div>
-                        </section>  
-                    </div>
-                </ul> 
-                <div class="clearfix"></div>
                 </div>
-                <div>
+                <div class="filter-buttons">
+                     <?php 
+                        include_once("connection/db_conn.php");
+                                    $res= mysqli_query($conn,"select * from category");
+                                     echo '<div class="filter btn" class="selected" data-filter="*">All Releases</div>';
+                                          while($row=mysqli_fetch_array($res))
+                                          {
+                                           
+                                            echo '<div class="filter btn" .'.$row['cat_name'].'"> '.$row['cat_name'].'</div>';
+                                          }
+                                    ?>
+                    <!--<div class="filter btn" data-filter=".adults">Adults</div>
+                    <div class="filter btn" data-filter=".kids-teens">Kids &amp; Teens</div>
+                    <div class="filter btn" data-filter=".video">Video</div>
+                    <div class="filter btn" data-filter=".audio">Audio</div>
+                    <div class="filter btn" data-filter=".books">Books</div>
+                    <div class="filter btn" data-filter=".magazines">Magazines</div>-->
+                </div>
+            </div>
+            <?php
+                    include_once("connection/db_conn.php");
+                    $showRecordPerPage = 8;
+                    if(isset($_GET['page']) && !empty($_GET['page'])){
+                        $currentPage = $_GET['page'];
+                    }else{
+                        $currentPage = 1;
+                    }
+                    $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
+                    $total = "SELECT * FROM magazine where status=0";
+                    $allResult = mysqli_query($conn, $total);
+                    $totalAll = mysqli_num_rows($allResult);
+                    $lastPage = ceil($totalAll/$showRecordPerPage);
+                    $firstPage = 1;
+                    $nextPage = $currentPage + 1;
+                    $previousPage = $currentPage - 1;
+                    $query = "SELECT * FROM `magazine` where status=0 LIMIT $startFrom, $showRecordPerPage";
+                       
+                     ?>
+            <div id="category-filter">
+                <?php include_once("connection/db_conn.php");
+                    $Result=mysqli_query($conn,"SELECT * FROM magazine ORDER BY mag_name,mag_img DESC"); ?>
+                <ul class="category-list">
+                    <?php while ($user_data=mysqli_fetch_array($Result)) { ?>
+                    <li class="category-item adults">
+                   
+                        <figure style="padding: 5px;">
+                            
+                             <?php  echo "<img style='width:400px; height:440px; margin:10px;' src='Admin/img/Magazine/".$user_data['mag_img']."'> 
+                            <figcaption class='bg-orange' style='margin-left:10px;'>
+                                <div class='info-block'>
+                                    <h4 style='font: oblique 25px monospace; cursor: pointer;'><a href:'' >".$user_data['mag_name']."</a></h4>
+                                    <span class='author' style='color:white'>Author: ".$user_data['mag_author']."</span>
+                                    <span class='author'>ISBN: ".$user_data['mag_isbn']."</span>
+                                    
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href='#''>Read More <i class='fa fa-long-arrow-right'></i></a>
+                                    
+                                </div>
+                            </figcaption>"?>
+                        
+                        </figure>
+                        <?php } ?>
+                    </li>
+                    <!--<li class="category-item kids-teens">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-02.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item video">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-03.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item audio">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-04.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item books">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-05.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item magazines">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-06.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item adults">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-07.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="category-item kids-teens">
+                        <figure>
+                            <img src="images/category-filter/home-v1/category-filter-img-08.jpg" alt="New Releaase" />
+                            <figcaption class="bg-orange">
+                                <div class="info-block">
+                                    <h4>The Great Gatsby</h4>
+                                    <span class="author"><strong>Author:</strong> F. Scott Fitzgerald</span>
+                                    <span class="author"><strong>ISBN:</strong> 9781581573268</span>
+                                    <div class="rating">
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                        <span>☆</span>
+                                    </div>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
+                                    <a href="#">Read More <i class="fa fa-long-arrow-right"></i></a>
+                                    <ol>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-share-alt"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>-->
+                </ul>
+                
+                <div class="clearfix"></div>
+            </div>
+            <div style="margin-top: 40px;">
                     <nav aria-label="Page navigation">
                         <ul class="pagination">
                         <?php if($currentPage != $firstPage) { ?>
@@ -514,7 +841,7 @@
                 <div class="center-content">
                     <a href="#" class="btn btn-primary">View More</a>
                 </div>
-            </section>
+        </section>
         <!-- Start: Category Filter -->
         
         <!-- Start: Features -->
@@ -587,7 +914,7 @@
         <!-- End: Features -->
         
         <!-- Start: Newsletter -->
-        <!--<section class="newsletter section-padding">
+        <section class="newsletter section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -603,96 +930,14 @@
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
         <!-- End: Newsletter -->
         
-        <?php
-            include("connection/db_conn.php");
-            error_reporting(0);
-            session_start();        
-             if(isset($_POST['submit'] ))
-                {
-                  if(empty($_POST['f_name'])||empty($_POST['phone'])||empty($_POST['f_message']))
-                      {
-                        $error = '<div class="alert alert-danger alert-dismissible fade show">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <strong>field Required!</strong>
-                                          </div>';
-                                          echo "<script> alert('Updated Failed...!'); window.location.href='index.php';</script>";
-                }
-                  else
-                      {
-                          
-                        $check_cat= mysqli_query($conn, "SELECT feed_name FROM feedback where feed_name = '".$_POST['f_name']."' "); 
-                 
-                        $sql = "INSERT INTO feedback(feed_name,feed_number,feed_message) VALUES('".$_POST['f_name']."','".$_POST['phone']."','".$_POST['f_message']."')";
-                        mysqli_query($conn, $sql);
-                        $success =  '<div class="alert alert-success alert-dismissible fade show">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                New Category Added Successfully.</br></div>';
-                                                echo "<script> alert('Updated Successfully...!'); window.location.href='index.php';</script>";
-                    }
-
-                }
-                ?>
-
-
-        <section class="newsletter section-padding" >
-            <div class="container" style="margin-left: 28%;">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <?php  
-                      echo $error;
-                      echo $success; ?>
-                    <div class="wrapper">
-                        <div class="row no-gutters mb-5">
-                            <div class="col-md-7">
-                                <div class="contact-wrap w-100 p-md-5 p-4">
-                                    <div class="center-content">
-                                        <h2 class="section-title">Send Us Feedback</h2>
-                                    </div>
-                                    <div id="form-message-warning" class="mb-4"></div> 
-                                    <form method="POST" action="">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group" style="margin-top: 60px;">
-                                                    
-                                                    <input type="text" class="form-control" class="form-control" name="f_name" placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6"> 
-                                                <div class="form-group" style="margin-top: 60px;">
-                                                    
-                                                    <input type="text" class="form-control" class="form-control" name="phone"  placeholder="Phone Number">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group" style="margin-top: 10px;">
-                                                    
-                                                    <input type="text" class="form-control" class="form-control" name="f_message" placeholder="Your Message">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group" style="margin-top: 10px;">
-                                                    <input type="submit" class="form-control" name="submit" value="Send Message" class="btn btn-primary">
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
         <!-- Start: Meet Staff -->
         <section class="team section-padding">
             <div class="container">
                 <div class="center-content">
-                    <h2 class="section-title">Meet Our Author's</h2>
+                    <h2 class="section-title">Meet Our Staff</h2>
                     <span class="underline center"></span>
                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
@@ -810,13 +1055,13 @@
         <!-- Start: Latest Blog -->
         <section class="latest-blog section-padding banner">
             <div class="container">
-                <!--<div class="center-content">
+                <div class="center-content">
                     <h2 class="section-title">Latest from Blog</h2>
                     <span class="underline center"></span>
                     <p class="lead">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                </div>-->
+                </div>
                 <div class="tabs-container">
-                    <!--<div class="tabs-menu">
+                    <div class="tabs-menu">
                         <ul>
                             <li class="active">
                                 <a href="#" class="bg-yellow">
@@ -867,9 +1112,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>-->
+                    </div>
                     <div class="tabs-list">
-                        <!--<div class="tab-content active">
+                        <div class="tab-content active">
                             <article>
                                 <figure>
                                     <img src="images/latest-blog-img-home-v1.jpg" alt="Latest Blog">
@@ -1138,7 +1383,7 @@
                                     <a class="btn btn-dark-gray">Read More</a>
                                 </div>
                             </article>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1146,7 +1391,7 @@
         <!-- End: Latest Blog -->
         
         <!-- Start: Our Community Section -->
-        <!--<section class="community-testimonial">
+        <section class="community-testimonial">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-title">Words From our Community</h2>
@@ -1380,7 +1625,7 @@
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
         <!-- End: Our Community Section -->
         
         <!-- Start: News & Event -->
@@ -1497,7 +1742,7 @@
         <!-- End: News & Event -->
         
         <!-- Start: Social Network -->
-        <!--<section class="social-network section-padding">
+        <section class="social-network section-padding">
             <div class="container">
                 <div class="center-content">
                     <h2 class="section-title">Follow Us</h2>
@@ -1549,7 +1794,7 @@
                     </li>
                 </ul>
             </div>
-        </section>-->
+        </section>
         <!-- End: Social Network -->
         
         <!-- Start: Footer -->
@@ -1559,7 +1804,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6 widget-container">
                             <div id="text-2" class="widget widget_text">
-                                <h3 class="footer-widget-title">About Magazine</h3>
+                                <h3 class="footer-widget-title">About Libraria</h3>
                                 <span class="underline left"></span>
                                 <div class="textwidget">
                                     It is a long established fact that a reader will be distracted by the readable content of a page when looking.
@@ -1567,36 +1812,37 @@
                                 <address>
                                     <div class="info">
                                         <i class="fa fa-location-arrow"></i>
-                                        <span>Ess Bee Infotech | Kadavanthra | Kochi</span>
+                                        <span>21 King Street, Melbourne, Victoria 3000 Australia</span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-envelope"></i>
-                                        <span><a href="mailto:support@libraria.com">aljooantony@essbeinfotech.com</a></span>
+                                        <span><a href="mailto:support@libraria.com">support@libraria.com</a></span>
                                     </div>
                                     <div class="info">
                                         <i class="fa fa-phone"></i>
-                                        <span><a href="tel:012-345-6789">+91 8606475101</a></span>
+                                        <span><a href="tel:012-345-6789">+ 012-345-6789</a></span>
                                     </div>
                                 </address>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 170px;">
+                        <div class="col-md-2 col-sm-6 widget-container">
                             <div id="nav_menu-2" class="widget widget_nav_menu">
                                 <h3 class="footer-widget-title">Quick Links</h3>
                                 <span class="underline left"></span>
                                 <div class="menu-quick-links-container">
                                     <ul id="menu-quick-links" class="menu">
-                                        <li><a href="#">News</a></li>
+                                        <li><a href="#">Library News</a></li>
                                         <li><a href="#">History</a></li>
-                                        <li><a href="#">Meet Our Author's</a></li>
+                                        <li><a href="#">Meet Our Staff</a></li>
                                         <li><a href="#">Board of Trustees</a></li>
-                                        
+                                        <li><a href="#">Budget</a></li>
+                                        <li><a href="#">Annual Report</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
-                        <div class="col-md-2 col-sm-6 widget-container" style="margin-left: 165px;">
+                        <div class="col-md-2 col-sm-6 widget-container">
                             <div id="text-4" class="widget widget_text">
                                 <h3 class="footer-widget-title">Timing</h3>
                                 <span class="underline left"></span>
@@ -1612,7 +1858,7 @@
                                 </div>
                             </div>			
                         </div>
-                        <!--<div class="col-md-4 col-sm-6 widget-container">
+                        <div class="col-md-4 col-sm-6 widget-container">
                             <div class="widget twitter-widget">
                                 <h3 class="footer-widget-title">Latest Tweets</h3>
                                 <span class="underline left"></span>
@@ -1627,7 +1873,7 @@
                                     </ul>
                                 </div>
                             </div>			
-                        </div>-->
+                        </div>
                     </div>
                 </div>                
             </div>
@@ -1635,17 +1881,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="footer-text col-md-3">
-                            <p><a target="_blank" href="https://www.templateshub.net">Magazine</a></p>
+                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
                         </div>
                         <div class="col-md-9 pull-right">
                             <ul>
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="books-media-list-view.php">Books &amp; Media</a></li>
-                                <li><a href="news-events-list-view.php">News &amp; Events</a></li>
-                                <!--<li><a href="#">Kids &amp; Teens</a></li>
+                                <li><a href="index-2.html">Home</a></li>
+                                <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
+                                <li><a href="news-events-list-view.html">News &amp; Events</a></li>
+                                <li><a href="#">Kids &amp; Teens</a></li>
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="#">Research</a></li>
-                                <li><a href="blog.html">Blog</a></li>-->
+                                <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

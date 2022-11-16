@@ -10,7 +10,7 @@
        }*/
     if(isset($_POST['submit'] ))
     {
-      if(empty($_POST['mag_name']))
+      if(empty($_POST['mag_name'])|empty($_POST['mag_author'])|empty($_POST['mag_isbn']))
             {
             $error = '<div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -70,7 +70,7 @@
                                  }
                                 else
                                 {
-                                $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file) VALUES('".$_POST['mag_name']."','".$fname."','".$_POST['category_name']."','".$pname."')";
+                                $sql = "INSERT INTO magazine(mag_name,mag_img,mag_cat_name,mag_file,mag_author,mag_isbn) VALUES('".$_POST['mag_name']."','".$fname."','".$_POST['category_name']."','".$pname."','".$_POST['mag_author']."','".$_POST['mag_isbn']."')";
                                 mysqli_query($conn, $sql);
                                 move_uploaded_file($temp,$store);
                                 move_uploaded_file($ptemp,$pstore);
@@ -280,13 +280,25 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Name</label>
-                                                    <input type="text" name="mag_name" class="form-control" >
+                                                    <input type="text" name="mag_name" class="form-control" placeholder="Book Name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label class="control-label">Image</label>
                                                     <input type="file" name="mag_image"  id="lastName" class="form-control bg-dark" placeholder="12n">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Author</label>
+                                                    <input type="text" name="mag_author"  id="lastName" class="form-control bg-dark" placeholder="Author Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">ISBN</label>
+                                                    <input type="text" name="mag_isbn"  id="lastName" class="form-control bg-dark" placeholder="ISBN Number">
                                                 </div>
                                             </div>
                                         </div>
@@ -348,6 +360,8 @@
                                     <th>ID</th>
                                     <th>Magazine Name</th>
                                     <th>Magazine Image</th>
+                                    <th>Author</th>
+                                    <th>ISBN</th>
                                     <th>Magazine Category</th>
                                     <th>Uploads</th>
                                     <th>Date</th>
@@ -375,6 +389,8 @@
                                             <td>'.$rows['mag_id'].'</td>
                                             <td>'.$rows['mag_name'].'</td>
                                             <td><img src="img/Magazine/'.$rows['mag_img'].'" width="50" height="50"></td>
+                                            <td>'.$rows['mag_author'].'</td>
+                                            <td>'.$rows['mag_isbn'].'</td>
                                             <td>'.$rows['mag_cat_name'].'</td>
                                             <td>'.$rows['mag_file'].'</td>
                                             <td>'.$rows['mag_date'].'</td>';
